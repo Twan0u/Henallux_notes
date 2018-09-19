@@ -1,7 +1,7 @@
+SRC=APM
+
 .SILENT:
 .DEFAULT_GOAL=help
-SRC=ADPM
-
 .PHONY: all clear $(SRC)
 ESPACE_HELP=10
 
