@@ -2,7 +2,7 @@
 
 ## Utilisation de ce répertoire
 Les notes se situent dans le dossier note chaque dossier de cours.   
-Elles sont disponiles au format **Markdown** classées par chapitre de cours **chapitre*.md**
+Elles sont disponiles au format **Markdown** classées par chapitre de cours **chapitre\*.md**
 
 ## Compiler les notes en PDF
 ### Prerequis : installation
