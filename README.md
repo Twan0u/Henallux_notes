@@ -1,5 +1,7 @@
 # Notes de cours de Antoine Lambert
 
+**Attention** les pdf ne sont pas forcément les dernières versions des documents 
+
 ## Utilisation de ce répertoire
 Les notes se situent dans le dossier note chaque dossier de cours.   
 Elles sont disponiles au format **Markdown** classées par chapitre de cours **chapitre\*.md**
