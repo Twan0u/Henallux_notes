@@ -84,11 +84,11 @@ mayBeArested(Person):-hasGun(Person),withoutLicense(Person).
 % Sentence13
 
 discount(Person):-student(Person),grantHolder(Person).
-discount(Person):-age(<65,Person).
+discount(Person):-age(A,Person),A>65.
 discount(Person):-unemployed(Person).
 discount(Person):-parent(Person,Child).
 
 freeFirstIssue(Person):-student(Person),grantHolder(Person).
-freeFirstIssue(Person):-age(<65,Person).
+freeFirstIssue(Person):-age(A,Person),A>65.
 freeFirstIssue(Person):-unemployed(Person).
 freeFirstIssue(Person):-parent(Person,Child).
