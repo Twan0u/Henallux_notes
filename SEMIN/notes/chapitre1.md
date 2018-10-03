@@ -1,5 +1,5 @@
 # Seminaire Technologique
-code cours : semtec18
+code cours : SemTec18
 
 ## Artificial Intelligence
 Programming in logic  : PROLOG
