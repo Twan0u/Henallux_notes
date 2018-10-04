@@ -37,3 +37,15 @@
     * taux de tva relatif (int )
     * tva calculée (double)
     * montant de l'achat tva comprise (double)
+
+## Le Processus itératif 
+
+Lors du développemement d'un projet, il est important de bien analyser pour mieux développer. il existe pour celà des outils de gestion et des méthodes ( scrum, agile, ... ) qui peuvent être mise en place pour garantir une meilleure gestion du développement. 
+
+## BPMN
+
+En Bpmn, on peut créer une sous tâche si celle-ci est automatisable. 
+
+> Keep It Simple And Stupid
+
+Une lane regroupe plusieurs entités qui sont regroupées dans une structure plus grosse ( ex : section comptable et de R et D d'une boîte peuvent être deux lanes d'un même pool )
