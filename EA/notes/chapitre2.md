@@ -54,3 +54,25 @@ plus de bénéf; plus d'interêt de amortir vite pour diminuer le bénéfice
 
 
 L'interêt des stock sur les couts est de savoir si on introduit une charge supplémentaire si il y a eu un accroissemenet de stock
+
+
+### S4 
+
+Charges générales : Compte de résultat.
+
+Charges non incorporables : -
+charges incorporables : =
+charges supplétives : +
+
+on fait les coûts de la Compta anal : pour être plus proche de la réalité.
+
+Deux manières de l'envisager  : Charges directes-indirectes
+Charges fixes - Variables
+
+Full costing : méthode des couts complets : 
+
+But : d'intégrer les coûts : entreprise pas vraiment rentable 
+
+charges directes : directement attribuer à un produit/service 
+charges indirectes : coûts non liés à un produit ou service ( exemple : coût d'une licence, d'une recherche & développement )
+

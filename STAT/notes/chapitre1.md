@@ -16,31 +16,45 @@ Une interrogation est organisée, elle permets une dispense à 3/4 de l'examen m
 ### Définition de Laplace
 Probabilité de l'occurence / probabilité du total des occurences
 
-### Exercices
-#### Exercice 1 
+### Lois de probabilités interressantes
 
-1. 
-    * P(Q) = 65% = "Venir pour la qualité"
-    * P(P) = 55% = "Venir pour le prix"
-    * P(P $\cap$ Q) = 25% = "Venir pour la qualité et le prix"
-2. P(P\\Q) = P(P\\P $\cap$ Q) = P(P) - P(P $\cap$ Q) = 30%
-3. P(Q) + P(P) - 2P(P $\cap$ Q) = 65 + 55 - (2 x 25) = 70%
+$A\cap B=\phi\rightarrow P(A\cup B) = P(A)+P(B)$  
 
-#### Exercice 2
+$P(\phi) = 0$
 
-1. 
-    * P(F) = 0,85
-    * P(A) = 0,4
-    * P(A $\cap$ F) = 0,3
-2. P(F) + P(A) - P(A $\cap$ F) = 0,85 + 0,4 - 0,3 = 0,95 
-3. P(F) + P(A) - 2 x P(A $\cap$ F) = 0,95 -0,3 = 0,65
-4. P(F\\A) = P(F) - P(A $\cap$ F) = 0,85 - 0,3 = 0,55
-5. 1 - (P(F) + P(A) - P(A $\cap$ F)) = 1 - 0,95 = 0,05
+$B incl A \rightarrow P(A/B) = P(A)-P(B)$
+
+$P(A \cup B) = P(A)+P(B)-P(A \cap B)$ : Relation de Boole
+
+$0<=P(A)<=1$ 
 
 ### Probabilité conditionnelle 
 
-Probabilité de A sachant que B est réalisé : P(A|B) = P(A $\cap$ B) / P(B)     
+Probabilité de A sachant que B est réalisé : $$P(A|B) = \frac{P(A \cap B)} {P(B)}$$
 
-#### Exercice 3 
+P(A$\cap$B) = P(A|B).P(B)
+P(A$\cap$B) = P(B|A).P(A)
 
-1.   
+### 5.3 Probabilités des causes (Théorème de Bayes)
+*Une partition* : Quand la somme des probabilités vaut 1 et que les probabilités sont mutuelement exclusives.
+  
+Le cas d'une partition A,B et C avec une probabilité d'un événement D qui s'effectue dans les univers A,B,C  
+
+P(D) = P(D$\cap$A) + P(D$\cap$B) + P(D$\cap$C) = P(A).P(D|A) + P(B).P(D|B) + P(C).P(D|C)
+
+> Nota-bene : pour effectuer un tel calcul il peut parfois être plus simple de résoudre un exercice en réalisant un *arbre des probabilités* 
+
+> Nota-bene : Si dans un exercice, on utilise "Au moins un", c'est équivalent à dire que "tout sauf rien" $\rightarrow$ 1 - Probabilité de ne rien avoir
+
+### 5.4 Evénements statistiquement indépendants
+
+Deux événements sont statstiquements indépendants ssi : P(A|B) = P(A)
+
+> Nota-bene : Une indépendance statistique n'est pas forcément vraie dans le monde réele. car la statistique est calculée sur un échantillon qui peut ne pas être représentatif
+
+
+
+
+
+
+
