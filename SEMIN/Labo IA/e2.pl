@@ -99,6 +99,8 @@ niece(Y,O):-uncle(O,Y),woman(Y).
 halfBrother(X,Y):-parent(Parent,X),parent(Parent,Y),man(X),parent(O1,X),parent(O2,Y),not(O1=O2).
 halfSister(X,Y):-parent(Parent,X),parent(Parent,Y),woman(X),parent(O1,X),parent(O2,Y),not(O1=O2).
 
+% Procedure pere
+
 
 
 
