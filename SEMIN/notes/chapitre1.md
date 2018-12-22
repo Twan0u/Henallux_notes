@@ -1,37 +1,38 @@
-# Seminaire Technologique
+\title{Seminaire Technologique}
+
 code cours : SemTec18
 
-## Qu'est-ce que l'intelligence artificielle ? 
-### L'origine des L'IA
+\maketitle
 
-L'intelligence artificielle est à la croisée des chemins dans le domaine scientifique.
+\tableofcontents
 
-### Principes, méthodes et caractéristiques de l'intelligence artifieielle
+\newpage
 
-La base de l'intelligence artificielle réside dans une base de connaissance. Le problème est lors de la représentation de ces données.
+# 1 Qu'est-ce que l'intelligence artificielle ? 
 
-### Manipulation de symboles 
+## 1.1 L'**intelligence artificielle** est l'étude du comportement intelligent 
 
-Il y a eu trois phases dans le dévelopement des intelligences artificielles modernes. La première étape, est à l'origine le traitement d'une information presque entièrement numérique. 
-La seconde étape est un traitement de l'information alphanumérique, ce qui permets la gestion et le traitement du texte et des nombres. 
-Actuellement, en intelligence artificielle, les connaissances sont représentées par des systèmes de symboles. 
+Les Origines de l'intelligence sont la convergence de différentes disciplines scientifiques. Son but est de rendre les systèmes plus intelligent (ou humains) pour les rendre plus utils.
 
-### Usage intensif d'inférences 
+## 1.2 Principes,méthodes et caractéristiques de l'IA
 
-**Déduction logique** : si P *implique* Q, et que P est *vrai*, alors Q est forcément *vrai*. 
-**Induction Mathématique** : Si A implique P, B implique P, ... et que tous (A,B,...) font partis de l'ensemble Z, alors on peut en conclure que Z implique P. 
+La base de l'intelligence artificielle réside dans sa connaissance (dans une base de connaissance). Le problème est lors de la représentation de ces données.
 
-Le problème de L'*induction* est que la conclusion n'est pas garantie ou que celleci n'est pas toujours applicable. 
+Le développement du traitement del'information en l'informatique s'est effectué en trois étapes. à l'origine, le traitement portait presque exclusivement sur de l'information numérique. Ensuite est arrivé le traitement alphanumérique (nombres et textes) (ex : BDD). Finalement, L'intelligence Artificielle représente ses connaissances (faits, énoncés, règles, méthodes) par l'intermédiaire d'un système de symboles à manipuler.
 
-### Notion d'apprentissage
+En Intelligence artificielle, on calcule peu mais on déduit beaucoup. La déduction (Si P implique Q et P alors Q) est fiable comparée à l'induction (si 3 le pigeon vole, si le merle vole et si le canard vole et tous sont des oiseaux alors tous les oiseaux volent). L'induction ne garantie donc pas la validité de sa conclusion.
 
 L'apprentissage d'une intelligence artificielle, comme celui de l'Homme s'effectue via une construction d'expérience et une intégration de celle-ci dans la base de connaissance.
 
-# Domaine d'applications 
+# 2 Domaine d'applications 
+
+
+_______________
+
 
 On peut utiliser l'intelligence artificielle dans une série de domaines tels que: La reconnaissance de la parole, d'images, d'écrits ou encore sur de l'analyse du language naturel.
 
-# Les Systèmes Experts 
+# 3 Les Systèmes Experts 
 
 Un expert est une personne ou une entitée avec des connaissance et de l'expérience. L'expérience est difficille à transmettre. 
 Cependant, les connaissances sous la forme d'une base de donnée/connaissance peuvent être copiées facilement par un système informatique. 
@@ -88,3 +89,8 @@ Petite bombel man  = Tuyaux examen
 ### Prolog
 Existing knowlege
 - deductions
+
+### Définitions et exemples
+
+**Déduction logique** : si P *implique* Q, et que P est *vrai*, alors Q est forcément *vrai*. 
+**Induction Mathématique** : Si A implique P, B implique P, ... et que tous (A,B,...) font partis de l'ensemble Z, alors on peut en conclure que Z implique P. 
