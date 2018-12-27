@@ -2,13 +2,13 @@ SRC=APM CBD CS EA JS OS RES SEMIN STAT
 
 .SILENT:
 .DEFAULT_GOAL=help
-.PHONY: all clear $(SRC)
+.PHONY: all clear $(SRC) test
 ESPACE_HELP=10
 
 $(SRC): # Compile les notes en PDF
 
 	echo $@/notes/chapitre*.md | xargs cat > temp_$@.md
-	pandoc temp_$@.md -s -o $@.pdf
+	pandoc temp_$@.md -s -o $@.pdfl
 	echo $@
 	rm temp_$@.md
 
@@ -28,3 +28,8 @@ clear: ## Supprime les fichiers temporaires non indispensables
 help: ## Affiche l'aide
 
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-$(ESPACE_HELP)s\033[0m %s\n", $$1, $$2}'
+
+test: ## Lance un test et compile foo avec le template report
+
+    #pandoc foo/notes/abc.md -o FOO.pdf --from markdown --template=settings/report.latex --listings
+    #cat foo/notes/info.md > temp_foo.md
