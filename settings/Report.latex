@@ -9,16 +9,21 @@
 \usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage{listings}
+\usepackage{longtable,booktabs}
 %\usepackage{vmargin}
 %\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
 
 \title{$title$}
+$if(author)$
 \author{$author$}
+$endif$
 \date{\today}
 
 \makeatletter
 \let\thetitle\@title
+$if(author)$
 \let\theauthor\@author
+$endif$
 \let\thedate\@date
 \makeatother
 
@@ -28,7 +33,9 @@
 
 \pagestyle{fancy}
 \fancyhf{}
+$if(author)$
 \rhead{\theauthor}
+$endif$
 \lhead{\thetitle}
 \cfoot{\thepage}
 
@@ -55,8 +62,11 @@
 
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushleft} \large
+          $if(author)$
 			\emph{Author:}\\
+
 			\theauthor
+      $endif$
 			\end{flushleft}
 			\end{minipage}~
 			\begin{minipage}{0.4\textwidth}
@@ -64,7 +74,7 @@
       $if(noma)$
 			\emph{Student Number:} \\
       $noma$									% Your Student Number
-      $endif$  
+      $endif$
     \end{flushright}
 	\end{minipage}\\[2 cm]
 

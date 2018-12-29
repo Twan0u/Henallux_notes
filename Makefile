@@ -1,18 +1,27 @@
-SRC=APM CBD CS EA JS OS RES SEMIN STAT
+SRC=APM CBD CS EA JS RES SEMIN STAT
+REPORT=foo OS
+CHEMIN="/home/antoine"
 
 .SILENT:
 .DEFAULT_GOAL=help
-.PHONY: all clear $(SRC) test
+.PHONY: all clear $(SRC) $(REPORT)
 ESPACE_HELP=10
 
 $(SRC): # Compile les notes en PDF
 
 	echo $@/notes/chapitre*.md | xargs cat > temp_$@.md
-	pandoc temp_$@.md -s -o $@.pdfl
+	pandoc temp_$@.md -s -o $@.pdf
 	echo $@
 	rm temp_$@.md
 
-all: $(SRC) ## Compile toutes les notes en PDF ( Pandoc and texlive sont requis )
+$(REPORT): # Compile tous les rapports en PDF stylisé
+
+	pandoc $@/notes.md -o $@.PDF --from markdown --template $(CHEMIN)/Henallux_notes/settings/Report.latex --listings
+	echo $@
+
+all: $(SRC) special ## Compile toutes les notes en PDF ( Pandoc and texlive sont requis )
+
+special: $(REPORT) ## Compile tous les PDF Particuliers
 
 install: ## instalation de pandoc et texlive
 
@@ -28,8 +37,3 @@ clear: ## Supprime les fichiers temporaires non indispensables
 help: ## Affiche l'aide
 
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-$(ESPACE_HELP)s\033[0m %s\n", $$1, $$2}'
-
-test: ## Lance un test et compile foo avec le template report
-
-    #pandoc foo/notes/abc.md -o FOO.pdf --from markdown --template=settings/report.latex --listings
-    #cat foo/notes/info.md > temp_foo.md
