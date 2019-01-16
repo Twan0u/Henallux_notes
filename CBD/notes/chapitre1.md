@@ -57,13 +57,15 @@ Dans une BDD, on lie deux objets entre eux par l'intermédiaire de liens.
 
 * **Relation** entre les données
 * **Sauvegarde** des données sur un support (disque)
-* **Partage** des données entre plusieurs utilisateurs
+* **Partage** des données entre plusieurs utilisateurs (+gestion des droits d'accès)
 * **Indépendance** des données par rapport aux applications
-* **Sans redondance** inutile
-* Contrôle de **cohérence**
+* **Sans redondance** inutile (sauf raisons de performances et de sécurité)
+* Contrôle de **cohérence** (si il y a de la redondance, le système s'assure pour mettre à jour les données)
 * Exploitation des donneés par **interrogations**
-* **Longueur** d'enregistrement **variable**
+* **Longueur** d'enregistrement **variable** (NULL est différent de " " et 0)
 * **Modification** possible de la structure des enregistrement
+
+**Une Base de Données est un ensemble de données en relation, indépendantes des applications, sans redondance inutile, partageable entre plusieurs utilisateurs et dont on peut accéder à n’importe quel contenu en réponse à une question**
 
 ## 1.5 Difficultées d'identifiant des concepts et liens
 
@@ -71,9 +73,10 @@ Les types d'objets ont des caractéristiques et donnent des types d'enregistreme
 
 ## 1.6 Système de gestion de base de données (S.G.B.D.)
 
-**DBMS** : Database management system
+Un SGBD ou DBMS(en anglais) est un outil permettant la gestion d'une base de donnée en permettant la création, la modification et la suppression d'un fichier. Cet outil permets ausi de rechercher des données et de les modifier dans les enregistrements faits dans les fichiers déjà existants.
 
-SGBD - programation interface - user
+
+![](https://i.ibb.co/mqNK4qj/Screenshot-2019-01-16-14-07-33.png)
 
 On peut interragir avec la base de donnée, en utilisant le language SQL pour poser des questions (Querry).
 
