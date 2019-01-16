@@ -34,13 +34,15 @@ Une **association** est une correspondance, un lien entre 2 ou plusieurs entité
 
 ![](https://i.ibb.co/pwfDtN6/assoc.png)
 
-> \> Une Occurence d'un T.A. est toujours reliée à une et une seule occurence de chaque T.E. associé.
+> \> Une Occurence d'un T.A. est toujours reliée à une et une seule occurence de chaque T.E. associé. ( ex : une seule consultation pour un medecin et un client )
 
 * 1 à 1
 * 1 à N
 * N à N
 
-Section-(0àN)--[inscription]--(1à1)-Etudiant
+
+![](https://i.ibb.co/mqTsYc4/assoc2.png)
+![](https://i.ibb.co/82wz4cf/assoc3.png)
 
 Une cardinalité est le nombre de liens entre 2 types d'entités.
 
