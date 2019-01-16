@@ -1,23 +1,38 @@
-# 2 Le modèle entités-associations 
+# 2 Le modèle entités-associations
 
 ## 2.1 Introduction
 
-Il existe 3 étapes dans la création d'une base de donées. On débute avec un shéma conceptuel (**Entité association**). Puis, un shéma logique (**Shéma conforme ou SGBD**) et on termine avec un shéma physique ou **SQL**
+Il existe 3 étapes dans la création d'une base de donées.
+
+* *Shéma conceptuel* (**Entité-association**).
+* *Shéma logique* (**Shéma conforme ou SGBD**).
+* *Shéma physique* (script **SQL** si relationnel).
+
+Le shéma conceptuel est indépendant de tout SGBD. Son but est de mettre en évidence les concepts évidents et les relations qu'ils ont les uns avec les autres. Pour la création d'un shémas conceptuel on peut utiliser comme outil le modèle entité-association. Il exprime sa séantique de données sur le principe des notions **d'entitées**, **d'associations**, **d'attributs** et le **mécanisme de contraintes d'intégrité**.
+
+**Sémantique** : sens, signification attribuée aux données.  
 
 ## 2.2 Entités et types d'entités(T.E.)
 
 Une **Entité** est une chose qui existe dans le monde réel, à propos de laquelle on veut enregistrer des informations.
-Un **Type d'entité** est une abstraction générale de ce qui caractérise plusieurs entités communes. 
+
+Un **Type d'entité** est une abstraction générale de ce qui caractérise plusieurs entités communes.
 
 Ainsi, une entité deviendra une occurence d'un type d'entité. (ex : Bob est une ocurence de Humain)
 
-> \> un Type d'entité ne prends pas de 's' ( ex : nom et ~~noms~~ ) 
+> \> un Type d'entité ne prends pas de 's' ( ex : nom et ~~noms~~ ) le s désigne l'ensemble de ses occurences.
 
 On définira donc un Type d'entité par son **Nom** et sa **Liste d'attributs**
+
+![](https://i.ibb.co/zmH3cqc/entite.png)
+
+L'**identifiant** possède une valeur distincte pour chaque occurrence du T.E.
 
 ## 2.3 Associations-Type d'associations (T.A)
 
 Une **association** est une correspondance, un lien entre 2 ou plusieurs entités.
+
+![](https://i.ibb.co/pwfDtN6/assoc.png)
 
 > \> Une Occurence d'un T.A. est toujours reliée à une et une seule occurence de chaque T.E. associé.
 
@@ -27,13 +42,13 @@ Une **association** est une correspondance, un lien entre 2 ou plusieurs entité
 
 Section-(0àN)--[inscription]--(1à1)-Etudiant
 
-Une cardinalité est le nombre de liens entre 2 types d'entités. 
+Une cardinalité est le nombre de liens entre 2 types d'entités.
 
 ### Obligatoire et Facultatif
 
 La cardinalité minimum d'un type d'entités donne son caractére obligatoire(**1**) ou facultatif(**0**).
- 
-## 2.4 Construction d'un Shéma conceptuel 
+
+## 2.4 Construction d'un Shéma conceptuel
 
 Pour former un shémas, on cherche 2 concepts et un Lien qui les unis
 
@@ -43,9 +58,9 @@ Lors de la création d'un shémas, on pourait penser qu'utiliser un attribut plu
 
 ## 2.6 Attributs
 
-Un **Attribut** est défini par un *nom*, un *type* et le *domaine de valeurs admises*. 
+Un **Attribut** est défini par un *nom*, un *type* et le *domaine de valeurs admises*.
 
-> \> Un Attribut Booleen possède 3 valeurs possibles : Vrai, Faux **ET NULL** quand on ne sait pas. 
+> \> Un Attribut Booleen possède 3 valeurs possibles : Vrai, Faux **ET NULL** quand on ne sait pas.
 
 ### 2.6.1 Identifiant
 
@@ -68,26 +83,3 @@ Un *attribut* peut être :
 ## 2.7 Non Redondance dans le shémas entités-association
 
 Pour des raisons de cohérence et d'économie sur les disques on évitera toute forme de redondance pour toutes les **données déjà présentes** ou les **données calculables**  
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
