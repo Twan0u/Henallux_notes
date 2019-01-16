@@ -78,12 +78,20 @@ Un SGBD ou DBMS(en anglais) est un outil permettant la gestion d'une base de don
 
 ![](https://i.ibb.co/mqNK4qj/Screenshot-2019-01-16-14-07-33.png)
 
-On peut interragir avec la base de donnée, en utilisant le language SQL pour poser des questions (Querry).
+### Les Différents Roles
+
+#### Le programmeur
+Un programmeur écrit son programme dans un language "classic". Il peut interragir avec la base de donnée, en utilisant le language SQL pour poser des questions (Querry):
 
     * DQL : Data Querry Language : requête d'acces sous la forme déclarative
     * DDL : Data Definition Language : ajoute et modifie des shémas de BDD
     * DCL : Data Control Language : Traite les permissions
     * DML : Data Manipulation Language : Ajoute et modifie des données
+
+#### Les Utilisateurs Lambda
+Un utilisateur lambda est amené à utiliser l'application et interagit avec la base de données par le biais de l'application programmée par le programmeur.
+
+#### L'Administrateur de Base de Donnée
 
 Une DataBase est gérée par un Administrateur. Il est responsable de l'ensemble du système :
 
@@ -92,7 +100,10 @@ Une DataBase est gérée par un Administrateur. Il est responsable de l'ensemble
 * Gestion des accès
 * Backup et entretien de la BD
 
-Le but d'un SGBD :
+
+#### Le SGBD
+
+Le rôle d'un SGBD :
 
 * **Accès optimal** à toute donnée
 * **Traitement simultané** des données
