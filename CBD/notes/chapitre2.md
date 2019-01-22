@@ -106,12 +106,15 @@ Pour des raisons de cohérence et d'économie sur les disques on évitera toute 
 ...
 
 Un mauvais ternaire :
+
 ![](https://imgur.com/nVM4KIJl.png)
 
 ### 2.9.2 T.A. Cyclique
 =**T.A. Réflexifs** ou **T.A.Récursifs**
 
-![](https://imgur.com/slhlQQVl.png)
+![T.A. Cyclique](https://imgur.com/slhlQQVl.png)
+
+
 
 ### 2.9.3 T.A. Avec des Attributs
 On peut ajouter à un T.A. N à N un attribut. Cette caractéristique décrira alors le lien qui unit les deux T.E. .
@@ -120,9 +123,14 @@ On peut ajouter à un T.A. N à N un attribut. Cette caractéristique décrira a
 
 Ici le prix varie en fonction de l'article et du magasin.
 
-On peut ainsi retenir une évolution. En transformant le shéma en un N à N.
+On peut ainsi retenir une évolution. En transformant le shéma en un N à N.  
+
+
 ![](https://imgur.com/R6wvdj6l.png)
+
  On obtiens :
+
+
  ![](https://imgur.com/f6XCz9Yl.png)
 
 Si on à un T.A. 1 à N, il est inutile d'associer une caractéristique au T.A. Il peut être associé au T.E. avec la cardinalité maximum de 1.
@@ -130,7 +138,7 @@ Si on à un T.A. 1 à N, il est inutile d'associer une caractéristique au T.A. 
 Si le T.A. est facultatif du côté de la cardinalité maximum = 1, l’attribut placé
 dans le T.E. correspondant est alors facultatif.
 
-![](https://imgur.com/zKkEzz3l.png)
+![cardinalité minimum](https://imgur.com/zKkEzz3l.png)
 
 ## 2.10 Contraintes additionnelles
 Le shéma est limité et ne suffit pas à lui seul, c'est pourquoi on complète le shéma avec de la documentation annexe.
