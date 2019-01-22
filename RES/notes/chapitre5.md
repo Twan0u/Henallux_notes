@@ -38,7 +38,7 @@ Il existe deux catégoriesd'algorithmes de compression :
 
 En ce qui concerne l'audio, on pourra aussi réduire le nombre d'échantillonsou leur taille, supprimer les silencesou tenir compte des caractéristiques de nos oreilles(son faible après son fort).
 
-Pour ce qui est de la vidéo, on diminuera le nombre de bitspar image, la taille des images ou le nombre de couleursainsi que le nombre d'images par seconde. On pourra, de plus, aussi tenir compte de "l'imperfection" de l'œil humain : changement doux de couleurs ou les changementsvifs.µ
+Pour ce qui est de la vidéo, on diminuera le nombre de bitspar image, la taille des images ou le nombre de couleursainsi que le nombre d'images par seconde. On pourra, de plus, aussi tenir compte de "l'imperfection" de l'œil humain : changement doux de couleurs ou les changementsvifs.
 
 ---
 
