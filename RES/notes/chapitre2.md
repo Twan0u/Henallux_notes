@@ -137,15 +137,15 @@ La forte tolérance aux pannes du protocole FDDI est dûe principalement à la d
 
 Il existe trois types de protocole d'accès multiple au canal de transmission :
 
-    Le [partage ]/ partitionnement du canal de transmission
-    L’accès aléatoire (CSMA/CD, [CSMA/CA], …)
-    La [rotation ](l’attente de son tour ou du jeton)
+    Le [partage / partitionnement du canal de transmission
+    L’accès aléatoire (CSMA/CD, [CSMA/CA, …)
+    La [rotation (l’attente de son tour ou du jeton)
 
-Il est aussi possible de différencier ces accès multiples au canal de transmission selon que la solution soit statistique ([optimiste]) ou [déterministe ] (pessimiste).
+Il est aussi possible de différencier ces accès multiples au canal de transmission selon que la solution soit statistique ([optimiste) ou [déterministe  (pessimiste).
 
-Pour ce qui des solutions [optimistes], on laisse les ordinateurs transmettre plus ou moins à [leur guise] en espérant qu’un seul ne transmettra à la fois. Cet algorithme est distribué et est conçu pour résoudre le problème des [collisions ] (qui seront inévitables).
+Pour ce qui des solutions [optimistes, on laisse les ordinateurs transmettre plus ou moins à [leur guise en espérant qu’un seul ne transmettra à la fois. Cet algorithme est distribué et est conçu pour résoudre le problème des [collisions  (qui seront inévitables).
 
-D'un autre côté, pour les solutions [déterministes], on veut à tout prix éviter que deux ordinateurs ne transmettent en même temps. Une [autorisation ]à émettre est donnée, le jeton, pour qu'un seul appareil ne transmette à la fois. Cet algorithme est aussi [distribué] et permet de gérer [l'anneau] et le jeton.
+D'un autre côté, pour les solutions [déterministes, on veut à tout prix éviter que deux ordinateurs ne transmettent en même temps. Une [autorisation à émettre est donnée, le jeton, pour qu'un seul appareil ne transmette à la fois. Cet algorithme est aussi [distribué et permet de gérer [l'anneau et le jeton.
 
 
 ###
@@ -164,7 +164,7 @@ La méthode permettant de profiter d'une trame de données dans une communicatio
 
 La méthode d'accès de type CSMA/CA fait partie des méthodes d'accès optimistes au canal de transmission.
 
-Le champ [ACK] présent dans une trame de données sert A acquitter une trame précédemment reçue
+Le champ [ACK présent dans une trame de données sert A acquitter une trame précédemment reçue
 
 Une trame 802.3 Ethernet doit avoir une longueur minimale permettant ainsi de détecter les collisions pendant sa transmission sur le canal de transmission.
 

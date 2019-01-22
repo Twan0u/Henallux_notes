@@ -29,25 +29,25 @@ Les protocoles qui permettent de gérer les équipements actifs du réseau : **S
 
 TELNET, REXEC, RSH, SSH  : Les protocoles vus au cours et traitant de la problématique de l'exécution à distance
 
-Pour permettre la transmission de contenusmultimédia dans de bonnes conditions, il est nécessaire d'utiliser des algorithmes de compression].
+Pour permettre la transmission de contenusmultimédia dans de bonnes conditions, il est nécessaire d'utiliser des algorithmes de compression.
 
 Il existe deux catégoriesd'algorithmes de compression :
 
-    les algorithmes avec perte] : certaines données "inutiles" sont supprimées afin de gagner en taille
-    les algorithmes sans perte] : il n'y a ici aucune perte de données avant et après compression.
+    les algorithmes avec perte : certaines données "inutiles" sont supprimées afin de gagner en taille
+    les algorithmes sans perte : il n'y a ici aucune perte de données avant et après compression.
 
 En ce qui concerne l'audio, on pourra aussi réduire le nombre d'échantillonsou leur taille, supprimer les silencesou tenir compte des caractéristiques de nos oreilles(son faible après son fort).
 
-Pour ce qui est de la vidéo, on diminuera le nombre de bitspar image, la taille des images ou le nombre de couleursainsi que le nombre d'images par seconde]. On pourra, de plus, aussi tenir compte de "l'imperfection" de l'œil humain : changement doux de couleurs ou les changements]vifs.µ
+Pour ce qui est de la vidéo, on diminuera le nombre de bitspar image, la taille des images ou le nombre de couleursainsi que le nombre d'images par seconde. On pourra, de plus, aussi tenir compte de "l'imperfection" de l'œil humain : changement doux de couleurs ou les changementsvifs.µ
 
 ---
 
 MIME (Multipurpose Internet Mail Extension) n'est pas un protocole mais une spécificationde formats de messages multimédia sur Internet.
 
-MIME permet d’introduire dans les messages SMTPdes données multimédia car SMTP ne peut transmettre autre chose que des caractères ASCII 7 bits].
+MIME permet d’introduire dans les messages SMTPdes données multimédia car SMTP ne peut transmettre autre chose que des caractères ASCII 7 bits.
 
-Pour remédier aux inconvénientsde SMTP, MIME permet donc de transmettre de façon transparente pour SMTP du texte enrichi (Gras, Italique, Souligné, Couleur, ...). Mais aussi des images], du son, des fichiers.
-Bien que réservé au départ pour SMTP, il est aussi possible d'utiliser MIME avec HTTP].
+Pour remédier aux inconvénientsde SMTP, MIME permet donc de transmettre de façon transparente pour SMTP du texte enrichi (Gras, Italique, Souligné, Couleur, ...). Mais aussi des images, du son, des fichiers.
+Bien que réservé au départ pour SMTP, il est aussi possible d'utiliser MIME avec HTTP.
 
 ---
 
@@ -55,7 +55,7 @@ Le fait que le protocole de transport UDP supporte le multicast est bien un atou
 
 ## Caractéristiques communes à POP et IMAP:
 
-Les deux protocolessupportent des opérations hors ligne], le courrier étant est délivré, par ailleurs, à un serveur partagé et toujours actif via le protocole SMTP.
+Les deux protocolessupportent des opérations hors ligne, le courrier étant est délivré, par ailleurs, à un serveur partagé et toujours actif via le protocole SMTP.
 
 Les messages sont ainsi accessiblesdepuis une variété de plates-formes clientes et en tout point du réseau.
 
@@ -63,7 +63,7 @@ Ce sont deux protocoles, ouvertset définis par des RFCs spécifiques, qui serve
 
 Les avantages du protocole POP sont :
 
-    Sa simplicité]. L'implémentation de POP en donc est facilitée.
+    Sa simplicité. L'implémentation de POP en donc est facilitée.
     Un nombre élevé de logiciels clientssont actuellement disponibles.
 
 Les avantages du protocole IMAP sont :
@@ -71,7 +71,7 @@ Les avantages du protocole IMAP sont :
     de permettre la manipulation de drapeauxd'état des messages.
     de pouvoir stockerles messages et les récupérer.
     de pouvoir accéder à et gérer de multiplesboîtes aux lettres.
-    de permettre l'accès et la mise à jour]concurrentielle de boîtes aux lettres partagées.
+    de permettre l'accès et la mise à jourconcurrentielle de boîtes aux lettres partagées.
 
 
     Vertus et défauts de SMTP
@@ -79,13 +79,13 @@ Les avantages du protocole IMAP sont :
 Ce protocole a la vertu d'être particulièrement robustemais il est un peu ancien et il lui manque quelques fonctionnalitésqui seraient bien utiles aujourd'hui :
 
     La sécurisationde la transmission.
-    Les possibilités de transmettre autre chose que du texte brut].
+    Les possibilités de transmettre autre chose que du texte brut.
 
 Ces deux limites peuvent être contournées:
 
     En chiffrantson message,
 
-    En utilisant un artifice pour encoder tout type de document de telle manière que SMTP ne transmette que des caractères ASCII‑7bits].
+    En utilisant un artifice pour encoder tout type de document de telle manière que SMTP ne transmette que des caractères ASCII‑7bits.
 
 Par ailleurs, les messages SMTP sont :
 
@@ -93,7 +93,7 @@ Par ailleurs, les messages SMTP sont :
 
     Composés de lignesde 1000 caractères maximum
 
-    Limités à une taille] maximum totale
+    Limités à une taille maximum totale
 
 La spécification MIMEpermet de palier à ce type de limites
 
