@@ -28,10 +28,10 @@ Le STP désactive logiquement les liens physique dans un réseau cmposé de swit
 
 ## IEEE
 ### 802.1D : Spanning tree protocol
-30 à 60 µSec pour la création d'un arbre
+30 à 60 microSec pour la création d'un arbre
 
 ### 802.3 : Ethernet
-Optimiste en CSMA/CD. Le temps de référence pour éviter les collisions est de 51.2 µSec.
+Optimiste en CSMA/CD. Le temps de référence pour éviter les collisions est de 51.2 microSec.
 
 ### 802.4 : Token Bus
 Deterministe
