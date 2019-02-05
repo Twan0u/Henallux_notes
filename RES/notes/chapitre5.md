@@ -72,7 +72,6 @@ Les avantages du protocole IMAP sont :
     de pouvoir stockerles messages et les récupérer.
     de pouvoir accéder à et gérer de multiplesboîtes aux lettres.
     de permettre l'accès et la mise à jourconcurrentielle de boîtes aux lettres partagées.
-  
 
     Vertus et défauts de SMTP
 
