@@ -1,19 +1,18 @@
 # Technologie Web
 
-L'examen se fait hors session.  
 code cours : prototype.  
-Attention clean code TRES IMPORTANT.  
 
-## chapitre 0 : Introduction
+## Chapitre 0 : Introduction
 
 Dans le cadre d'une communication entre un navigateur et un server, il est important de distinguer le permier du second. Pour communiquer ils utilisent le protocol http (*hypertext transfer*) et est organisé par le W3C (*World Wide Web Consortium*)
     
 * **Navigateur** : Utilisé par l'internaute qui envoie des demandes, réceptionne des réponses et gère l'affichage.
+
 * **Server** : Machine phyqique et logiciel capable de répondre aux demandes de fichiers
 
 ### Html et DHTML
 
-La différence entre elles deux est que le dhtml ajout au css et au html du javascript qui modifira le html et le rendra dynamique.
+La différence entre elles deux est que le DHTML ajout au css et au html du javascript qui modifira le html et le rendra dynamique. d'où le D de DHTML
 
 ### Le Javascript 
 
@@ -22,6 +21,7 @@ Le javascript est un langage créé pour écrire des scripts ( language interpr�
 > tip : CTRL+SHIFT+J lance la console de débug dans firefox
 > tip : CTRL+SHIFT+K lance la console de développement dans firefox
 
+Le code Javascript s'exécute de façon synchrone. Le code est exécuté de façon asynchrone dans le cas d'un appel à une fonction suite à un événement.
 
 #### Les commentaires
 
@@ -30,48 +30,65 @@ Le javascript est un langage créé pour écrire des scripts ( language interpr�
 //commentaire
 ```
 
-#### Création de variable et affchage 
+#### Javascript désactivé
 
-``` javascript
-let variable = 123; // affectation de la variable variable à 123
-alert(variable); // affiche une boite de dialogue avec le message 
-console.log(variable); // écrit le contenu de la variable variable dans la console$
-prompt(variable); // affiche le contenu de variable et récupère une entrée de l'utilisateur via une boite de dialogue
+On peut indiquer à l'utilisateur que javascript est désactivé par l'intermédiaire d'un message dans les balises **noscript**
+
+
+ console d’erreurs avec le raccourci Ctrl+Shift+J
+
+console de développement avec le raccourci Ctrl+Shift+K
+
+
+
+#### Insertion du code 
+
+On définit les fonctions dans la head puis on les exécute dans le body
+
+On peut demander une exécution suite à une manipulation de l'utilisateur.
+
+via la propriété onclick="CODE JS" d'un bouton  
+ou via href="javascript:CODEJS" d'un lien "a"
+
+on peut aussi avoir un script externe
+
+``` html
+<script src="nomFichier.js"></script>
 ```
 
-#### Fonctions 
+### Créer une table en html
 
-En javascript les fonctions peuvent être placées en arguments d'autres fonctions 
-
-``` javascript
-function myFunction(var1,var2){
-    return var1 + var2;
-}
+``` html
+<table>
+    <tr>
+        <th>titre coll 1</th>
+        <th>titre coll 2</th>
+        <th>titre coll 3</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+</table>
 ```
 
-#### Modification du code html
+css pour changer le tableau 
 
-le code suivant est à insérer dans du html. Il peut être utilisé pour intégrer dynamiquement du html. Cependant il n'est pas très efficient et ne sera pas utilisé dans la suite du cours
-``` javascript
-document.write("...");
+``` css
+table:tr:nth-child(odd) // ligne impaires du tableau
+table:tr:nth-child(3) // 3e ligne du tableau
 ```
-
-
-#### Date 
-
-``` javascript
-let maintenant = new Date();
-let minutes = maintenant.getMinutes();
-let heures = maintenant.getHours();  
-```
-
-P6 etape 4
-
-
-
-
-
-
 
 
 
