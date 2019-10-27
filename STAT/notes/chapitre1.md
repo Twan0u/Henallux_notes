@@ -1,21 +1,17 @@
-# Introduction
 
-Le cours est en 2 partie, chaque partie doit être réussite à 7/20 pour être valitdée  
-Une interrogation est organisée, elle permets une dispense à 3/4 de l'examen mais elle doit être réussite à 12/20 ( une feuille A4 personnelle permise )
+# Chapitre 1 : Eléments de Probabilité
+## Définitions 
 
-## 1. Comment définitir une probabilité ?
-
-## Définition de Laplace
-
-La définition de laplace est une version intuitive de ce que sont les probabilités. à savoir, la probabilité d'une occurence sur le total des occurences.
-
-## Définition comme limite de fréquence
-
-On peut aussi définir une probabilité comme la chance qu'un élément à de se voir produire si l'expérience est effectuée une infinité de fois.
+**Expérience aléatoire** : est une expérience où le hasard intervient.   
+**Espace d'échantillonnage ($\Omega$)** : l'ensemble de toute les issues possibles d'une expérience aléatoire.  
+**Evénement** : tout sous ensemble de $\Omega$.  
+**Evénement Impossible($\Phi$)** : évémenement qui ne se produira jamais.
 
 ## Lois de probabilités
 
 $P(\phi) = 0$
+
+$P(\Omega) = 1$
 
 $B  \subseteq  A \rightarrow P(A/B) = P(A)-P(B)$
 
@@ -23,11 +19,19 @@ $P(A \cup B) = P(A)+P(B)-P(A \cap B)$ : Relation de Boole
 
 $0 \leq P(A) \leq 1$
 
-## Probabilité conditionnelle
+$\overline{A\cap B} = \overline{A} \cup \overline{B}$
+
+$A \textbackslash B = A \cap \overline{B}$
+
+$0 \leq Pr(A) \leq 1$
+
+$Pr(\overline{A}) = 1-P(A)$
+
+## Probabilité conditionnellere
 
 Probabilité de A sachant que B est réalisé : $$P(A|B) = \frac{P(A \cap B)} {P(B)}$$
 
-P(A$\cap$B) = P(A|B).P(B)
+P(A$\cap$B) = P(A|B).P(B)   
 P(A$\cap$B) = P(B|A).P(A)
 
 ## 5.3 Probabilités des causes (Théorème de Bayes)
@@ -47,13 +51,5 @@ Deux événements sont statstiquements indépendants ssi : P(A|B) = P(A)
 
 > Nota-bene : Une indépendance statistique n'est pas forcément vraie dans le monde réele. car la statistique est calculée sur un échantillon qui peut ne pas être représentatif
 
-# Définitions
 
-* **Une expérience aléatoire** ( =épreuve ) : expérience ou le hazard intervient, son issue n'est donc pas connue.  
-* **L'espace d'échantillonnage** : L'ensemble de tous les issues possibles d'une expérience aléatoire. notée *$\Omega$*.   
-* **$\Omega$** : ensemble des possibilités de résultats.  
-* **événement** : sous ensemble de $\Omega$  
-* **$\phi$** : événement impossible
-
-
-* **Variable aléatoire** : quantité qui varie enfonction duè hasard. Une variable aléatoire est en général notée X. 
+# Chapitre 2: 
