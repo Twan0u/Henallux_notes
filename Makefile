@@ -16,7 +16,8 @@ $(SRC): # Compile les notes en PDF
 
 $(REPORT): # Compile tous les rapports en PDF stylisé
 
-	pandoc $@/notes.md -o $@.PDF --from markdown --template $(CHEMIN)/Henallux_notes/settings/Report.latex --listings
+	echo $@/notes/chapitre*.md | xargs cat > temp_$@.md
+	pandoc temp_$@.md -o $@.PDF --from markdown --template $(CHEMIN)/Henallux_notes/settings/Report.latex --listings
 	echo $@
 
 all: $(SRC) special ## Compile toutes les notes en PDF ( Pandoc and texlive sont requis )
