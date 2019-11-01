@@ -45,14 +45,14 @@ int main (void) {
 	int pid1;
 	printf("Debut du Pere\n");
 	pid1 = fork();
-	if (pid1 <0) { //>
+	if (pid1 <0) { //
 		perror("Erreur lors de la creation (fork) du Fils 1");
 		exit(EXIT_FAILURE);
 	} // else inutile car exit
 	if (pid1 == 0) {
 		fils1();
 	}
-	//Suite du Père
+    //suite du pere
 	printf("Fin du Pere\n");
 	exit(EXIT_SUCCESS);
 }

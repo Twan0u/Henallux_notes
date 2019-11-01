@@ -1,6 +1,7 @@
 # Base des Systèmes d'exploitations
 
 Contact : 
+
 * bernard.vankerm@henallux.be
 * bernard.vankerm@belfius.be
 * bernard.vankerm@skynet.be
@@ -22,7 +23,7 @@ Les appels systèmes sont le principal moyen pour une application linux de comun
 Le manuel est un guide d'utilisation des commandes. 
 
 ``` 
-man \<nom_de_commande\>
+man <nom_de_commande>
 ```
 
 ### Variables d'envoronnement
