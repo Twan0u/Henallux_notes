@@ -2,7 +2,9 @@
 
 Les tableaux en JS sont Hétérogènes (différents types dans un même tableau) et dynamiques (taille évolutive). Ils peuvent aussi conentir des trous (undefined).
 
-La lecture hors borne d'un tableau donne undefined, 
+La lecture hors borne d'un tableau donne undefined.
+
+
 
 ### Construction
 
@@ -14,7 +16,9 @@ let tab = [1,2,3];
 #### Constructeur
 
 ``` javascript
-let tab = new Array(1,2,3);
+let tab = new Array(1,2,3); [1,2,3]
+let tab2 = new Array(3) = [,,,];
+[3] = [3]
 ```
 
 #### Tableau vide 
@@ -28,7 +32,7 @@ let tab = new Array();
 
 ``` javascript
 let tab = new Array[x];
-let tab = [,,,,,,];
+let tab = [,,,,,,]; // attention,il y aura autant d'éléments que de virgules dans ce tableau
 ```
 
 ### Accéder à un élément
@@ -36,6 +40,13 @@ let tab = [,,,,,,];
 ``` javascript
 tab[indice]
 ```
+
+### Verifier existence élément
+
+```
+INDICE in tab //true ou false
+```
+> Un tableau contenant des *undefined* n'est pas un tableau vide
 
 ### taille d'un tableau
 
