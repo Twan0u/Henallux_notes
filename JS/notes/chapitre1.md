@@ -10,12 +10,15 @@ typeof(v) retourne le type de la variable placé en paramètre
 * string 
 * object 
 
-### Types primitifs 
+### Types 
+Il existe **4 types primitifs** en Javascript : *number*, *String*, *boolean*, *undefined*. Il existe aussi *function* et *object*
 
-Il existe 4 types primitifs en Javascript : *number*, *String*, *boolean*, *undefined*. Ces 4 types fonctionnent par référence
+### Pas de déclaration de la variable
+Si la variable est initialisée sans déclaration, elle est déclarée au niveau global.
 
 ### Let
 
+La varaible est locale au scope du bloc
 ``` javascript
 let NOM_VARIABLE = 1234;
 let maFonction = function(x,y){ return x+y };
@@ -25,15 +28,18 @@ let monNom = "Antoine";
 ### Var
 Les variables déclarées avec var sont valables dans le scope de la fonctoin et sont déclarées (mais pas initialisées) au début de la fonction.
 
+Dans le cas d'une deuxième déclaration, la variable sera modifiée sans pour autant être redéclarée. 
+
 > En Pratique, on va éviter de les utiliser car ses particularités
 
 ### const
-constante locale au scope du bloc.
+constante locale au scope du bloc qui **doit être initialisée** 
 
 
 ### Strings
 
-Un string peut s'écrire entouré de "" ou de ''.
+Un string peut s'écrire entouré de "" ou de ''. les '' sont evalués (ex : '${variable}')
+> on peut aussi faire des calculs dans le ${}
 
 #### Apostrophe inverse
 Quand on veut : un texte sur plusieurs lignes ou contenant des expressions à évaluer
@@ -66,7 +72,9 @@ let string = `je suis ${nom} et j'ai ${age}`
 
 ### Le hissage (= hoisting)
 
-En javascript, les définitions des fonctions et des variables déclarées avec var sont hissées au début. Attention, car seul la déclaration est hissée et non l'initialisation
+En javascript, les définitions des **fonctions** et des **variables déclarées avec var** sont hissées au début. Attention, car seul la déclaration est hissée et non l'initialisation des variables.
+
+Let et const ont aussi leur declaration hissées. mais *au début du bloc*. la zone entre la déclaration et l'initialisation est appelée **TDZ** Temporal Dead Zone. 
 
 ### Nombres
 
@@ -74,6 +82,10 @@ En javascript, les définitions des fonctions et des variables déclarées avec 
 * ox... : hexa
 * 0o... : octal [ES6]
 * 0b... : binaire
+
+> util : isFinite(x)
+> util (bis) : isNaN(x)
+
 
 ### conversion
 ``` javascript
@@ -90,4 +102,18 @@ En fonction de x, il se pourrait que la conversion soit impossible.
 * -Infinity: -5/0
 
 
+### Operateur ternaire
 
+``` html
+nbElem+ " élément" + (nbElem> 1 ? "s" : "")
+```
+
+### Exécution d'une fonction si elle existe
+
+exécutera la fonction init si elle existe
+
+``` html
+init&& init();
+```
+
+### Règles de conversion cfr Slide 33 part2
