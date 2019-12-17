@@ -34,13 +34,6 @@ Le code Javascript s'exécute de façon synchrone. Le code est exécuté de faç
 
 On peut indiquer à l'utilisateur que javascript est désactivé par l'intermédiaire d'un message dans les balises **noscript**
 
-
- console d’erreurs avec le raccourci Ctrl+Shift+J
-
-console de développement avec le raccourci Ctrl+Shift+K
-
-
-
 #### Insertion du code 
 
 On définit les fonctions dans la head puis on les exécute dans le body
