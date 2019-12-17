@@ -1,6 +1,5 @@
 ## chapitre 4 : Les fonctions
 
-
 En javascript les fonctions peuvent être placées en arguments d'autres fonctions. Si on redéfinit 2 fois la même fonction, seul la 2e sera conservée. 
 
 > attention aussi à l'hoistage et à l'utilisation de var
@@ -13,19 +12,20 @@ En javascript les fonctions peuvent être placées en arguments d'autres fonctio
     }
 ```
 
-un code décrit sous la forme d'un objet fonction doit être évalué à chaque appel et est donc peu efficace (Clean Code : a éviter)
+un code décrit sous la forme d'un objet fonction doit être évalué à chaque appel et est donc peu efficace (Clean Code : a éviter):
 
 ``` javascript
-const maFonction = new function("var1","var2","return var1+var2;);
+const maFonction = new function("var1","var2","return var1+var2;");
 ```
 
-fonctions
+fonctions avec un nom interne (facultatif) :
 ``` javascript
 let affiche = function osefNom (var,var){return var +var;}
 ```
 Attention aux déclarations hoistées et donc non initialisées
 
 ### Arguments 
+Aucune verification sur les types n'est effectuée
 
 #### Surcharge et trop peu de paramètres
 
