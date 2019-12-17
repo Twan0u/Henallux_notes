@@ -49,6 +49,11 @@ on peut aussi avoir un script externe
 <script src="nomFichier.js"></script>
 ```
 
+IL en vas de même avec le css, mais pour des raisons de clean code, nous allons préférer le laisser dans un fichier séparé :
+``` html
+<linkhref="style.css" rel="stylesheet" type="text/css" />
+```
+
 ### Créer une table en html
 
 ``` html
@@ -82,25 +87,3 @@ css pour changer le tableau
 table:tr:nth-child(odd) // ligne impaires du tableau
 table:tr:nth-child(3) // 3e ligne du tableau
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
