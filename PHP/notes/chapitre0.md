@@ -9,6 +9,15 @@ Php signifie : (Php : a Hypertext Processor)
 Pour travailler avec php, il faut un navigateur, un éditeur de texte et les programmes (php,apache(,mysql)).  
 Il est conseillé d'utiliser wamp (Windows) / mamp (macOS)/ xampp (linux) afin d'installer tous ces programmes en même temps sans grand effort. 
 
+### Architecture Triparite
+L'architecture en trois partie ajoute une nouvelle dimension au client serveur(bipartite). Nous avons une architecture en 3 couches (MVC = Modele Vue Controller). 
+* **Modele** : Base de donnée
+* **Vue** : Navigateur
+* **Controller** : Couche fonctionnelle de Traitement (serveur web)
+
+###Architecture N_Tier 
+Ce genre d'architecture ajoute un layer ( souvent business ) au tripartite. Mais il peut en ajouter plus 
+
 ## Base
 
 Le code php s'écrit au milieu du html et au moyen de balises spécifiques.
@@ -114,6 +123,8 @@ echo (2+3)/2;
 ```
 > PHP possède une valeur nan ( checker via is_nan($var))
 
+>echo TRUE retourne 1 ET echo FALSE ne **produit rien**
+
 > tentative de transformation de text en nombre ( généralement 0)
 
 Il existe aussi une valeur NULL 
@@ -129,50 +140,135 @@ Il existe aussi une valeur NULL
 * NULL
 * []
 
-
+> Attention, en javascript "0" est converti en true
 
 ## Le typage
 
-En php, comme en javascript, le typage est implicite et les conversions sont implicites. Les différents types sont : boolean, integer,double, string, array, object, resource (ressources génériques au format binaire, NULL
+En php, comme en javascript, le typage est implicite et les conversions sont implicites. Les différents types sont : boolean, integer,double, string, array, object, resource (ressources génériques au format binaire, NULL, et NAN
 
-On peut tester  si une variables appartient à un type via les fonctions is_...($var) ( ex : is_boolean(x))
+On peut tester si une variables appartient à un type via les fonctions is_...($var) ( ex : is_boolean(x))
+
+On peut obtenir le type d'une variable avec gettype()
+
+
+### Typecast
 
 On peut forcer la conversion comme en java ou en c via un typecast 
-> (int) variable
 
-> Si une variable réele est convertie en entier  : on ne prends que sa partie entière
-> Si une variable et un string alors on ne prends que le préfixe valide le plus long 
+|type|/|/|/|/|
+|---|---|---|---|---|
+|integer|(int)expr|(integer)expr|intval(expr)||
+|double|(float)expr|(double)expr|(real)expr|floatval(expr)|
+|string|(string)expr|strval(expr)|||
+|boolean|(bool)expr|(boolean)expr|||
+|array|array(expr)||||
+|object|(object)expr||||
+
+Pour la conversion vers des nombres entiers, 
+* Si une variable est un réel on ne prends que sa partie entière   
+* Si une variable et un string alors on ne prends que le préfixe valide le plus long 
 
 On peut aussi utiliser :
 
 ``` 
-settype($var, 'integer');
+settype($var, 'int');
 ```
 
 > php est différencie les entiers et les réels
 
+### Conversions implicites
+exemples
+
+```
+echo '13' + '17 vaches'; 	// affiche 30 !
+$txt1 = '12';
+$txt2 = '+12';
+$txt3 = '12pommes';
+echo ($txt1 == $txt2); 	// affiche 1 (= vrai) !
+echo ($txt1 === $txt2); 	// affiche <rien> (= faux) !
+echo ($txt1 == $txt3); 	// affiche <rien> (= faux) !
+echo (12 == $txt3); 	//affiche 1 (= vrai) !
+```
+
 ## Strings 
 
 1. chaine litteral ( ' ... ' -> non interpreté )
+	* \' et \\ 
 2. chaine non litteral ( "... " -> interpreté )
-3.  here document ( écriture sur plusieurs lignes )
-	* https://www.php.net/manual/fr/language.types.string.php#language.types.string.syntax.heredoc
+	* \" \\ \n \t \$
+	* ou la notation octale ou hexa ( ex : \123 ou \xA5)
+3.  here document ( écriture sur plusieurs lignes )(remplace les chaines)
+	* [lien documentation](https://www.php.net/manual/fr/language.types.string.php#language.types.string.syntax.heredoc)
+```	
+ $msg = <<<EXTRAIT
+Voici le texte "contenu" dans cette $chaîne
+de caractères sans qu'il soit
+nécessaire d'échapper les " et les '
+EXTRAIT;
+```
 
 4. nowdoc ( comme heredoc sauf non interpreté)
-	* https://www.php.net/manual/fr/language.types.string.php#language.types.string.syntax.nowdoc
+	* [lien documentation](https://www.php.net/manual/fr/language.types.string.php#language.types.string.syntax.nowdoc)
+
+```	
+ $msg = <<<'EXTRAIT'
+Voici le texte "contenu" dans cette $chaîne
+de caractères sans qu'il soit
+nécessaire d'échapper les " et les '
+EXTRAIT;
+```
 
 
+### concaténation de strings
 
-## concaténation de strings
+> Attention, en JS, la concaténation s'écrit + 
 
 ```
-echo 'antoine'. '  '.'Lambert';
+$prenom = 'antoine';
+$nom = 'Lambert';
+
+echo $prenom. '  '.$nom;
+$user = $prenom;
+$user .= ' '; // le .= est le signe de la concaténation 
+$user .= $nom; 
 ```
 
 > **\n** pour saut de ligne : 
-> attention, les guillements simples n'interprêtent pas les variables et caractères spéciaux contrairement aux guillements doubles.
+> attention, les guillemets simples n’interprètent pas les variables et caractères spéciaux contrairement aux guillemets doubles.
 
 > en cas de calcul a afficher : entourer les calculs de ()
+
+### Longueur d'une chaîne de caractères
+```
+strlen($s)
+```
+
+## Définition de Constantes
+
+```
+define('MACONSTANTE', 'contenu de la constante');
+
+echo MACONSTANTE // Les constantes s'utilisent sans $
+```
+
+> clean code  : les constantes sont définies en MAJUSCULES
+
+### Remarques
+* Une fois définie, une constante est visible partout. 
+* Si on utiliseMACONSTANTEsans la définir d'abord, PHP suppose qu'elle contient la chaîne"MACONSTANTE".
+
+```
+ __LINE__ \\ numéro de la ligne courante dans le fichier   
+ __FILE__ \\ fichier courant (__DIR__pour son répertoire)
+```
+
+|/|Constantes|Variables|
+|---|---|---|
+|Utilisation| Sans $| Avec $|
+|Déclaration| via define| Lors de la première affectation|
+|Visibilité|Partout|Locale ou globale|
+|Valeur| Doit être Scalaire| Quelconque|
+|Modification| Impossible|possible, ainsi qu'unset|
 
 ## Récupérer le type d'une variable 
 ```
@@ -212,7 +308,7 @@ echo 'aucune commande';
 ```
 
 > Pour rappel, la commande Javascript pour se rendre vers une autre url est
-> ``` location.href=nouvelleURL; ```
+>  location.href=nouvelleURL; 
 
 ## Les tableaux 
 
@@ -236,6 +332,20 @@ echo $eleve['nom'];
 > en cas d'ajout à la fin du tableau sans index car clés/valeurs : on  crée l'indice 0
 
 ## Conditions
+
+> Écriture alternative : remplace les accolades par des deux-points et endif/endswitch/endfor/endwhile/endforeach : 
+
+```
+if($val): 
+CODE 
+endif;
+```
+
+### Opérateurs de comparaison
+<  >  <=  >=  ==  !=ou<>  ===  !===
+
+> === et !=== testent l'égalité sans conversion implicite
+
 ### if 
 
 ``` 
@@ -254,7 +364,7 @@ if ($a > $b) {
 
 ``` 
 switch ($i) {
-    case 0:
+    case 0: 
         echo "i égal 0";
         break;
     case 1:
@@ -263,6 +373,7 @@ switch ($i) {
     case 2:
         echo "i égal 2";
         break;
+  default:
 }
 ```
 
@@ -273,6 +384,8 @@ $val = <condition>?true:false;
 ```
 
 ## Les boucles
+>Les break et continue existent 
+
 ### While
 ```
 $i = 1;
@@ -280,6 +393,7 @@ while ($i <= 10) {
     echo $i = $i + 1;
 }
 ```
+> do while existe aussi
 
 ### for
 
