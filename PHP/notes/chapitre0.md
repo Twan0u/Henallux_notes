@@ -15,7 +15,7 @@ L'architecture en trois partie ajoute une nouvelle dimension au client serveur(b
 * **Vue** : Navigateur
 * **Controller** : Couche fonctionnelle de Traitement (serveur web)
 
-###Architecture N_Tier 
+### Architecture N_Tier 
 Ce genre d'architecture ajoute un layer ( souvent business ) au tripartite. Mais il peut en ajouter plus 
 
 ## Base
