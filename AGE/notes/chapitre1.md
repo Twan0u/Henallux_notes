@@ -28,3 +28,40 @@ Un **conflit d'intérêt** ([Wikipedia](https://fr.wikipedia.org/wiki/Conflit_d%
 Il peut s'agir de l'opposition des intérêts d'une firme face à ses travailleurs. d'une firme face à des ménages ou encore d'une volonté de profit face à un écosystème.
 
 Dans ce genre d'oppositions asymétriques, il y a toujours un gagnant et un perdant. ( voir partie 2 : asymétries)
+
+### L'Economie VS La Finance
+#### Economie
+Transformation de *matière première* ( Travail Humain ) en **produits** manufacturés ou Utilisation de *compétences* en vue de fournir des **services**. 
+
+Le développement d'une économie s'effectue sur le moyen-long terme. 
+
+La **demande** quand à elle, se compose de travailleurs salariés, d'entrepreneurs, de rentiers et de personnes bénéficiant d'allocations d'état (pensions, chômage, revenus pauvreté,...)
+
+#### Finance
+
+On parlera de finance quand des détenteurs de capitaux peuvent décider d'investir leur argent pour acquérir des parts d'entreprises et ainsi devenir actionnaires en possédant une partie de l'entreprise et en tirer profits (spéculation et dividendes). 
+
+Leur but est de tirer un profit ( Dividendes ) sur un court-terme. En effet, les bénéfices d'une entreprise est réparti en fonction de ses actionnaires. Ils peuvent faire pression sur les PDG pour les forcer à optimiser les rendements de la firme (même parfois au détriment de celle-ci). La chasse aux coûts toujours plus  faible peut les pousser à délocaliser, ce qui augmente le chômage et fait monter la précarité salariale. 
+
+Il existe 2 marchés sur lesquels on trouve des actions.  
+Le premier marché est le marché primaire. C'est sur ce marché que s'échangent les titres au moment de leur mise en circulation. On parlera alors de titres vendus à prix d'émission.  
+Le  deuxième marché est le marché secondaire. C'est sur ce marché que les acteurs achètent et vendent ensuite les actions entre eux.  Le prix des actions est ici dépendant de leur offre et demande. 
+La capacité d'un actionnaire de vendre ses actions et de directement récupérer son argent donne aux actions leur **liquidité**.
+
+L'émission d'action est un financement alternatif pour les entreprises ( traditionnel : prêt à la banque ).
+
+Pour se financer, une entreprise à plusieurs choix : 
+* Mettre de côté 
+* émettre des obligations (+- prêts )
+* emprunter à la banque (prêts)
+* émettre des actions
+
+Les bâtiments, machine, terrain qui composent le capital de l'entreprise sont divisés entre les actionnaires qui deviennent propriétaires d'une portion de l’entreprise.
+
+### Les Philosophes de l'économie
+#### Adam Smith
+#### Riccardo
+#### Malthus
+#### Marx
+#### Keynes
+#### Hayek 
