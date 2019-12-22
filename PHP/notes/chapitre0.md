@@ -7,6 +7,7 @@ Php signifie : (Php : a Hypertext Processor)
 ### Installation 
 
 Pour travailler avec php, il faut un navigateur, un éditeur de texte et les programmes (php,apache(,mysql)).  
+Il est conseillé d'utiliser wamp (Windows) / mamp (macOS)/ xampp (linux) afin d'installer tous ces programmes en même temps sans grand effort. 
 
 ## Base
 
