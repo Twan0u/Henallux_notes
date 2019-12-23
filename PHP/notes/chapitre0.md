@@ -1,7 +1,7 @@
 # PHP
 ## Introduction
 
-Le php est un language de scripts orienté serveur. Il est utilisé pour générer dynamiquement des pages  web. Ces pages sont donc dynamiques ( <> pages statiques en html et css ). Cette personalisation s'effectue du côté serveur et les pages html générées seront ensuite envoyées au client.
+Le php est un langage de scripts orienté serveur. Il est utilisé pour générer dynamiquement des pages  web. Ces pages sont donc dynamiques ( <> pages statiques en html et css ). Cette personnalisation s'effectue du côté serveur et les pages html générées seront ensuite envoyées au client.
 
 Php signifie : (Php : a Hypertext Processor)
 ### Installation 
@@ -9,14 +9,20 @@ Php signifie : (Php : a Hypertext Processor)
 Pour travailler avec php, il faut un navigateur, un éditeur de texte et les programmes (php,apache(,mysql)).  
 Il est conseillé d'utiliser wamp (Windows) / mamp (macOS)/ xampp (linux) afin d'installer tous ces programmes en même temps sans grand effort. 
 
-### Architecture Triparite
-L'architecture en trois partie ajoute une nouvelle dimension au client serveur(bipartite). Nous avons une architecture en 3 couches (MVC = Modele Vue Controller). 
-* **Modele** : Base de donnée
+### Architecture tripartite
+L'architecture en trois partie ajoute une nouvelle dimension au client serveur(bipartite). Nous avons une architecture en 3 couches (MVC = Model Vue Control). 
+* **Model** : Base de donnée
 * **Vue** : Navigateur
-* **Controller** : Couche fonctionnelle de Traitement (serveur web)
+* **Control** : Couche fonctionnelle de Traitement (serveur web)
 
-### Architecture N_Tier 
+### Architecture N_tier 
 Ce genre d'architecture ajoute un layer ( souvent business ) au tripartite. Mais il peut en ajouter plus 
+
+
+### Types de clients 
+* **Légers** : (peu de Traitement par le client) : (ex : site web statique)
+* **Lourds** : (beaucoup de traitements par le client) :  (ex : jeu flash) 
+* **Riches** : (traitement de l'affichage par le client et majorité des traitements par le serveur) : (widget météo, cours de la bourse, ...)
 
 ## Base
 
@@ -150,6 +156,7 @@ On peut tester si une variables appartient à un type via les fonctions is_...($
 
 On peut obtenir le type d'une variable avec gettype()
 
+> La fonction var_dump($variable) est utile pour connaître plus d'informations sur les variables  (DEBOGGAGE)
 
 ### Typecast
 
@@ -175,6 +182,21 @@ settype($var, 'int');
 ```
 
 > php est différencie les entiers et les réels
+
+### Portée des variables
+
+les variables globales ne sont pas forcément accessibles depuis une fonction  ( il faut mettre global devant pour les rendre accessibles.
+
+```
+$intro = 'Le résultat est ';
+$outro= '.<br/>';
+function afficheDouble($v) {
+global $intro, $outro;
+...
+}
+```
+
+Si une variable globale est passée par référence en argument de la fonction(cfr chpitre fonctions/références de variables), le résultat sera le même 
 
 ### Conversions implicites
 exemples
@@ -279,6 +301,19 @@ valeur correspondant à un littéral PHP
 > var_dump donne  non seulement la
 valeur mais également le type de celle-ci
 
+##Variables superglobales
+
+Variables superglobales(= prédéfinies et accessibles partout !)
+* **$GLOBALS** : toutes  les variables définies dans le contexte global(dont les variables globales déclarées : **$_GLOBALS['mavar'])**
+* **$_SERVER** : informations provenant  du serveur web
+* **$_ENV** : informations sur l'environnement  et l'OS
+* **$_GET**, **$_POST** : variables reçues dans la requête http
+* **$_FILES** : fichiers attachés à la requête http
+* **$_COOKIE** : variables passées sous la forme de cookies http
+* **$_REQUEST** : l'ensemble  des informations attachées à la requête http (redondant avec $_GET,  $_POST,  $_COOKIE et $_FILES).
+* **$_SESSION** : variables de session
+
+ces variables prennent la forme de tableaux associatifs
 
 ## Adresses relatives ou absolues
 
@@ -312,10 +347,16 @@ echo 'aucune commande';
 
 ## Les tableaux 
 
+En php, tous les tableaux sont des tableaux associatifs (clefs/ valeurs).
+Attention aux conversions automatique des types de clefs ( reels -> entier, booleen -> 0/1, null-> "",tableaux ou objets -> erreur)
+
+> Contrairement au JS, les tableaux utilisent un fonctionnement par passage par valeur ( pas par référence)
+
 ``` php
 $notes = [10,20];
 $notes = array(10,20); //(vieille notation)
 echo $notes[0]; // retourne 10
+echo $notes{0}; // retourne 10
 
 $notes[] = 7 //ajoute 7 à la fin du tableau 
 ```
@@ -330,6 +371,27 @@ echo $eleve['nom'];
 ```
 
 > en cas d'ajout à la fin du tableau sans index car clés/valeurs : on  crée l'indice 0
+
+### Tableaux multidimensionnels
+
+```
+$matrice = array(
+	array(1, 0, 0, 0),
+	array(0, 1, 0, 0),
+	array(0, 0, 1, 0),
+	array(0, 0, 0, 1)
+);
+
+$matrice[2][2];
+```
+
+###List
+
+```
+$tab = array(4,7,9,10);
+list($a,$b) = $tab; // met 4 dans $a et 7 dans $b
+```
+
 
 ## Conditions
 
@@ -423,13 +485,78 @@ $val = readline('message');
 ```
 
 ## Les fonctions
+
+Pas de vérification de type mais (contrairement à Javascript,) il faut passer **au moins** le nombre d'arguments de la définition!
+
+> les noms de fonction ne sont pas sensibles à la case mais respectez le cleanCode
+
+Le php lit les définition de fonctions situées au niveau globale avant de débuter l'exécution. ce qui permets donc d'utiliser des fonctions définies plus bas.
+
+Lorsque php rencontre une nouvelle définition de fonction, celle-ci est définie au niveau global
+
+```
+functionf () {
+	functiong() { echo'fonction g'; }
+	echo'fonction f';
+}
+g();		// produit une erreur : g pas définie
+f();
+g();		// fonctionne correctement
+```
+
 ### appel de la fonction
 
 ``` 
 nom_de_fonction($param1, $param2);
 ```
 
-### Creer une fonction 
+### Creer une fonction std
+
+```
+function nom ($var[,$var]){
+return expr ;
+}
+```
+
+### Créer une fonction anonyme
+
+```
+$double = function ($x) {return $x*2}
+```
+
+### Redéfinition et surcharge 
+
+**ATTENTION** : **PAS DE REDEFINITION** sinon erreur fatale
+
+### Cas particuliers
+#### Valeurs par défaut
+Les valeurs dont les arguments ont des valeurs par défaut doivent êtres placées en **bout de liste** des arguments. 
+
+#### Passage par référence 
+Les objets sont automatiquement passés par référence. Pour les autres types, il faut utiliser la notation &
+
+#### Renvoyer plusieurs valeurs
+On utilisera un tableau 
+
+```
+function test(){
+return array($somme,$produit); // mets les variables dans un tableau
+}
+list($somme,$produit) = test(); //décompose le tableau 
+```
+
+#### Fonctions a nombre d'arguments variables
+au sein d'une fonction : 
+* func_num_args() : nombre d'arguments transmis à la fonction
+* func_get_arg(i) : le ieargument (en comptant à partir de 0)
+* func_get_args: tous les arguments (tableau)
+
+#### Le mot clé static
+
+Si il est utilisé à l'intérieur d'une fonction, la variable déclarée ne sera initialisée que la première fois 
+```
+static $nbModif = 0;
+```
 
 ## Les Erreurs 
 Il existe 3 niveaux d'erreurs.
@@ -439,4 +566,12 @@ Il existe 3 niveaux d'erreurs.
 * **NOTICE** : l'exécution se poursuit (écrire une variable non définie)
 
 On peut forcer une erreur avec *die('message') qui interrompt l'exécuter et affiche le message.
-> souvent utilisé avec une fonction qui retourne true en cas de succes ( connexionBd(....) or die('erreur bd')
+> souvent utilisé avec une fonction qui retourne true en cas de succès ( connexionBd(....) or die('erreur bd')
+
+## Accès Bases de données 
+### Sécurité contre les injections
+```
+$origine = htmlentities($_SERVER["HTTP_REFERRER"]);
+```
+
+
