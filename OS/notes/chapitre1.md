@@ -12,6 +12,8 @@ Contact :
 
 "**LINUX** est le nom couramment donné à tout système d'exploitation libre fonctionnant avec le noyau LINUX. C'est une implémentation libre du système UNIX respectant les spécifications POSIX. Ce système est né de la rencontre entre le mouvement du logiciel libre et le modèle de développement collaboratif et décentralisé via Internet. Son nom vient du créateur du noyau LINUX, Linus Torvalds."
 
+Une des particularités d'une machine linux est sa capacité de tourner sur **plusieurs plateformes**, d'être **multiutilisateurs** et d'être **multitâches**
+
 Au démarage de la machine, le **BIOS** initialise, verifie, ... puis passe la main au **Noyau** qui prendra le relais pour gérer les accès au matériel.
 
 On sépare la mémoire vive physique en deux régions disjointes (l'une pour le noyau et l'autre pour les applications) 
