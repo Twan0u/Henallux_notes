@@ -33,7 +33,7 @@ string slash = @"\"; // le @ évite de devoir écrire le double slash
 
 ## 3.2 Conditions
 
-###3.2.1 IF
+### 3.2.1 IF
 
 ``` cs
 if (cond){}
@@ -41,7 +41,7 @@ else if(cond){}
 else{}
 ```
 
-###3.2.2 Switch
+### 3.2.2 Switch
 
 ``` cs
 switch (variable){
@@ -75,7 +75,7 @@ switch (variable){
 }
 ```
 
-\newpage
+
 ## 3.3 Les Méthodes
 
 Une mathode s'écrit sous la forme suivante :
