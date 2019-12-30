@@ -155,3 +155,10 @@ continue; // Passe à l'itération suivante de la boucle
 
 
 ## 3.9 Attributs et constructeurs
+### Créations de getteurs et setteurs
+
+´´´
+public string GetName(){
+    return this.lastName +""+ this.firstName;
+}
+´´´
