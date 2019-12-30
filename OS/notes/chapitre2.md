@@ -1,4 +1,3 @@
-
 ## 2.Création de processus
 
 ### Rappels sur les librairies 
@@ -31,9 +30,9 @@ Crée un nouveau processus (fils) semblable au processus courant (père). Le con
 3. en cas d'erreur, le processus fils n'est pas créé et le père reçoit une valeur négative.
 
 ``` c
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+//#include <unistd.h>
+//#include <stdio.h>
+//#include <stdlib.h>
 
 void fils1 (void) {
 	printf("Debut du Fils 1\n");
