@@ -162,3 +162,23 @@ public string GetName(){
     return this.lastName +""+ this.firstName;
 }
 ´´´
+
+### Constructeurs 
+En java, un constructeur peut faire appel à un autre constructeur avec this(...) mais celui-ci doit être la première instruction du code. C'est **différent en c#**
+On a un construceur complet et d'autres qui y font référence.
+´´´
+public Player(string name, DateTime birthday, string firstName):
+this(lastName,birthday,firstName,true)
+{  }
+´´´
+
+## 3.10 Redéfinition de méthodes
+Le super de java est remplacé par base en c#. On peut cependant redéfinir une méthode via : 
+´´´
+public override string ToString()
+{
+string output=""; 
+// À vous de compléter
+return output;
+}
+´´´
