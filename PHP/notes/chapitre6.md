@@ -1,5 +1,7 @@
 # Les Objets en php
 
+[TOC]
+
 ## Constructeurs
 
 Les constructeurs sont des fonctions qui vont se charger de créer des objets. Il existe 2 syntaxes, une ancienne et une nouvelle (utilisant les fonctions magiques).

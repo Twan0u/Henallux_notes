@@ -1,5 +1,7 @@
 ## Les tableaux 
 
+[TOC]
+
 En php, tous les tableaux sont des tableaux associatifs (clefs/ valeurs).
 Attention aux conversions automatique des types de clefs ( reels -> entier, booleen -> 0/1, null-> "",tableaux ou objets -> erreur)
 

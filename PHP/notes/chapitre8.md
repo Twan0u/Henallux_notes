@@ -1,5 +1,7 @@
 # Classes Abstraites et Interfaces
 
+[TOC]
+
 ## Classe Abstraite
 
 ```php

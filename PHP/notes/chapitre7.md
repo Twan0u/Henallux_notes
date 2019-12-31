@@ -1,5 +1,7 @@
 # Héritage
 
+[TOC]
+
 Comme en Java, il n'y a **pas d'héritage multiple** en php. 
 
 ```php
@@ -9,6 +11,21 @@ class chien extends Animal{
     }
 }
 ```
+
+
+
+## Constructeur
+
+Contrairement au java, ou il faut faire un appel explicite au constructeur parent, le php hérite de la méthode constructeur comme n'importe quelle autre :
+
+```php
+function __construct($nom,$prenom,$age,$login){
+	parent::__construct($nom, $prenom, $age);
+    this->login = $login;
+}
+```
+
+
 
 ## final 
 
@@ -48,3 +65,13 @@ self::$nom;
 ```
 
 > this->nom ne fonctionne pas et les méthodes statiques vont générer un warning 
+
+## Opérateur ::
+
+il est utilisé dans les exemples ci dessus mais il peut aussi être utilisé comme suit : 
+
+```
+$nomDeClasse = 'Etudiant';
+$nomDeClasse::$AgeMaximum;
+```
+

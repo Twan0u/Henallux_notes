@@ -1,5 +1,7 @@
 # Introduction au PHP
 
+[TOC]
+
 Le php est un langage de scripts orienté serveur. Il est utilisé pour générer dynamiquement des pages  web. Ces pages sont donc dynamiques ( <> pages statiques en html et css ). Cette personnalisation s'effectue du côté serveur et les pages html générées seront ensuite envoyées au client.
 
 Php signifie : (Php : a Hypertext Processor)
@@ -95,8 +97,6 @@ Lit les entrées de l'utilisateur
 $val = (int) readline('message');
 $val = readline('message');  
 ```
-
-## 
 
 ### Requête
 

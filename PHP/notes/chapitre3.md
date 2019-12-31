@@ -1,5 +1,7 @@
 ## Conditions
 
+[TOC]
+
 > Écriture alternative : remplace les accolades par des deux-points et endif/endswitch/endfor/endwhile/endforeach : 
 
 ```php

@@ -1,5 +1,7 @@
 ## Les fonctions
 
+[TOC]
+
 Pas de vérification de type mais (contrairement à Javascript,) il faut passer **au moins** le nombre d'arguments de la définition!
 
 > les noms de fonction ne sont pas sensibles à la case mais respectez le cleanCode
@@ -78,4 +80,20 @@ Si il est utilisé à l'intérieur d'une fonction, la variable déclarée ne ser
 ```php
 static $nbModif = 0;
 ```
+
+
+
+## Les Fonctions Magiques
+
+Le php possède des fonctions dites 'magiques', ces fonctions sont des raccourcis  qui facilitent l'écriture. Il en existe dans le cadre de la création d'objet, leur destruction, et bien d'autres. en voici quelques une qui pourraient être utiles : 
+
+* *__toString*() : Affiche un objet (appelé automatiquement lors d'une utilisation comme **string** (ex : concaténation ou echo)) 
+* *__invoke($arg)* : L'objet comme fonction. Il est appelé automatiquement si on utilise l'objet comme une **fonction.** 
+* *__set($nomProp,$valeur)* : Appel automatique si crée une propriété inexistante / inaccessible à un objet
+* *__get($nom)* : Appel auto quand on essaye de lire une propriété inaccessible d'un objet 
+* *__unset($propriete)* : Appel auto lors de la suppression d'une propriété d'un objet.
+
+> les Fonctions magiques sont reconnaissables  avec leur _ _ devant le nom de fonctions
+
+
 

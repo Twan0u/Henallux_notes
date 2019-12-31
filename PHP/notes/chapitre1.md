@@ -1,4 +1,7 @@
 ## Les variables
+
+[TOC]
+
 Les variables commencent presque systématiquement par un dollar. (sauf constantes).
 
 > le nom des variable est sensible à la case, mais pas celui des fonctions, classes et mots-clés
