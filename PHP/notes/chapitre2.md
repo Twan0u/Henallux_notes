@@ -38,7 +38,7 @@ $matrice = array(
 $matrice[2][2];
 ```
 
-###List
+### List
 
 ```php
 $tab = array(4,7,9,10);

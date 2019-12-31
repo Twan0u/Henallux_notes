@@ -1,7 +1,7 @@
 ## Les variables
 Les variables commencent presque systématiquement par un dollar. (sauf constantes).
 
-> le nom des variable est sensible à la case, mais pas celui des fonctions, classes et mots-cléfs
+> le nom des variable est sensible à la case, mais pas celui des fonctions, classes et mots-clés
 
 ```php
 $nom = 'antoine';  
@@ -16,12 +16,20 @@ echo (2+3)/2;
 
 >echo TRUE retourne 1 ET echo FALSE ne **produit rien**
 
-> tentative de transformation de text en nombre ( généralement 0)
+> tentative de transformation de texte en nombre ( généralement 0)
 
-Il existe aussi une valeur NULL 
+Il existe aussi une valeur NULL (undefined n'existe pas)
 
 > isset($var) vrai si la variable existe et ne vaut pas null.
 > empty($var) vrai si $v n'**existe pas** ou **vaut falsy**
+
+On peut aussi effectuer des affectations multiples en php 
+
+```php
+$a = $b = 0;
+```
+
+
 
 ### variables falsy
 * FALSE 
@@ -32,6 +40,17 @@ Il existe aussi une valeur NULL
 * []
 
 > Attention, en javascript "0" est converti en true
+
+
+
+## Les Alias
+
+```
+$b = &$a;
+$a = 'texte'; //modifie aussi $b
+```
+
+
 
 ## Le typage
 
@@ -62,7 +81,7 @@ Pour la conversion vers des nombres entiers,
 
 On peut aussi utiliser :
 
-``` 
+``` php
 settype($var, 'int');
 ```
 
@@ -72,7 +91,7 @@ settype($var, 'int');
 
 les variables globales ne sont pas forcément accessibles depuis une fonction  ( il faut mettre global devant pour les rendre accessibles.
 
-```
+```php
 $intro = 'Le résultat est ';
 $outro= '.<br/>';
 function afficheDouble($v) {
@@ -81,7 +100,7 @@ global $intro, $outro;
 }
 ```
 
-Si une variable globale est passée par référence en argument de la fonction(cfr chpitre fonctions/références de variables), le résultat sera le même 
+Si une variable globale est passée par référence en argument de la fonction(cfr chapitre fonctions/références de variables), le résultat sera le même 
 
 ### Conversions implicites
 exemples
@@ -178,6 +197,7 @@ echo MACONSTANTE // Les constantes s'utilisent sans $
 |Modification| Impossible|possible, ainsi qu'unset|
 
 ## Récupérer le type d'une variable 
+
 ```php
  gettype($var)
 ```

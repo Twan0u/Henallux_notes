@@ -1,8 +1,12 @@
 # Table des Matières 
 
-0. Introduction et bases en PHP
-1. Les variables
+0. Introduction et Bases en PHP
+1. Les Variables
 2. Les Tableaux
 3. Conditions et Boucles
-4. Les fonctions
-5. Access aux données
+4. Les Fonctions
+5. Access aux données et fichiers php
+6. Les Objets en php
+7. L'Héritage 
+8. Classes Abstraites et Interfaces
+
