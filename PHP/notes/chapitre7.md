@@ -70,8 +70,81 @@ self::$nom;
 
 il est utilisé dans les exemples ci dessus mais il peut aussi être utilisé comme suit : 
 
-```
+```php
 $nomDeClasse = 'Etudiant';
 $nomDeClasse::$AgeMaximum;
+```
+
+
+
+## Traits
+
+Les traits sont des moyens de mettre en commun des éléments commun à une classe ensemble (et aussi de faire du multi-héritage). un trait peut être abstrait.
+
+On peut aussi utiliser un trait pour en définir un autre. 
+
+### Créer 
+
+```php
+trait message {
+  public function msg() {
+    echo "Bonjour, je suis un message dans un trait";
+  }
+}
+trait monTrait {
+  public function bob() {
+    echo "Bob";
+  }
+}
+```
+
+### Utilisation
+
+```php
+class Welcome {
+  use message,monTrait;
+}
+```
+
+### Priorité des fonctions
+
+Si une fonction est définie dans un trait, dans la classe mère et redéfinie dans une classe, on suivra l'ordre suivant. 
+
+1. Redéfinition dans la classe
+2. Définition dans le trait
+3. Définition dans la classe mère
+
+### Renomer une fonction ou propriété d'un trait
+
+```php
+class Welcome {
+  use monTrait{
+      monTrait::bob as NomMoinsStupide;
+  }
+}
+```
+
+### Une même fonction ou propriété dans Différents traits
+
+C'est interdit, sauf si on renomme l'une des 2 méthodes/propriétés.
+
+```php
+trait message {
+  public function msg() {
+    echo "Bonjour, je suis un message dans un trait";
+  }
+}
+trait message2 {
+  public function msg() {
+    echo "Bonjour, je suis un message dans un autre trait";
+  }
+}
+
+class welcome{
+    use message,message2{
+        message::msg insteadof message2; //cette fonction reste msg
+        message2::msg as msg2 //cette fonction devient msg2
+    }
+}
 ```
 

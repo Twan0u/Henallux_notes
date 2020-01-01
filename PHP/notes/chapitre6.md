@@ -33,7 +33,17 @@ class Etudiant{
 
 > attention, il y a **2** Under score devant une fonction magique
 
+## Instancier l'objet
 
+```php
+$antoine = new Etudiant("antoine",18);
+```
+
+## modifier / accéder à une propriété 
+
+```php
+$antoine->age = 22;
+```
 
 ## Auto load de classes
 

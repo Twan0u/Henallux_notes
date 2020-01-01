@@ -5,8 +5,10 @@
 2. Les Tableaux
 3. Conditions et Boucles
 4. Les Fonctions
-5. Access aux données et fichiers php
+5. Les Fichiers php
 6. Les Objets en php
 7. L'Héritage 
 8. Classes Abstraites et Interfaces
 
+9. Namespaces
+10. Accès aux données
