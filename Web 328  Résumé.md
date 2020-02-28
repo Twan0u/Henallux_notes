@@ -402,3 +402,76 @@ efcfr Slides
 
 ## Module 8 : Template
 
+On utilise un Template pour uniformiser l'affichage de toutes les pages et pour simplifier l'écriture de code (un seul endroit)
+
+### Comment utiliser un template
+
+#### Configurer
+
+##### dépendances  (pom.xml)
+
+```xml
+<dependency>
+<groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-jsp</artifactId>
+    <version>3.0.8</version>
+</dependency>
+
+```
+
+##### TilesConfig.class
+
+* retirer **internalRessourceViewResolver** de la classe de configuration
+
+* utiliser **TilesViewResolver**:
+
+  ```java
+  @Configuration
+  public class TilesConfiguration{
+      @Bean
+      public TilesConfigurer tilesConfigurer(){
+          final TilesConfigurer configurer = nw TilesConfigurer();
+          configurer.setDefinition("WEB-INF/ressources/tiles.xml");
+          configurer.setCheckRefresh(true);
+          return configurer;
+      }
+      @Bean
+      public ViewResolver tilesViewResolver(){
+          final TilesViewResolver resolver=new TilesViewResolver();
+          reolver.setViewClass(TilesView.class);
+          return resolver;
+      }
+  }
+  ```
+
+
+
+##### tiles.xml
+
+* définition du template
+
+  > cfr page 11
+  >
+  > attention au integrated devant le nom des pages
+
+* préfix des url ou appliquer le template
+
+#### Créer une page de template 
+
+* Définir la page par défaut 
+* Agir comme base pour toutes les autres
+
+#### Creer une page client 
+
+* pages construites sur base du template
+* en incorporant des éléments spécifiques au template dedans 
+
+## Module 9 : Composants et services
+
+### Un java bean
+
+* est sérialisable
+* N'a pas d'arguments constructeurs
+* donne accès aux propriétés par le biais de getters et setters
+
+Est annoté par un **@Component**, un bean peut être pris et injecté dans l'application par spring

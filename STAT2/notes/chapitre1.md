@@ -1,26 +1,34 @@
-# Partie 1
+# Outils Statistiques (Stat2)
 ## Introduction
 
-La Statistique inférentielle à pour but de dégager à partir de renseignements sur un échantillon des renseignements sur une population entière.
+La Statistique inférentielle à pour but de dégager des renseignements sur une population à partir de données sur un échantillon.
 
 ## Rappels
 
 ### Moyenne
-$$\overline{x}= {1\over n} \sum r_{i}.x_{i}$$
 
-### Variance ($Unit^{2}$)
-$$Var x = \overline{x^{2}}-\overline{x}^{2} = \frac{1}{n}.\sum r_{i}.(x_{i})^{2}-(\overline{x})^{2} = \frac{1}{n}\sum r_{i}.(x_{i} - \overline{x})^{2}$$
+$$
+\overline{x}= {1\over n} \sum r_{i}.x_{i}
+$$
+
+### Variance (Unités²)
+$$
+Var x = \overline{x^{2}}-\overline{x}^{2} = \frac{1}{n}.\sum r_{i}.(x_{i})^{2}-(\overline{x})^{2} = \frac{1}{n}\sum r_{i}.(x_{i} - \overline{x})^{2}
+$$
 
 ### Ecart-type
 
-$\sigma (x) = \sqrt{Var(x)}$
+$$
+\sigma (x) = \sqrt{Var(x)}
+$$
 
-### ---
-$S_{n}^{2} =  \frac{r_{i}.(C_{i})^{2}}{n}-\overline{x}^{2}$
-r sont le nombre d'occurence de l'échantillon et c la valeur dans l'échantillon
+-----
 
-## Procédé
-Si on prends un échantillon que l'on soumets à une classification et une énumération dans des catégories propres. On peut calculer sur cet échantillon : une moyenne sur l'échantillon. A première vue, nous serions tentés d'extrapoller les résultats de cette moyenne à toute la population. Mais le résultat serait hautement incorrect et sera discuté ultérieurement. Pour obtenir 95% des résultats : On est entre (Moyenne - 2.Ecart-Type) et (Moyenne + 2.Ecart-Type).
+$$
+S_{n}^{2} =  \frac{r_{i}.(C_{i})^{2}}{n}- \overline{x}^{2}
+$$
+
+r sont le nombre occurrence de l'échantillon et c la valeur dans l'échantillon
 
 # Estimation des paramètres
 ## Estimation ponctuelle, notion d'estimateur
@@ -28,23 +36,33 @@ une **estimation ponctuelle du paramètre** (estimateur) : paramètre dont la va
 
 ### Notations
 
-N : *taille de la population*  
-n : *taille de l'échantillon*  
+| Variable      | Estimateur     |
+| ------------- | -------------- |
+| p             | f              |
+| m             | $\overline{x}$ |
+| $\sigma ^{2}$ | $S_{n}^{2}$    |
 
-m : *moyenne pour la population*  
-$\overline{x}$ : *moyenne pour l'échantillon*  
-
-p : *proportion pour la population*  
-f : *fréquence pour l'échantillon*  
-
-$\sigma ^{2}$ : *variance pour la population*  
-$S_{n}^{2}$ : *variance pour l'échantillon*  
+> N: *taille de la population* 
+>
+> n: *taille de l'échantillon* 
+>
+> m : *moyenne pour la population*    
+>
+> $\overline{x}$ : *moyenne pour l'échantillon*  
+>
+> p: *proportion pour la population*  
+>
+> f : *fréquence pour l'échantillon*  
+>
+> $\sigma ^{2}$: *variance pour la population* 
+>
+> $S_{n}^{2}$ : *variance pour l'échantillon*  
 
 Les paramètres n,$\overline{x}$ et $S_{n}^{2}$ sont des estimateurs. On constate que n et $\overline{x}$ sont des estimateurs **sans biais** tandis que $S_{n}^{2}$ est **biaisé** de $\theta ^{2}$. tandis que $S_{n-1}^{2}$ (**variance corrigée**) est un estimateur **sans biais**(non exhaustif).
 
 ### Echantillons exhaustifs ou non exhaustifs
 
-Un echantillon est **exhaustif** si un même individu ne peut être interrogé plus d'une fois. Sinon, il est **non exhaustif**. La méthode non exhaustive fournit des résultats numériquement proches de la méthode exhaustive tout en utilisant des formules plus simples.
+Un échantillon est **exhaustif** si un même individu ne peut être interrogé plus d'une fois. Sinon, il est **non exhaustif**. La méthode non exhaustive fournit des résultats numériquement proches de la méthode exhaustive tout en utilisant des formules plus simples.
 
 ### La variable aléatoire "estimateur"
 
@@ -70,8 +88,16 @@ $\widehat{\theta}$ doit aussi être **sans biais** (cad : $E( \widehat{\theta}) 
 
 Un estimateur est **absolument correct** si il est **sans biais** et **consistant**
 
+
+
 ## Estimation par intervalle de confiance
+
+## Procédé
+
+Si on prends un échantillon que l'on soumets à une classification et une énumération dans des catégories propres. On peut calculer sur cet échantillon : une moyenne sur l'échantillon. A première vue, nous serions tentés extrapoler les résultats de cette moyenne à toute la population. Mais le résultat serait hautement incorrect et sera discuté ultérieurement. Pour obtenir 95% des résultats : On est entre (Moyenne - 2.Ecart-Type) et (Moyenne + 2.Ecart-Type).
+
 ### Introduction
+
 L'estimation par intervalle de confiance d'un paramètre $\theta$ est un procédé qui consiste à déterminer un intervalle dans lequel le paramètre $\theta$ à une certaine probabilité de se trouver. En général, on fixe l'intervalle de confiance à 95% soit un niveau de confiance de 0.95. à l'opposé du niveau de confiance se situe le niveau d'incertitude $\alpha$ ($1-\theta$).
 
 Il faut donc déterminer $L_{i}$ et $L_{s}$ tels que Pr{$L_{i} \leq \theta \leq L_{s}$}=$1-\alpha$  
