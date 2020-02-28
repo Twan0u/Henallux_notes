@@ -40,7 +40,7 @@ Une variable d'environnement est une variable qui peut être vue comme visible p
 #### Les jokers et Séparateurs
 
 on utilise des '/' comme séparateurs pour désigner un chemin d'accès. 
- 
+
 Les '*' désigne plusieurs caractères. tandis que '?' n'en désigne qu'un seul. 
 
 #### Compilation de programmes en C

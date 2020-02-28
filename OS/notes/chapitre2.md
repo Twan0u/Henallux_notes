@@ -1,7 +1,7 @@
 ## 2.Création de processus
 
 ### Rappels sur les librairies 
-La pluspart des librairies sont des bibliothèques de fonctions ( ex: stdlib, stdio, ... ) 
+La plupart des librairies sont des bibliothèques de fonctions ( ex: stdlib, stdio, ... ) 
 
 ### mode noyau et mode utilisateur
 Pour communiquer avec le noyau, il existe deux modes de fonctionnement ( le mode Noyau et le mode utilisateur )
@@ -57,7 +57,7 @@ int main (void) {
 }
 ```
 
-> toute modification des variable avant le fork affecte le père et le fils. Tandis que toute moification postérieur au fork sera répercuté uniquement sur l'espace d'adressage propre à chaque processus.
+> toute modification des variable avant le fork affecte le père et le fils. Tandis que toute modification postérieur au fork sera répercuté uniquement sur l'espace d'adressage propre à chaque processus.
 
 ### Perror 
 
@@ -95,7 +95,7 @@ Retourne l'identifiant du processus appelant. Cette Fonction réussit toujours.
 pid_t getppid (void); 
 ```
 
-Retourne l'identifiant du processus père qui l'appelle (foncion réussit toujours)
+Retourne l'identifiant du processus père qui l'appelle (fonctzsion réussit toujours)
 
 ### wait 
 
@@ -105,9 +105,9 @@ librairie : stdlib;
 pid_t wait (int * status); 
 ```
 
-permets à un programme père d'attendre qu'un processus fils se termine. Status est utilisé pour réccupérer la valeur de fin du processus fils qui vient de se terminer. 
+permets à un programme père d'attendre qu'un processus fils se termine. Status est utilisé pour récupérer la valeur de fin du processus fils qui vient de se terminer. 
 
-> attention, un fils qui se termine mais qui n'a pas été attendu devient un zombie. lors de sa zombification, le noyau conserve des informations minimales pour permettre au pêre de l'attendre plus tard et obtenir les informations sur le fils. Tant que le zombie n'est pas effacé du système par un wait, il prendra un emplacement dans la table des processus et si cette table est pleine, il sera impossible de créer de nouveaux processus.
+> attention, un fils qui se termine mais qui n'a pas été attendu devient un **zombie**. lors de sa zombification, le noyau conserve des informations minimales pour permettre au père de l'attendre plus tard et obtenir les informations sur le fils. Tant que le zombie n'est pas effacé du système par un wait(accusé de réception du père), il prendra un emplacement dans la table des processus et si cette table est pleine, il sera impossible de créer de nouveaux processus.
 
 ### sleep
 
@@ -137,4 +137,3 @@ En réalité, un processus fils est créé, exécutant sh avec comme entrée la 
 Cette fonction fait donc un fork suivi d'un exec dans la partie fils. Le père fait quant à lui un wait et renvoie la valeur de l'exit status du fils.
 
 > Stdout : utilise un buffer qui affiche quand : une ligne, flush, buffer de 1024 bytes plein. donc si deux processus se partagent la sortie std, il peut y avoir des collisions 
-
