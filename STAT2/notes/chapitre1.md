@@ -1,34 +1,16 @@
 # Outils Statistiques (Stat2)
 ## Introduction
 
-La Statistique inférentielle à pour but de dégager des renseignements sur une population à partir de données sur un échantillon.
+La Statistique inférentielle à pour but de dégager des renseignements sur une population à partir de renseignements obtenus sur un échantillon.
 
 ## Rappels
 
-### Moyenne
+Quelques rappels de statistique descriptive : 
 
-$$
-\overline{x}= {1\over n} \sum r_{i}.x_{i}
-$$
+* **Moyenne** : $\overline{x}= {1\over n} \sum r_{i}.x_{i}$
 
-### Variance (Unités²)
-$$
-Var x = \overline{x^{2}}-\overline{x}^{2} = \frac{1}{n}.\sum r_{i}.(x_{i})^{2}-(\overline{x})^{2} = \frac{1}{n}\sum r_{i}.(x_{i} - \overline{x})^{2}
-$$
-
-### Ecart-type
-
-$$
-\sigma (x) = \sqrt{Var(x)}
-$$
-
------
-
-$$
-S_{n}^{2} =  \frac{r_{i}.(C_{i})^{2}}{n}- \overline{x}^{2}
-$$
-
-r sont le nombre occurrence de l'échantillon et c la valeur dans l'échantillon
+* **Variance (Unités²)** : $Var (x) = \overline{x^{2}}-\overline{x}^{2} = \frac{1}{n}.\sum r_{i}.(x_{i})^{2}-(\overline{x})^{2} = \frac{1}{n}\sum r_{i}.(x_{i} - \overline{x})^{2}$
+* **Ecart-Type** : $\sigma (x) = \sqrt{Var(x)}$
 
 # Estimation des paramètres
 ## Estimation ponctuelle, notion d'estimateur
