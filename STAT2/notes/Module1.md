@@ -1,4 +1,5 @@
-# Outils Statistiques (Stat2)
+# Outils Statistiques pour la data intelligence (Module 1)
+
 ## Introduction
 
 La Statistique inférentielle à pour but de dégager des renseignements sur une population à partir de renseignements obtenus sur un échantillon.
@@ -44,7 +45,7 @@ Les paramètres n,$\overline{x}$ et $S_{n}^{2}$ sont des estimateurs. On constat
 
 ### Echantillons exhaustifs ou non exhaustifs
 
-Un échantillon est **exhaustif** si un même individu ne peut être interrogé plus d'une fois. Sinon, il est **non exhaustif**. La méthode non exhaustive fournit des résultats numériquement proches de la méthode exhaustive tout en utilisant des formules plus simples.
+Un échantillon est dit **exhaustif** si un même individu ne peut être interrogé plus d'une fois. Sinon, il est **non exhaustif**. La méthode non-exhaustive fournit des résultats numériquement proches de la méthode exhaustive tout en utilisant des formules plus simples.
 
 ### La variable aléatoire "estimateur"
 
@@ -55,42 +56,66 @@ Un estimateur est une *variable aléatoire* qui dépends de l'échantillon chois
 * $E(\overline{x})=m$
 * $Var(\overline{x}) = \frac{\sigma ^{2}}{n}$
 * $E(f) = p$
-* $Var(f) = \frac{p.(1-p)}{n}.\frac{N-n}{N-1}$
-* 
+* $Var(f) = \frac{p.(1-p)}{n}$
+* $E(S^2_n)=\frac{n-1}{n}.\sigma^2$
+* $E(S^2_{n-1})=\sigma^2$  $(S^2_{n-1}=\frac{n}{n-1}.S^2_n)$
 
 #### Exhaustif
 
+* $E(\overline{x})=m$
+* $Var(\overline{x})=\frac{\sigma^2}{n}.\frac{N-n}{N-1}$
+* $E(f)=p$
+* $Var(f)=\frac{p(1-p)}{n}.\frac{N-n}{N-1}$
+* $E(S^2_n)=\frac{n-1}{n}.\frac{N}{N-1}.\sigma^2$
+* $E(\frac{N-1}{N}.S^2_{n-1})=\sigma^2$
+
 ### Qualités d'un estimateur
 
-n estimateur est d'autant plus efficace que sa variance est petite. D'une manière générale, on  décrit $\theta$ comme le paramètre à estimer et $\widehat{\theta}$ son estimateur.  
+Un bon estimateur se doit d'être le plus proche possible du paramètre qu'il estime. Il est d'autant plus efficace que sa *variance est petite*.
 
-$\widehat{\theta}$ doit être **consistant** ( au plus l'échantillon de personnes interrogées grandit, au plus $\widehat{\theta}$ se rapproche de $\theta$  
+D'une manière générale, on décrit $\theta$ comme le paramètre à estimer et $\widehat{\theta}$ son estimateur.  
 
-$\widehat{\theta}$ doit aussi être **sans biais** (cad : $E( \widehat{\theta}) =\theta$.
+* $\widehat{\theta}$ doit être **consistant** ( au plus l'échantillon de personnes interrogées grandit, au plus $\widehat{\theta}$ se rapproche de $\theta$  
+
+* $\widehat{\theta}$ doit être **sans biais** (cad : $E( \widehat{\theta}) =\theta$).
 
 Un estimateur est **absolument correct** si il est **sans biais** et **consistant**
 
-
-
 ## Estimation par intervalle de confiance
-
-## Procédé
-
-Si on prends un échantillon que l'on soumets à une classification et une énumération dans des catégories propres. On peut calculer sur cet échantillon : une moyenne sur l'échantillon. A première vue, nous serions tentés extrapoler les résultats de cette moyenne à toute la population. Mais le résultat serait hautement incorrect et sera discuté ultérieurement. Pour obtenir 95% des résultats : On est entre (Moyenne - 2.Ecart-Type) et (Moyenne + 2.Ecart-Type).
 
 ### Introduction
 
-L'estimation par intervalle de confiance d'un paramètre $\theta$ est un procédé qui consiste à déterminer un intervalle dans lequel le paramètre $\theta$ à une certaine probabilité de se trouver. En général, on fixe l'intervalle de confiance à 95% soit un niveau de confiance de 0.95. à l'opposé du niveau de confiance se situe le niveau d'incertitude $\alpha$ ($1-\theta$).
+L'estimation par intervalle de confiance d'un paramètre est un procédé qui consiste à déterminer un intervalle dans lequel le paramètre à une certaine probabilité de se trouver. En général, on fixe l'intervalle de confiance à $95\%$ soit un niveau de confiance de $0,95$. En opposition au niveau de confiance se situe le niveau d'incertitude $\alpha$  qui vaut ici ($1-0,95$) soit $\alpha = 0,05$.
+
+#### Niveau d'incertitude 
+
+Le  niveau d'incertitude est fonction de la précision souhaitée lors de l'étude. On aura donc tendance à diminuer celui-ci dans le cadre d'une étude nécessitant une haute précision. 
+
+![](C:\Users\Antoine Lambert\Documents\Henallux_notes\STAT2\notes\images\incertitude.png)
+
+La zone colorée représente la **marge d'erreur tolérée**. 
+
+## Procédé
+
+On cherches donc à estimer un paramètre. On décide d'un niveau d'incertitude (généralement 0,05). On peut ensuite calculer sur cet échantillon : une moyenne sur l'échantillon. Le but est donc d'obtenir 95% des résultats entre 2 bornes. On aura donc les 2 bornes suivantes : (Moyenne $\pm$ 2.$\sigma^2$).
+
+$L_i$ et $L_s$ vont donc représenter respectivement la limite inférieur et la limite supérieur.
 
 Il faut donc déterminer $L_{i}$ et $L_{s}$ tels que Pr{$L_{i} \leq \theta \leq L_{s}$}=$1-\alpha$  
 
-### Intervalle de confiance d'une proportion
+La variable aléatoire recherchée suivra généralement une loi binomiale. Cette loi peut être approximée par une gaussienne si elle respecte les critères suivants : 
 
-> Sur un échantillon de 1 000 personnes, on constate 18% de fumeurs. On souhaite déterminer un intervalle dans lequel le pourcentage (vrai) de fumeurs pour l’ensemble de la population a 95 chances sur 100 de se trouver. (Echantillon non exhaustif).
+* Le nombre de personnes interrogées est supérieur à 30. ($n>30$)
+
+* Au moins 5 personnes dans les personnes interrogées valident le préposât ($n.p>5$)
+
+  > Si tel est le cas, on peut approximer cette variable aléatoire par une gaussienne d'espérance n*p
+
+### Intervalle de confiance d'une proportion
 
 Il faut donc trouver $L_{i}$ et $L_{s}$ tels que Pr{$L_{i} \leq p \leq L_{s}$}=0.95  
 
-La variable aléatoire est une binomiale qui peut être, sur un échantillon de grande taille approximé par une loi normale d'espérance n.p et de variance n.p.(1-p).on s'interresse donc aux échantillons $n\geq 30$ et $n.p\geq 5$ et $n.(1-p)\geq 5$
+La variable aléatoire est une binomiale qui peut être, sur un échantillon de grande taille approximé par une loi normale d'espérance $np$ et de variance $np.(1-p)$.on s'intéresse donc aux échantillons $n\geq 30$ et $n.p\geq 5$ et $n.(1-p)\geq 5$
 
 n.f suit donc une loi normale $$\frac{f-E(f)}{\sqrt{var (f)}}\approx X^{*}_{G}$$
 
@@ -98,12 +123,11 @@ Nous cherchons donc $-a$ et $a$ tels que
 
 $$Pr\{ -a \leq X^{*}_{G} \leq a \}=0.95 \Leftrightarrow Pr\{X^{ * }_{G} \leq a \}=0.975$$
 
+>  0.975 = 1- $\frac{1-0.95}{2}$
+>
+> $X = 1-\frac{\alpha}{2}$
 
-
-
-0.975 = 1- $\frac{1-0.95}{2}$
-
-à la lecture de la table, 0.975 nous donne un a equivalent à 1,96. On remplace ensuite $X^{ * }_{G}$ dans la formule, ce qui donne : $$Pr\{f-1.96.\sqrt{\frac{p.(1-p)}{n}}\leq p \leq f+1.96.\sqrt{\frac{p.(1-p)}{n}}\}$$
+à la lecture de la table, 0.975 nous donne un a équivalent à 1,96. On remplace ensuite $X^{ * }_{G}$ dans la formule, ce qui donne : $$Pr\{f-1.96.\sqrt{\frac{p.(1-p)}{n}}\leq p \leq f+1.96.\sqrt{\frac{p.(1-p)}{n}}\}$$
 
 
 On se retrouve cependant à estimer p qui contient p dans son expression. On peut soit 
@@ -111,36 +135,51 @@ On se retrouve cependant à estimer p qui contient p dans son expression. On peu
 * remplacer p par son estimation ponctuelle f
 * remplacer p par 0.5 qui maximise la quantité p.(1-p)
 
-Si l'échantillon avait été **exhaustif**, l'interval recherché aurait été : 
+#### Que faire si l'on traite le cas d'un échantillon exhaustif ?
+
+Si l'échantillon avait été **exhaustif**, l'intervalle recherché aurait été : 
 $$\begin{bmatrix}
 f-1.96.\sqrt{\frac{N-n}{N-1}}.\sqrt{\frac{p.(1-p)}{n}}; f+1.96.\sqrt{\frac{N-n}{N-1}}.\sqrt{\frac{p.(1-p)}{n}}
 \end{bmatrix}$$
 
 #### Que faire si Le niveau de confiance n'existe pas dans la table ?
 
-Imaginons un niveau de confiance de 0.99. On obtiens donc 1-1/2.(1-0,99) = 0,995 = a. Il n'existe pas dans la table d'entrées égales à 0.995. Nous alons donc chercher les deux valeurs qui encadrent 0.995 soit $a^{-}$=0.99492 à $g^{-}$=2.57 et $a^{+}$=0.99506 à $g^{+}$=2.58. 
+Dans le cas d'un niveau de confiance $(1-\alpha)$ où $a$ qui vaut $(1-\frac{\alpha}{2})$ n'existerait pas dans la table directement.
+
+ Nous allons donc chercher les deux valeurs qui l'encadrent soit $a^{-}$ qui est équivalent à la valeur précédente dans la table (avec une valeur associée de  $g^-$) et une valeur $a^+$ qui est la valeur suivante dans la table (avec une valeur associée de $g^+$).
 
 par interpolation linéaire, $$a\approx g^{-} + \frac{a-a^{-}}{a^{+}-a^{-}} . (g^{+}-g^{-})=g$$
 
-Dans notre exemple, g est donc la valeur gauss = 2.575714
+> Si on prends l'exemple d'un $a=0,99$. Le g vaut donc 2.575714 par interpolation linéaire.
 
 
 ### Intervalle de confiance d'une moyenne
-#### Les échantillons de grande taille
+#### Les échantillons de grande taille $(n\geq30)$
 
-$\\\\$
 Le résonnement utilisé pour le calcul de p à partir de f peut être étendu à $\overline{x}$. ce qui nous donne pour un échantillon non-exhaustif : 
+
+$\overline{x}\approx X_G$ et donc par conséquent $\frac{\overline{x}-E(\overline{x})}{\sqrt{var(\overline{x})}}\approx X_G^*$
+
+On peut donc en déduire les formules suivantes : 
+
 $$\begin{bmatrix}
-\overline{x} - g.\frac{sigma}{\sqrt{n}};\overline{x} + g.\frac{sigma}{\sqrt{n}}
+\overline{x} - g.\frac{\sigma}{\sqrt{n}};\overline{x} + g.\frac{\sigma}{\sqrt{n}}
 \end{bmatrix}$$  
+
 et pour un échantillon exhaustif :  
+
 $$\begin{bmatrix}
-\overline{x} - g.\sqrt{\frac{N-n}{N-1}}.\frac{sigma}{\sqrt{n}};\overline{x} + g.\frac{sigma}{\sqrt{n}}
+\overline{x} - g.\sqrt{\frac{N-n}{N-1}}.\frac{\sigma}{\sqrt{n}};\overline{x} + g.\frac{\sigma}{\sqrt{n}}
 \end{bmatrix}$$
+
+
+
+----------------------------
+
+
 
 #### Les échantillons de petite taille $(n<30)$
 
-$\\\\$
 Si la population est **distribuée normalement**, c’est-à-dire
 dans l’exemple ci-dessus, si la durée des interventions étudiées
 *suit une loi normale*, on peut dire que la variable aléatoire
