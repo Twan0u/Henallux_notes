@@ -1,86 +1,51 @@
-# Partie 2
+# Outils Statistiques pour la data intelligence (Module 1)
+
 ## Introduction
-Dans le cadre de l'évaluation d'un caractère mesurable. Un paramètre lié à ce caractère est inconnu (moyenne, proportion, variance) ou une loi de probabilité est ce caractère inconnu. Sur base d'une intuition ou d'une connaissance partielle de la réalité, on décide d'émettre une hypothèse concernant ce paramètre ou la loi de distribution. Il est ensuite judicieux d'être capable de porter un jugement sur cette hypothèse sur base d'échantillons obtenus. On opposera donc les résultats théoriques aux résultats issus de l'analyse des échantillons. Si Un écart trop important venait à être remarqué, l'hypothèse serait ainsi fausse et rejetée.
 
-## Hypothèse nulle, hypothèse alternative, seuil de signification
+On étudie un caractère (discret ou continu) sur une population. Un paramètre (moy., prop., var.) est inconnu ou la loi de proba de ce caractère est inconnue. 
 
-**L'hypothèse nulle** est celle que nous allons tester, notée $H_{0}$. Il s'agit pour les paramètres, d'une égalité et *d'affirmations positives pour les tests du khi-deux*.  
+On formule ensuite des hypothèses statistiques sur la valeur ou la loi de distribution de ce paramètre. 
 
-**L'hypothèse alternative** est l'hypothèse que nous acceptons si on rejette $H_{0}$, notée $H_{1}$. Elle s'exprime sous la forme d'une différence($\neq$), d'une inégalité stricte et sous forme d'une affirmation négative
+On posera ensuite un jugement sur cette hypothèse sur base du résultat(s) obtenus sur un échantillon. Il faut que la différence entre les résultats théoriques et observées ne soient pas trop grands. La méthode qui consiste à vérifier que la différence entre ces 2 résultats n'est pas trop grande est appelée le **test d'hypothèse** 
 
->Exemple :  
->Un  client  à  comme  critère  une  résistance  moyenne  d'au  moins  égale  à  13kg  et  un  fabricant,  lui  produit  un  fil  avec  une  résistance  moyenne  de  13kg.
+## Hypothèse Nulle, Hypothèse alternative, seuil de signification
 
-Pour le client on a $H_{0}:m=13$ et $H_{1}:m<13$    
-Tandis que le fabricant aura $H_{0}:m=13$ et $H_{1}:m\neq 13$
+### Hypothèses
 
+L'**hypothèse nulle**($H_0$) est l'hypothèse à tester. Elle s'exprime sous la forme d'une **égalité** (=) pour les tests de valeur et d'égalité et sous la forme d'une affirmation positive pour les tests du khi-deux. 
 
+L'**hypothèse alternative**($H_1$) est celle que nous accepterons si nous sommes amenées à rejeter $H_0$. Elle s'exprime sous la forme : 
 
-**Le seuil de signification** est la probabilité de rejeter $H_{0}$ au profit de $H_{1}$ alors que $H_{0}$ est **vraie**. C'est le risque de commettre une erreur. cette erreur est appelée **erreur de $1^{ère}$ espèce ou risque de la $1^{ère}$ espèce. et est noté $\alpha$
+* d'une ($\neq$) $\rightarrow$ **tests bilatéraux**
+* d'une (<,>)  $\rightarrow$ **tests unilatéraux**
+* d'une affirmation négative pour les tests du khi-deux
 
-Pour les exemples, nous choisirons un *seuil de signification* $\alpha = 0.05$. Cela signifie que si l'on rejette l'*hypothèse nulle*, on a 5% de chances de commettre une erreur. 
+> Il existe des hypothèses nulles qui utilisent $\leq$ et $\geq$. L'hypothèse alternative est alors automatiquement l'inverse de l'hypothèse nulle
 
-> N.B. On pourrait envisager le risque ou erreur de 2$^{e}$ espèce noté $\beta$ qui serait le risque d'accepter L'*hypothèse nulle* alors que celle-ci est fausse. 
+### Test Unilatéral Vs Test Bilatéral
 
-### Méthodologie (peu importe le type de tests)
+Le choix entre un **test unilatéral** ou **bilatéral** dépends souvent de qui demande le test. En effet, passer de l'un à l'autre peut avoir pour effet de changer la conclusion du test
 
-* Fixer les Hypothèses $H_{0} et H_{1}$
-* Préciser le seuil de signification de $\alpha$
-* Préciser la loi de probabilité utilisée (différente en fonction de l'échantillon, type de test, ...)
-* Déterminer le seuil de rejet, la zone de non refus
-* Calculer la grandeur expérimentale
-* Tirer les conclusions
+### Seuil de signification
 
-## Tests de valeur
+Le **seuil de signification** est la probabilité de rejeter $H_0$ ($H_1$ est vrai à tord) alors que $H_0$ est vrai. On appelle cette erreur **erreur ou risque de $1^{ere}$ espèce**. noté $\alpha$
 
-Dans un test de valeur, on test l'hypothèse selon laquelle le paramètre (moy, proportion) est égal à une valeur déterminée. $H_{1}$ exprimera ensuite que le paramètre étudié est ($\neq$,$>$ ou $<$) de la valeur déterminée.
+> note : le risque de 2e espèce ou $\beta$ serait le risque d'accepter $H_0$ alors qu'il est faux.
 
-Dans le cadre de l'évaluation d'une modification sur la population à partir de renseignements obtenus sur un échantillon, on est en droit de se poser la question suivante: **Cette différence est-elle sufisament significative pour affirmer que le paramètre de la population à changé?
+### Démarche 
 
-### Test de valeur d'une proportion
-Dans le cas de grands échantillons (n $\geq$ 30).
-$$n\geq 30 \Rightarrow f \approx N(E(f),\sqrt{var(f)}$$
+1. Fixer les hypothèses $H_0$ et $H_1$
+2. Préciser le seuil de signification de $\alpha$
+3. Préciser la loi de probabilité utilisée 
+4. Déterminer le seuil de rejet, la zone de non refus
+5. Calculer la grandeur expérimentale
+6. Tirer des conclusions
 
+## Tests de valeur 
 
-...
+Dans un **test de valeur**, on teste l'hypothèse selon laquelle le paramètre étudié de la population est égale à une valeur déterminée. L'hypothèse alternative sera alors que le paramètre étudié est différent($\neq$, $<$, $>$) de la valeur déterminée.
 
-> L'appélation "test unilatéral gauche" vient du fait que le seuil de rejet se situe à gauche de l'axe de symétrie de la courbe de Gauss.
+## Tests d'égalité
 
-> Dans certains ouvrages,l'hypothèse est systématiquement le contraire de l'hypothèse alternative. (ex : $H_{0}:p=0.21$ est remplacé par $H_{0}:p \geq 0.21$) ceci ne change ni le déroulement du test, ni sa conclusion.
-
-Pour des Raisons de facilité de compréhension, dans les tests de valeur et d'égalité, nous exprimerons toujours l'hypothèse nulle sous forme d'une égalité.
-
-
-### Test de valeur d'une moyenne
-
-#### a) Les échantillons de grande taille $(n\geq 30)$
-
-rappel : cfr Intervalle de confiance d'une moyenne (part 1)
-
-
-### Test d'indépendance
-On peut sur base d'un échantillon de taille n sufisant déduire si deux variables X et Y sont indépendantes ou non. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Tests du khi-carré
 

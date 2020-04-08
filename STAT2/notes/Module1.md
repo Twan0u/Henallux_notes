@@ -174,10 +174,6 @@ $$\begin{bmatrix}
 
 
 
-----------------------------
-
-
-
 #### Les échantillons de petite taille $(n<30)$
 
 Si la population est **distribuée normalement**, c’est-à-dire
@@ -186,11 +182,33 @@ dans l’exemple ci-dessus, si la durée des interventions étudiées
 « **moyenne standardisée des échantillons** » **suit une loi t
 de Student à (n – 1) degrés de liberté**.
 
-Une variable aléatioire de Student est une variable aléatoire définie de $-\infty$ à $+\infty$ et symétrique par rapport à l'axe verticale. 
+Une variable aléatoire de Student est une variable aléatoire définie de $-\infty$ à $+\infty$ et symétrique par rapport à l'axe verticale. 
 
-Notée $t_{v}$, elle dépends de v (nombre de degrés de liberté). et son graph ressemble à celui de gauss plus applatit. mais il s'en approche en $v\rightarrow \infty$ et $E(t_{v}) = 0$, $Var(t_{v})=\frac{v}{v-2}$ avec $(v>2)$
+Notée $t_{v}$, elle dépends de v (nombre de degrés de liberté). Son graph est semblable à celui de gauss plus aplatit. mais il s'en approche en $v\rightarrow \infty$ et $E(t_{v}) = 0$, $Var(t_{v})=\frac{v}{v-2}$ avec $(v>2)$
 
-v peut être calculé sur base du nombre de personnes interrogées pour former l'échantillon :  si n = 20, v = 20-1
+v peut être calculé sur base du nombre de personnes interrogées pour former l'échantillon :  si n = 20, v = 20-1.
+
+Comme pour la gaussienne, il existe une table à laquelle on peut se référencer pour trouver quelle est la probabilité.
+
+$$t_v \approx \frac{\overline{x}-E(\overline{x})}{\sqrt{var(\overline{x})}}$$
+
+> exemple : Sur un échantillon de 20 patients, on constate une durée moyenne de 125 min et d'écart type 30. Quel est l'intervalle qui reprends 95% des moyennes de temps des interventions. 
+>
+> On à un v = 19 =(20-1). 
+>
+> On recherche donc Pr(-a<$t_{19}$<a)=0,95
+>
+> on à donc les 2 paramètres $\alpha$ = 0.05 et $v$ = 19. la simple lecture de la table de student donne donc  2.093. 
+
+En sachant que $E(\overline{x})=m$ et $var( \overline{x}) = \frac{\sigma^2}{n}$
+
+On obtiens la fonction suivante
+
+$$Pr(\overline{x})\bigg\{\overline{x}-SudentVal*\sqrt{\frac{\sigma^2}{n}}\leq E(\overline{x})\leq\overline{x}+SudentVal*\sqrt{\frac{\sigma^2}{n}}\bigg\}$$
+
+##### Echantillon exhaustif
+
+$$Pr(\overline{x})\bigg\{\overline{x}-SudentVal*\sqrt{\frac{N-n}{N-1}}*\sqrt{\frac{\sigma^2}{n}}\leq E(\overline{x})\leq\overline{x}+SudentVal*\sqrt{\frac{N-n}{N-1}}*\sqrt{\frac{\sigma^2}{n}}\bigg\}$$
 
 ### Intervalle de confiance d'une variance
 
@@ -198,16 +216,17 @@ SKIP
 
 ### Marge d'erreur associée à un intervalle de confiance
 
+La marge d'erreur associée à un intervalle correspond à la **demi amplitude de cet intervalle**.
+
 De façon générale, la marge d'erreur vaut : 
 * Pour l'intervalle de confiance d'une proportion : $a.\sqrt{\frac{p.(1-p)}{n}}$
 * Pour un intervalle de confiance de moyenne : $a.\frac{\sigma}{\sqrt{n}}$
 
-Pour diminuer cette marge d'erreur, nous pouvons soit **augmenter la taille de l'échantillon**, soit **augmenter le niveau d'incertitude**. La marge d'erreur maximale est obtenue lorsque  $p=0.5$
+Pour diminuer cette marge d'erreur, nous pouvons soit **augmenter la taille de l'échantillon**, soit **augmenter le niveau d'incertitude**. 
 
+#### Marge d'erreur Maximale
 
-
-
-\newpage
+La marge d'erreur maximale est obtenue lorsque  $p=0.5$
 
 
 
