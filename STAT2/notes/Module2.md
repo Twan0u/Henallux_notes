@@ -45,6 +45,8 @@ Le **seuil de signification** est la probabilité de rejeter $H_0$ ($H_1$ est vr
 
 Dans un **test de valeur**, on teste l'hypothèse selon laquelle le paramètre étudié de la population est égale à une valeur déterminée. L'hypothèse alternative sera alors que le paramètre étudié est différent($\neq$, $<$, $>$) de la valeur déterminée.
 
+> rappel : dans le cas de grands échantillons ($n\geq 30$): $f\approx N\big (E(f),\sqrt{var(f)}\big )$
+
 ## Tests d'égalité
 
 ## Tests du khi-carré
