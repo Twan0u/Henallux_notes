@@ -452,6 +452,186 @@ o─────────────o ↓ pDébut, message
 
 
 
-## 4. Les Piles et les Files
+## 4. Les Piles
 
-Les **piles** et les **files** sont des structures de données dont les éléments sont ordonnés linéairement
+Les **piles** et les **files** sont des structures de données dont les éléments sont ordonnés linéairement mais qui ne permettent l'accès qu'à un seul élément à la fois.
+
+Les **piles** se basent sur le principe du LIFO (Last In First Out) où le dernier élément à être rentré sera le premier à en sortir. Cette structure est beaucoup utilisé en informatique pour gérer les opérations à effectuer par un processeur. 
+
+Le seul élément de la pile est donc celui qui est situé au sommet de la pile.
+
+En général, une pile possède les opérations suivantes : 
+
+* initialiser la pile 
+* vérifier si la pile est vide 
+* obtenir la valeur du haut de la pile
+* pop : permets de retirer le premier élément situé au sommet de la pile
+* push : permets d'ajouter un élément au sommet de celle-ci
+
+#### 4.1.1 Représentation sous la forme d'un tableau
+
+La pile contient alors un nombre MAX d'éléments qui correspond à la taille du tableau. On stocke alors le sommet en stockant l'indice ou se situe l'élément courant.
+
+#### 4.1.2 Représentation sous la forme d'une liste chainée simple
+
+La taille de la pile est alors de taille dynamique et variable. On stocke le sommet de la pile via un pointeur vers le début de la liste chainée. 
+
+### 4.2 Algorithmes utilisant un tableau
+
+#### 4.2.1 Initialisation 
+
+```
+o────────────────o
+│ initialisation │
+o────────────────o ↓ sommet
+┌─── *
+│ sommet = 0
+└──────────
+```
+
+
+
+#### 4.2.2 Empiler (Push)
+
+```
+o─────────o ↓ pile, sommet, donnéeNouvelle
+│ empiler │
+o─────────o ↓ pile, sommet, message
+┌─── *
+│ message = " "
+│┌── if (sommet < MAX)
+││ pile[sommet] = donnéeNouvelle
+││ sommet ++
+│├── else
+││ message = "la pile est pleine"
+│└──
+└──────────
+
+```
+
+
+
+#### 4.2.3 Dépiler (Pop)
+
+```
+o─────────o ↓ pile, sommet
+│ dépiler │
+o─────────o ↓ pile, sommet, donnée, message
+┌─── *
+│ message = " "
+│┌── if (sommet > 0)
+││ sommet --
+││ donnée= pile[sommet]
+│├── else
+││ message = "erreur: la pile est vide"
+││ donnée= " "
+│└──
+└─────────
+```
+
+
+
+### 4.3 Algorithmes utilisant une liste chaînée simple
+
+#### 4.3.1 Initialisation
+
+```
+o────────────────o
+│ initialisation │
+o────────────────o ↓ sommet
+┌─── *
+│ sommet = null
+└──────────
+```
+
+
+
+#### 4.3.2 Empiler (Push)
+
+```
+o─────────o ↓ sommet, donnéeNouvelle
+│ empiler │
+o─────────o ↓ sommet, message
+┌─── *
+│ message = " "
+│ pNouveau = adresse mémoire nouveau chaînon
+│┌── if (pNouveau ≠ null)
+││ pNouveau → donnée = donnéeNouvelle
+││ pNouveau → pSuiv = sommet
+││ sommet = pNouveau
+│├── else
+││ message = "plus de place mémoire"
+│└──
+└──────────
+```
+
+
+
+#### 4.3.3 Dépiler (Pop)
+
+```
+o─────────o ↓ sommet
+│ dépiler │
+o─────────o ↓ sommet, donnée, message
+┌─── *
+│ message = " "
+│┌── if(sommet == null)
+││ message = "erreur, la pile est vide"
+││ donnée = " "
+│├── else
+││ donnée = sommet → donnée
+││ pSauvé = sommet
+││ sommet = sommet → pSuiv
+││ libérer la place pointée par pSauvé
+│└──
+└──────────
+```
+
+
+
+## 5. Les files
+
+Les **piles** et les **files** sont des structures de données dont les éléments sont ordonnés linéairement mais qui ne permettent l'accès qu'à un seul élément à la fois.
+
+Les **files** se basent sur le principe du FIFO (First In First Out) on peut le comparer à une fille à la caisse d'un super marché, le premier entré dans la file sera le premier à en sortir.
+
+Une file possède une **tête** et une **queue**. 
+
+On peut opérer diverses opérations sur les files : 
+
+* initialiser la file
+* Vérifier si la file est vide
+* accéder à sa tête et obtenir la valeur de celle-ci
+* défiler : supprimer l'élément de la tête 
+* enfiler : ajouter un élément à la fin de la file
+
+### 5.1 Représentation d'une file 
+
+#### 5.1.1 Représentation sous la forme d'un tableau à simple indice 
+
+Dans le cas de la représentation de la file sous la forme d'un tableau. Le nombre maximum d'éléments que l'on peut stocker est équivalent à la taille du tableau. 
+
+Il existe 2 méthodes pour gérer le décalage des éléments au cours du temps : 
+
+##### Gestion circulaire 
+
+On débute à l'indice 0 et l'on avance. Lorsque l'on arrive en bout du tableau, on recommence à enfiler à partir de 0. 
+
+Cette méthode permets d'éviter le décalage  de la deuxième méthode
+
+##### Gestion par décalage
+
+Cette méthode consiste à toujours prendre l'élément à l'indice 0 de la file et ensuite de décaler tous les autres pour combler le vide. 
+
+#### 5.1.2 Liste Chainée Simple 
+
+Le pointeur de tête est l'adresse du premier chainon et le pointeur Queue est le pointeur de l'adresse du dernier chainon
+
+
+
+### 5.2 Algorithmes utilisant un tableau
+
+```
+
+```
+
