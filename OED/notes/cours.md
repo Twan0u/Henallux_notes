@@ -6,6 +6,8 @@ Code cours : OEDB1
 
 Le principe de base d'une structure de données est de stocker en mémoire des données. On pourra effectuer des opérations sur cette structure (Mise à jour, Suppression, Insertion, ...).
 
+### 1.1 Complexité temporelle et spatiale
+
 Les opérations sont caractérisées par leur complexité : 
 
 * Complexité Temporelle : Scalabilité de l'algorithme en fonction de la taille du problème
@@ -13,7 +15,9 @@ Les opérations sont caractérisées par leur complexité :
   * Worst Case : pire cas pour l'algorithme
 * Complexité en espace : Utilisation de l'espace mémoire
 
-Les variables sont caractérisées par leur *type*, il existe des types supportées nativement par la plus part des langages de programmation. ces types sont appelés *types primitifs*. On y trouves
+### 1.2 Les types de variables 
+
+Les variables sont caractérisées par leur *type*, il existe des types supportées nativement par la plus part des langages de programmation. Ces types sont appelés *types primitifs*. On y trouves
 
 * **Entiers** : Taille variable. Il stocke le résultat exact des opérations 
 * **Réel** : La précision est variable en fonction  du nombre de décimales stockées (erreurs d'arrondi)
@@ -21,7 +25,13 @@ Les variables sont caractérisées par leur *type*, il existe des types support�
 * **Caractère** : Stockage suivant le code ASCII ou EBCDIC
 * **Pointeurs** : Adresse en mémoire désignant un objet
 
-Une **structure de donnée** (ou collection) est une structure logique destinée à contenir des données organisées de manière à simplifier le traitement.
+### 1.3 Les structures de données 
+
+Une **structure de donnée** (ou *collection*) est une structure logique destinée à contenir des données organisées de manière à simplifier le traitement.
+
+Un des avantages à l'utilisation de structures de données est de permettre un traitement **plus rapide** et **plus efficace** . Mais surtout de **diminuer la complexité d'une application informatique ainsi que le taux d'erreurs.**
+
+  
 
 ## 2. Tableaux
 
@@ -33,8 +43,8 @@ Chaque cellule d'un tableau peut contenir soit un type primitif, soit une autre 
 
 Les tableaux sont : 
 
-* *Homogène* : tous les éléments sont du même type
-* *A accès direct*  (grâce à l'indice)
+* ***Homogène*** : tous les éléments sont du même type
+* ***A accès direct***   via l'indice, et grâce au fait que les éléments d'un tableau soient stockées de manière contiguë dans la mémoire.
 
 ### 2.1 Types de tableaux
 
@@ -76,11 +86,15 @@ La suppression nécessite de déplacer tout le tableau à partir du point ou il 
 
 Les tableaux multidimensionnels sont des tableaux contenant des tableaux. On peut donc accéder aux données par le biais d'un double index ( premier et second tableau).
 
+Le premier indice désigne généralement la ligne et le second la colonne.
+
 ### 2.2 Algorithmes de recherche
 
 #### 2.2.1 Tableaux non-trié
 
 Complexité temporelle : $O(n)$ 
+
+si recherche fructueuse : (nb+1)/2
 
 ```
  o───────────────────────────────────o ↓ valeurs, nb
@@ -142,6 +156,8 @@ o───────────────o ↓ iValeur
 └──────────
 ```
 
+recherche fructueuse/infructueuse : $$(nb+1) /2$$
+
 
 
 #### 2.2.3 Recherche dichotomique dans un tableau trié
@@ -181,6 +197,10 @@ o────────────────────────o
 
 
 ### 2.3 Bloc Logique 
+
+Lorsque dans un tableau trié suivant un champ déterminé, les cellules successives contiennent la même valeur de ce champ, on à un bloc logique.
+
+La gestion des blocs logiques s'effectue par le biais de zones. Il y a généralement 3 zones. (l'initialisation, le traitement et la clôture). Dans le cas de blocs logiques, une boucle principale à pour objectif de parcourir tous les éléments du tableau. Une autre boucle imbriquée dans la première aura la même condition que la première mais ajoutera une dimension de catégorie principale à cette dernière( on parcours tous les élément d'une catégorie). Si on prends le cas de ( catégorie, sous-catégorie et Soussous Catégorie) on 3 couches et le nombre de boucles nécessaires à cette opération sera 3+1 = 4 (les 3 catégories et la boucle qui parcours tous les éléments). Chaque boucle imbriquée à pour objectif de vérifier que la catégorie en cours est bien celle de élément analysé.
 
 Un bloc logique est un regroupement de cellules dans un tableau partageant les mêmes caractéristiques (ex: regroupement de lieux par ville, puis par quartiers). 
 
@@ -243,9 +263,11 @@ o──────────────────────────�
 
 Une **liste** est une structure de donnée homogène constituée d'éléments ordonnées linéairement et chainées entre eux.
 
+On accède à la liste en désignant le premier chainon par le biais d'un pointeur (généralement appelé *pDébut*) 
+
 Un **chainon** contient **de l'information** et **un pointeur** vers élément suivant dans la liste ( ou NULL si il n'y en a pas).
 
-La gestion de la mémoire de la liste chainée est gérée de manière dynamique et sans déplacement des chainons.
+La gestion de la **mémoire** de la liste chainée est gérée de manière **dynamique** et **sans déplacement des chainons**.
 
 La *liste chainée* peut aussi être **circulaire** alors le dernier élément pointe vers le premier.
 
@@ -631,7 +653,500 @@ Le pointeur de tête est l'adresse du premier chainon et le pointeur Queue est l
 
 ### 5.2 Algorithmes utilisant un tableau
 
+#### 5.2.1 Initialisation
+
+```
+o────────────────o
+│ initialisation │
+o────────────────o ↓ (tête), queue
+┌─── *
+│ (tête = 0)
+│ queue = 0
+└──────────
 ```
 
+#### 5.2.2 Enfiler
+
+```
+o─────────o ↓ file, queue, donnéeNouvelle
+│ enfiler │
+o─────────o ↓ file, queue, message
+┌─── *
+│ message = " "
+│┌── if (queue < MAX)
+││ file[queue] = donnéeNouvelle
+││ queue ++
+│├── else
+││ message = "la file est pleine"
+│└──
+└──────────
+
+```
+
+
+
+#### 5.2.3 Défiler
+
+```
+o─────────o ↓ file, (tête), queue
+│ défiler │
+o─────────o ↓ file, queue, donnée, message
+┌─── *
+│ message = " "
+│┌── if (tête == queue) // ou if( queue == 0)
+││ message = "erreur, la file est vide"
+││ donnée = " "
+│├── else
+││ donnée = file[tête] // ou donnée = file[0]
+││ o──────────o ↓ file, queue
+││ │ décalage │
+││ o──────────o ↓ file, queue
+│└──
+└──────────
+
+o──────────o ↓ file, queue
+│ décalage │
+o──────────o ↓ file, queue
+┌─── *
+│ ind = 0
+│╔══ do while (ind < queue - 1)
+│║ file [ind] = file [ind + 1]
+│║ ind ++
+│╙──
+│ queue --
+└──────────
+```
+
+### 5.3 Algorithmes utilisant une liste chainée simple
+
+#### 5.3.1 Initialisation
+
+```
+o────────────────o
+│ initialisation │
+o────────────────o ↓ tête, queue
+┌─── *
+│ tête = queue = null
+└──────────
+```
+
+
+
+#### 5.3.2 Enfiler
+
+```
+o─────────o ↓ tête, queue, donnéeNouvelle
+│ enfiler │
+o─────────o ↓ tête, queue, message
+┌─── *
+│ message = " "
+│ pNouveau = adresse mémoire nouveau chaînon
+│┌── if (pNouveau ≠ null)
+││ pNouveau → donnée = donnéeNouvelle
+││ pNouveau → pSuiv = null
+││
+││┌── if (tête == null) // ajout dans une file vide
+│││ tête = queue = pNouveau
+││├── else
+│││ queue → pSuiv = pNouveau
+│││ queue = pNouveau
+││└──
+│├── else
+││ message = "plus de place mémoire"
+│└──
+└──────────
+```
+
+
+
+#### 5.3.3 Defiler
+
+```
+o─────────o ↓ tête, queue
+│ défiler │
+o─────────o ↓ tête, queue, donnée, message
+┌─── *
+│ message = " "
+│┌── if (tête == null)
+││ message = "erreur, la file est vide"
+││ donnée = " "
+│├── else
+││ donnée = tête → donnée
+││ pSauvé = tête
+││ tête = tête→ pSuiv
+││ libérer la place pointée par pSauvé
+││┌── if (tête == null) // la file ne contenait qu'un seul chaînon
+│││ queue = null
+││└──
+│└──
+└──────────
+```
+
+
+
+## 6. Les Arbres
+
+Un arbre est une structure de donnée non-linéaire dans laquelle les informations sont retenues dans ce que l'on appelle un nœud. 
+
+Tout nœud de l'arbre est la racine d'un sous-arbre constitué par sa descendance et lui-même. Un arbre est donc une structure récursive.
+
+> <u>terminologie</u> : 
+>
+> * **racine** : sommet de l'arbre. c'est un nœud qui ne possède pas de *père*
+> * **nœud intérieur** : nœud qui possède un *père* (sauf racine) et au moins un *fils*  
+> * **Feuille** : nœud qui termine l'arborescence. il s'agit d'un nœud sans fils
+
+
+
+Un arbre est qualifié de connexe car la séquence des pères partant d'un nœud vers la racine est toujours unique (on à toujours qu'un père).
+
+* **Chemin** : Suite (Unique) à d'arcs à parcourir entre 2 nœuds
+* **Longueur d'un chemin** : nombre d'arcs d'un chemin
+* **Niveau** : longueur du chemin depuis la racine jusqu'à ce nœud 
+* **Hauteur** : longueur du plus long chemin depuis ce nœud jusqu'à une feuille
+* **Hauteur d'un arbre** : hauteur de sa racine 
+* **Profondeur** : combien d'arcs y a t-il pour remonter à la racine
+* **Degré extérieur d'un nœud** : nombre de sous-Arbres d'un nœud
+*  **Degré d'un Arbre** : degré extérieur maximum des nœuds de l'arbre
+* **Un arbre ordonné** : si il existe un ordre au sein de ses sous-arbres
+
+
+
+### 6.1 Arbre Binaire
+
+Un **Arbre Ordonné** de **degré extérieur 2** 
+
+[pGauche, data,pDroit]
+
+#### 6.1.1 Les Parcours 
+
+##### Parcours Pre-Order
+
+Racine, Gauche, Droit
+
+##### Parcours Suffixe, Post-Fixe, Post-Order
+
+Gauche, Droit, Racine
+
+##### Parcours Infixe ou in-Order
+
+Gauche, Racine, Droit
+
+### 6.2 Arbre Binaire de Recherche ( ABR )
+
+Arbre binaire qui possède une clé unique et qui possède une forme d'ordre Arbre Gauche < clé < Arbre Droit.
+
+pGauche|clé|data|pDroit
+
+### 6.3 Algorithmes
+
+#### 6.3.1 Recherche dans un arbre binaire de recherche 
+
+```
+o───────────────────────o ↓ racine
+│ rechercher dans arbre │
+o───────────────────────o
+┌─── *
+│ obtenir cléLue
+│ o─────────────────o ↓ racine, cléLue
+│ │ pNoeudRecherché │
+│ o─────────────────o ↓ pNoeud, père
+│┌── if( pNoeud == null)
+││ sortir "clé absente de l'arbre"
+│├── else
+││ sortir "clé trouvée:", pNoeud → donnée
+│└──
+└──────────
+```
+
+```
+o─────────────────o ↓ racine, cléLue
+│ pNoeudRecherché │
+o─────────────────o ↓ pNoeud, père
+┌─── *
+│ père = null
+│ pNoeud = racine
+│╔══ do while (pNoeud ≠ null and cléLue ≠ pNoeud → clé)
+│║ père = pNoeud
+│║┌── if(cléLue < pNoeud → clé)
+│║│ pNoeud = pNoeud → pGauche
+│║├── else
+│║│ pNoeud = pNoeud → pDroit
+│║└──
+│╙──
+└──────────
+```
+
+> Remarquons que le module pNoeudRecherché renvoie la variable père. Cette variable n’est pas nécessaire dans le cas d’une recherche mais sera indispensable lorsque cette recherche sera suivie d’un ajout ou d’une suppression de nœud. 
+
+```
+o────────────────o ↓ racine, cléLue, donnéeLue
+│ ajout dans ABR │
+o────────────────o ↓ racine, message
+┌─── *
+│ message = " "
+│ o─────────────────o ↓ racine, cléLue
+│ │ pNoeudRecherché │
+│ o─────────────────o ↓ pNoeud, père
+│┌── if (pNoeud ≠ null)
+││ message = "erreur, la clé est déjà présente dans l'arbre"
+│├── else
+││ pNoeudNouv = adresse mémoire nouveau nœud
+││┌── if (pNoeudNouv == null)
+│││ message = "Plus de place mémoire"
+││├── else
+│││ // garnir le nouveau noeud
+│││ pNoeudNouv → clé = cléLue
+│││ pNoeudNouv → donnée = donnéeLue
+│││ pNoeudNouv → pGauche = null
+│││ pNoeudNouv → pDroit = null
+│││ // attacher le noeud à l'arbre
+│││┌── if(racine == null) // arbre vide
+││││ racine = pNoeudNouv
+│││├── else
+││││┌── if(cléLue < père → clé)
+│││││ père → pGauche = pNoeudNouv
+││││├── else
+│││││ père → pDroit = pNoeudNouv
+││││└──
+│││└──
+││└──
+│└──
+└──────────
+```
+
+```
+o────────────────────────────────────────o ↓ racine, cléLue
+│ suppression d'un nœud par déplacement │
+o────────────────────────────────────────o ↓ racine, message
+┌─── *
+│ o─────────────────o ↓ racine, cléLue
+│ │ pNoeudRecherché │
+│ o─────────────────o ↓ pNoeud, père
+│ // voir point 5.5.3.
+│
+│┌── if (pNoeud == null)
+││
+││ message = "clé absente de l'arbre"
+││
+│├── else
+││
+││┌── if (pNoeud → pDroit == null) // le noeud n'a pas de fils droit
+│││
+│││┌── if(pNoeud == racine)
+││││ racine = racine → pGauche
+│││├── else
+││││┌── if(cléLue < père → clé)
+│││││ père → pGauche = pNoeud → pGauche
+││││├── else
+│││││ père → pDroit = pNoeud → pGauche
+││││└──
+│││└──
+││├── else // le noeud a un fils droit
+│││
+│││┌── if(pNoeud == racine)
+││││ racine = racine → pDroit
+│││├── else
+││││┌── if(cléLue < père → clé)
+│││││ père → pGauche = pNoeud → pDroit
+││││├── else
+│││││ père → pDroit = pNoeud → pDroit
+││││└──
+│││└──
+│││
+│││┌── if( pNoeud → pGauche ≠ null)
+││││ pNoeudAccroche = pNoeud → pDroit
+││││╔══ do while (pNoeudAccroche → pGauche ≠ null)
+││││║ pNoeudAccroche = pNoeudAccroche → pGauche
+││││╙──
+││││ // pNoeudAccroche est le plus petit noeud du sous-arbre droit
+││││
+││││ pNoeudAccroche → pGauche = pNoeud → pGauche
+│││└──
+││└──
+││ libérer la mémoire pointée par pNoeud
+│└──
+│
+└──────────
+```
+
+
+
+#### Prefixe
+
+```
+o───────────────────────────o ↓ racine
+│ parcours itératif préfixe │
+o───────────────────────────o
+┌─── *
+│ o────────────────────o
+│ │ initialisationPile │
+│ o────────────────────o ↓ sommet
+│ pNoeud = racine
+│
+│╔══ do while (pNoeud ≠ null OR "pile non vide")
+│║
+│║╔══ do while (pNoeud ≠ null)
+│║║ o──────────────o ↓ pNoeud
+│║║ │ traiterNoeud │
+│║║ o──────────────o
+│║║ o─────────o ↓ sommet, pNoeud
+│║║ │ empiler │
+│║║ o─────────o ↓ sommet
+│║║
+│║║ pNoeud = pNoeud → pGauche
+│║╙──
+│║ o─────────o ↓ sommet
+│║ │ dépiler │
+│║ o─────────o ↓ sommet, pNoeud
+│║
+│║ pNoeud = pNoeud → pDroit
+│╙──
+└──────────
+```
+
+```
+o───────────────────────────o ↓ racine
+│ parcours récursif préfixe │
+o───────────────────────────o
+avec
+o───────────────────────────o ↓ pNoeud
+│ parcours récursif préfixe │
+o───────────────────────────o
+┌─── *
+│┌── if (pNoeud ≠ null)
+││ o─────────────────────o ↓ pNoeud
+││ │ traitement du nœud │
+││ o─────────────────────o
+││ o───────────────────────────o ↓ pNoeud→ pGauche
+││ │ parcours récursif préfixe │
+││ o───────────────────────────o
+││ o───────────────────────────o ↓ pNoeud→ pDroit
+││ │ parcours récursif préfixe │
+││ o───────────────────────────o
+│└──
+└──────────
+
+```
+
+Infixe
+
+```
+o──────────────────────────o ↓ racine
+│ parcours itératif infixe │
+o──────────────────────────o
+┌─── *
+│ o────────────────────o
+│ │ initialisationPile │
+│ o────────────────────o ↓ sommet
+│ pNoeud = racine
+│
+│╔══ do while (pNoeud ≠ null OR "pile non vide")
+│║
+│║╔══ do while (pNoeud ≠ null)
+│║║ o─────────o ↓ sommet, pNoeud
+│║║ │ empiler │
+│║║ o─────────o ↓ sommet
+│║║
+│║║ pNoeud = pNoeud → pGauche
+│║╙──
+│║ o─────────o ↓ sommet
+│║ │ dépiler │
+│║ o─────────o ↓ sommet, pNoeud
+│║ o──────────────o ↓ pNoeud
+│║ │ traiterNoeud │
+│║ o──────────────o
+│║ pNoeud = pNoeud → pDroit
+│╙──
+└──────────
+```
+
+```
+o──────────────────────────o ↓ racine
+│ parcours récursif infixe │
+o──────────────────────────o
+avec
+o──────────────────────────o ↓ pNoeud
+│ parcours récursif infixe │
+o──────────────────────────o
+┌─── *
+│┌── if (pNoeud ≠ null)
+││ o──────────────────────────o ↓ pNoeud→ pGauche
+││ │ parcours récursif infixe │
+││ o──────────────────────────o
+││ o─────────────────────o ↓ pNoeud
+││ │ traitement du nœud │
+││ o─────────────────────o
+││ o──────────────────────────o ↓ pNoeud→ pDroit
+││ │ parcours récursif infixe │
+││ o──────────────────────────o
+│└──
+└──────────
+```
+
+
+
+Suffixe
+
+```
+o───────────────────────────o ↓ racine
+│ parcours itératif suffixe │
+o───────────────────────────o
+┌─── *
+│ o────────────────────o
+│ │ initialisationPile │
+│ o────────────────────o ↓ sommet
+│ pNoeud = racine
+│
+│╔══ do while (pNoeud ≠ null OR "pile non vide")
+│║
+│║╔══ do while (pNoeud ≠ null)
+│║║ o─────────o ↓ sommet, pNoeud, passage = 1
+│║║ │ empiler │
+│║║ o─────────o ↓ sommet
+│║║
+│║║ pNoeud = pNoeud → pGauche
+│║╙──
+│║ o─────────o ↓ sommet
+│║ │ dépiler │
+│║ o─────────o ↓ sommet, pNoeud, passage
+│║┌── if (passage == 1)
+│║│ passage ++
+│║│ o─────────o ↓ sommet, pNoeud, passage
+│║│ │ empiler │
+│║│ o─────────o ↓ sommet
+│║│
+│║│ pNoeud = pNoeud → pDroit
+│║├── else
+│║│ o──────────────o ↓ pNoeud
+│║│ │ traiterNoeud │
+│║│ o──────────────o
+│║│ pNoeud = null
+│║└──
+│╙──
+└──────────
+```
+
+```
+o───────────────────────────o ↓ racine
+│ parcours récursif suffixe │
+o───────────────────────────o
+avec
+o───────────────────────────o ↓ pNoeud
+│ parcours récursif suffixe │
+o───────────────────────────o
+┌─── *
+│┌── if (pNoeud ≠ null)
+││ o───────────────────────────o ↓ pNoeud→ pGauche
+││ │ parcours récursif suffixe │
+││ o───────────────────────────o
+││ o───────────────────────────o ↓ pNoeud→ pDroit
+││ │ parcours récursif suffixe │
+││ o───────────────────────────o
+││ o─────────────────────o ↓ pNoeud
+││ │ traitement du nœud │
+││ o─────────────────────o
+│└──
+└──────────
 ```
 

@@ -226,7 +226,7 @@ double percentage(int sum, int total);
 #### Fonction displayBarChart()
 
 ```c
-/* 	crée un graphique à bars (cfr interface 2 - document de projet)
+/* 	Crée un graphique à bars (cfr interface 2 - document de projet)
  *  @params TODO
  *  @return void
  */
