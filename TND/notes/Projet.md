@@ -61,7 +61,20 @@ pie
 
 ## Modélisation
 
-### Librairie classificationStatistics
+### Modélisation générale
+
+```mermaid
+graph LR;
+    UI---Business;
+    Business-->Dao;
+    Dao-.->Business;
+    Business-->Modele;
+    Modele-.->Business;
+```
+
+Ce programme se compose de 4 modules. L'**UI** est la partie responsable des interactions avec l'utilisateur.  La partie **Business** est quand à elle responsable des traitements. Elle fera donc appel à la partie **Dao** pour extraire et formater les données issues (dans ce cas-ci) de fichiers CSV. La dernière partie concerne La manière d'analyser les données. Il peut être utile d'analyser les données reçues au moyen de différents algorithmes pour obtenir de meilleurs résultats d'analyse. Voilà le travail de la partie **Modele** qui peut être changée pour accueillir un autre algorithme plus performant.
+
+###  Librairie classificationStatistics
 
 ```mermaid
 graph TD;
@@ -85,6 +98,8 @@ graph TD;
     	compareVectors-->compare;
     end
 ```
+
+
 
 #### Fonction:  researchClasses()
 
@@ -343,7 +358,7 @@ La vélocité du groupe est de **6.5 points**.
 * Implémentation de sizeUpArray() (Antoine) - 19/04 - vélocité 0,5
 * Implémentation de DisplayAccuracy() (Antoine) - 19/04 - vélocité 0,5
 
-##### Les tâches à effectuer dans le prochain sprint sont : s
+##### Les tâches à effectuer dans le prochain sprint sont : 
 
 * 
 

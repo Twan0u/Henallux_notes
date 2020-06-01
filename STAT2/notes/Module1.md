@@ -41,7 +41,7 @@ une **estimation ponctuelle du paramètre** (estimateur) : paramètre dont la va
 >
 > $S_{n}^{2}$ : *variance pour l'échantillon*  
 
-Les paramètres n,$\overline{x}$ et $S_{n}^{2}$ sont des estimateurs. On constate que n et $\overline{x}$ sont des estimateurs **sans biais** tandis que $S_{n}^{2}$ est **biaisé** de $\theta ^{2}$. tandis que $S_{n-1}^{2}$ (**variance corrigée**) est un estimateur **sans biais**(non exhaustif).
+Les paramètres n, $\overline{x}$ et $S_{n}^{2}$ sont des estimateurs. On constate que n et $\overline{x}$ sont des estimateurs **sans biais** tandis que $S_{n}^{2}$ est **biaisé** de $\theta ^{2}$. tandis que $S_{n-1}^{2}$ (**variance corrigée**) est un estimateur **sans biais**(non exhaustif).
 
 ### Echantillons exhaustifs ou non exhaustifs
 
@@ -75,7 +75,7 @@ Un bon estimateur se doit d'être le plus proche possible du paramètre qu'il es
 
 D'une manière générale, on décrit $\theta$ comme le paramètre à estimer et $\widehat{\theta}$ son estimateur.  
 
-* $\widehat{\theta}$ doit être **consistant** ( au plus l'échantillon de personnes interrogées grandit, au plus $\widehat{\theta}$ se rapproche de $\theta$  
+* $\widehat{\theta}$ doit être **consistant** ( au plus l'échantillon de personnes interrogées grandit, au plus $\widehat{\theta}$ se rapproche de $\theta$ )
 
 * $\widehat{\theta}$ doit être **sans biais** (cad : $E( \widehat{\theta}) =\theta$).
 
@@ -169,7 +169,7 @@ $$\begin{bmatrix}
 et pour un échantillon exhaustif :  
 
 $$\begin{bmatrix}
-\overline{x} - g.\sqrt{\frac{N-n}{N-1}}.\frac{\sigma}{\sqrt{n}};\overline{x} + g.\frac{\sigma}{\sqrt{n}}
+\overline{x} - g.\sqrt{\frac{N-n}{N-1}}.\frac{\sigma}{\sqrt{n}};\overline{x} + g.\sqrt{\frac{N-n}{N-1}}.\frac{\sigma}{\sqrt{n}}
 \end{bmatrix}$$
 
 
