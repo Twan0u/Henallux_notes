@@ -77,7 +77,7 @@ et donc $$\frac{\overline{x}-E(\overline{x})}{\sqrt{\overline{x}}}\approx X^*_G$
 
 ## Tests d'égalité
 
-Un test d'égalité essaye de voir si il y a des similarités pour le caractère observé entre les 2 populations
+Un test d'égalité essaye de voir si il y a des similarités pour le caractère observé entre les **2 populations**
 
 ### Test d'égalité de deux proportions
 
@@ -142,3 +142,10 @@ on comprends la variable d qui représente $d=\overline{x}_1-\overline{x}_2$
 
 ## Tests du khi-carré
 
+Le test du Khi-deux permet de vérifier la quantité de l'ajustement entre une distribution théorique et une distribution expérimentale ou encore de tester l'indépendance entre 2 variables
+
+### Test D'ajustement
+
+> Ex: ce dé est-il équilibré
+
+Soit un échantillon de taille suffisamment grande sur lequel on observe les différentes modalités prises par une variable (et si besoin est, regrouper les données par classes).
