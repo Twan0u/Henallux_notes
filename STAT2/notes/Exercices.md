@@ -115,7 +115,7 @@ On recherche donc l'intervalle de confiance suivant :
 $$
 Pr\{f-a.\sqrt{\frac{p.(1-p)}{n}}\leq p\leq f+a.\sqrt{\frac{p.(1-p)}{n}}\}=1-\alpha
 $$
-On va débuter par rechercher a. Il nous faut pour celà $\alpha$ que l'on  peut facilement calculer à l'aide du niveau de confiance
+On va débuter par rechercher a. Il nous faut pour cela $\alpha$ que l'on  peut facilement calculer à l'aide du niveau de confiance
 $$
  \alpha = 0.05
 $$
@@ -132,7 +132,7 @@ Pr(f-1.96.\sqrt{\frac{p.(1-p)}{n}}\leq p\leq f+1.96.\sqrt{\frac{p.(1-p)}{n}})=0.
 $$
 On recherche la solution à : $1.96.\sqrt{\frac{p.(1-p)}{n}}$
 
-On remplace p dans l'équation par son estimation ponctuelle et on trouve que : $1.96.\sqrt{\frac{0,385.(1-0,383)}{1000}}=0,0302$
+On remplace p dans l'équation par son estimation ponctuelle et on trouve que : $1.96.\sqrt{\frac{0,385.(1-0,385)}{1000}}=0,0302$
 
 > 0,0302 = 3,02% représente l'amplitude de l'intervalle de confiance (Marge d'erreur ME)
 
