@@ -279,7 +279,7 @@ $$
 $$
 On retrouve la formule donnée dans les informations du début au sein de cette formule :  et on remplace donc $\sum(x_i-\overline{x})^2$  par $0.44 $ et n par 65
 
- 
+
 $$
 [1,5-1.96.\frac{\sqrt{\frac{0,44}{65}}}{\sqrt{65}};1,5+1.96.\frac{\sqrt{\frac{0,44}{65}}}{\sqrt{65}}]\\
 [1,5-1.96.\sqrt{\frac{0,00676923076}{65}};1,5+1.96.\sqrt{\frac{0,00676923076}{65}}]\\

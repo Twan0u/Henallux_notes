@@ -36,15 +36,18 @@ L'état actuel d'avancement du projet peut être observé via le tableau scrum T
 
 ### Vélocité
 
-La vélocité est la mesure de la capacité d'un groupe à réaliser des tâches. Chaque tâche obtiens un poids directement lié à sa complexité et/ou au temps nécessaire à sa réalisation. (Le poids d'une tâche est subjectif au groupe)
+La vélocité est la mesure de la capacité d'un groupe à réaliser des tâches. Chaque tâche obtiens un poids directement lié à sa complexité et/ou au temps nécessaire à sa réalisation. (Le poids d'une tâche est plus ou moins équivalent à 1h)
 
 ```mermaid
 pie
     title Vélocité (par sprint)
-    "Sprint 1" : 5
-    "Sprint 2" : 1
-    "Sprint 3" : 7.5
-    "Sprint 4" : 2.5
+    "Sprint 1 (5)" : 5
+    "Sprint 2 (1)" : 1
+    "Sprint 3 (7,5)" : 7.5
+    "Sprint 4 (4)" : 4
+    "Sprint 5 (4,5)" : 4.5
+    "Sprint 6 (4,5)" : 4.5
+    
 ```
 
 
@@ -61,7 +64,7 @@ pie
 
 ## Modélisation
 
-### Modélisation générale
+### Modélisation générale1
 
 ```mermaid
 graph LR;
@@ -84,18 +87,13 @@ graph TD;
     	displayBarChart
     end
 	displayResultsForEachClasses-->researchClasses;
-    displayAccuracy-->compareVectors;
-    
-    
+    displayAccuracy-->compare;
     
         
     displayBarChart;
     subgraph private
 		researchClasses-->addWithoutDuplicateClasses;
-    	addWithoutDuplicateClasses-->sizeUpArray;
-    	displayResultsForEachClasses-->percentage;
-    	displayResultsForEachClasses-->compareVectors;
-    	compareVectors-->compare;
+    	displayResultsForEachClasses-->compare;
     end
 ```
 
@@ -106,11 +104,11 @@ graph TD;
 ```c
 /* 	Crée un tableau reprenant les classes différentes que contiens realClasses et supprime les doublons.
  *
- *  @param 	realClasses est un vecteur contenant de une série de classes
+ *  @param realClasses est un tableau contenant de les classes existantes
  *
- *  @return une structure de donnée contenant un tableau avec les classes individuellement différentes et le nombre total de classes individuellement différentes disponibles.
+ *  @return un le nombre de classe différentes existant
  */
-Classes researchClasses(int* realClasses, int realClassesSize)
+int researchClasses(int* realClasses, int realClassesSize)
 ```
 
 
@@ -118,46 +116,10 @@ Classes researchClasses(int* realClasses, int realClassesSize)
 #### Fonction : addWithoutDuplicateClasses
 
 ```c
-/* Ajoute à la structure Classes un élément si celui-ci n'existe pas déjà dedans. Cette fonction incrémentera ensuite le compteur de classes de 1 si elle à ajouté un élément
- *
- * @param classes est une structure contenant un tableau et la taille de celui-ci. Il est utilisé pour stocker les différentes classes individuellement différentes
- * @param newItem est le nouvel élément à ajouter à classes
- *
- * @return la structure classes entrée en paramètre d'entrée à laquelle on doit ou non ajouter newItem si celui-ci n'était pas déjà présent. cette structure aura son compteur size augmenté de 1 si un élément à été ajouté
+/*
+*
 */
-Classes addWithoutDuplicateClasses(Classes classes, int newItem);
-```
-
-
-
-#### Fonction : sizeUpArray
-
-```c
-/* Prends le tableau oldArray et le copie dans un nouveau tableau qui mesure une unité de plus que oldArray
- *
- * @param oldArray ancien tableau que l'on souhaite agrandir et copier
- * @param newArray nouveau tableau de taille sizeOldArray +1 dans lequel on va copier les données de l'ancien
- * @param sizeOldArray taille de l'ancien tableau oldArray
- *
- */
-void sizeUpArray(int* oldArray,int* newArray, int sizeOldArray)
-```
-
-
-
-#### Structure: Classes
-
-```c
-/* Contiens un tableau de classes et la taille de ce tableau
- *
- * vector est un tableau contenant des entiers
- * size est la taille de ce tableau
- */
-typedef struct Classes Classes;
-struct Classes {
-    int *vector;
-    int size;
-};
+int addWithoutDuplicateClasses(Classes classes, int newItem);
 ```
 
 
@@ -165,29 +127,10 @@ struct Classes {
 #### Fonction: compare()
 
 ```c
-/*	Compare 2 entiers et vérifie que ceux-ci sont identiques
- *
- *	@param firstElement premier entier à comparer
- *	@param secondElement second entier à comparer
- *
- *	@return 0 si les 2 éléments sont identiques et autre chose sinon
- */
-int compare(int firstElement, int secondElement);
-```
-
-
-
-#### Fonction: compareVectors()
-
-```c
-/*	Compare 2 vecteurs entre eux et retourne un tableau de taille identique au premier vecteur mis en paramètre. Si l'élément du tableau vaut 0, cela signifie que les 2 vecteurs ont le même contenu.
- *
- *	@param realClasses est le premier vecteur a comparer
- *  @param estimateClasses est un second vecteur qui sera comparé au premier
- *
- *  @return un tableau d'entier de même taille que realClasses qui contiens un 0 quand les 2 éléments du tableau sont identiques et autre chose quand ils sont différents
- */
-int *compareVectors(int *realClasses, int *estimateClasses);
+/*
+*
+*/
+void compare(int* malClasse,int* realClasses,int* estimateClasses,int nbRealClasse)
 ```
 
 
@@ -197,11 +140,11 @@ int *compareVectors(int *realClasses, int *estimateClasses);
 ```c
 /*  Affiche un tableau reprenant les différentes classes disponibles (cfr interface1 - document de projet), combien ont bien été classées dans estimateClasses, le nombre d'occurences de chaque classe dans vecteur realClasses et un pourcentage de classes qui ont bien été classées dans estimateClasses.
  *
- *  @param realclasses est un vecteur de classes
+ *  @param realclasses est un tableau de vecteur
  *
  *  @return void
  */
-void displayResultsForEachClasses(int *realClasses, int *estimateClasses);
+void displayResultsForEachClasses( int *realClasses, int* estimateClasses,int nbRealClasse)
 ```
 
 
@@ -213,44 +156,57 @@ void displayResultsForEachClasses(int *realClasses, int *estimateClasses);
  *
  *  @param realClasses est un vecteur de classes concrètes
  *  @param estimateClasses est un vecteur de classes estimées par le programme
+ *  @param sizeOfRealClasses est la taille du vecteur realClasses
  *
  *  @return void
  */
-void displayAccuracy(int *realclasses, int *estimateClasses);
+void displayAccuracy(int *realClasses, int *estimateClasses, int sizeOfRealClasses)
 ```
 
 
 
-#### Fonction Percentage()
+#### Fonction generateClasses
 
 ```c
-/* retourne le calcul d'un pourcentage de ( sum / total ) * 100
- *
- * @param sum est le nombre de réalisation
- * @param total est le nombre d'essais
- *
- * @return un pourcentage. Si sum est suppérieur à total, retourne 100.
- */
-double percentage(int sum, int total);
+/*
+*
+*/
+void generateClasses(double** classes, int* realClasses, int* estimateClasses, double** patterns, int nbRealClasse,char ** category)
 ```
 
 
 
--------
+#### Fonction displayScale()
+
+```c
+/* crée une échelle  pour le graphique à barre
+ * @params scale est l'échelle  = nombre d'élements total/50
+ * @return void
+ */
+void displayScale(int scale)
+```
+
+
 
 #### Fonction displayBarChart()
 
 ```c
-/* 	Crée un graphique à bars (cfr interface 2 - document de projet)
- *  @params TODO
+/* 	crée un graphique à bars (cfr interface 2 - document de projet)
+ *  @params realClasses
+ *  @params estimateClasses
+ *  @params nbRealClasse
  *  @return void
  */
-void displayBarChart();
+void displayBarChart(int* realClasses, int* estimateClasses, int nbRealClasse)
 ```
 
-
-
 > D'autres classes sont susceptibles d'apparaitre en cours de projet pour satisfaire les besoins éventuels du projet et sa mise en œuvre.
+
+
+
+## Choix d'implémentations (et optimisations)
+
+A plusieurs endroits du projet, nous avons utilisés de larges tableaux pour transférer les données. Il serait possible de gagner des performances en éliminant ces écritures et lectures inutiles mais cette implémentation à été volontairement effectuée pour permettre une plus grande souplesse dans l'implémentation de la couche d'accès aux données et de permettre si besoin est de changer de moyen de stockage (fichier binaire ou encore base de donnée)
 
 
 
@@ -329,23 +285,9 @@ La vélocité du groupe est de **1 point**.
 * coder la fonction percentage() (Antoine) - 31/03 - vélocité 1
 * test de la fonction percentage() (Antoine) - 31/03 - vélocité 1
 
-##### Les tâches à effectuer dans le prochain sprint sont : 
-
-* 
-
-##### Rétrospective sur le sprint
-
-###### Ce qui à été
-
-* 
-
-###### Ce qui pourrait être amélioré
-
-* 
-
 ###### Vélocité du groupe
 
-La vélocité du groupe est de **6.5 points**.
+La vélocité du groupe est de **7.5 points**.
 
 
 
@@ -357,6 +299,36 @@ La vélocité du groupe est de **6.5 points**.
 * Implémentation de addWithoutDuplicateClasses() (Antoine) - 19/04 - vélocité 1,5
 * Implémentation de sizeUpArray() (Antoine) - 19/04 - vélocité 0,5
 * Implémentation de DisplayAccuracy() (Antoine) - 19/04 - vélocité 0,5
+* Implémentation d'affichage du graphique en bars (Arnaud)-19/04 - Vélocité 1
+
+###### Vélocité du groupe
+
+La vélocité du groupe est de **4 points**.
+
+## Cinquième Sprint (20/04/20-20/05/20)
+
+##### Les tâches effectuées dans ce sprint sont : 
+
+* Implémentation de researchClasses() (Antoine) - 19/04 - vélocité 0,5
+* Afficher et lister les fichiers contenus dans un répertoire (Antoine) - 25/04 - Vélocité 3
+* Lire les données issues d'un fichier CSV (Antoine) - 30/04 - Vélocité 3
+* Ecrire les données dans un fichier CSV (Antoine) - 10/05 - Vélocité 3
+
+###### Note
+
+Une personne du groupe est tombé malade ce qui à négativement impacté les performances pour ce sprint
+
+###### Vélocité du groupe
+
+La vélocité du groupe est de **9,5 points**.
+
+## Sixième Sprint (20/05/20-5/06/20)
+
+##### Les tâches effectuées dans ce sprint sont : 
+
+* Génération des patterns (Arnaud) - 04/06 - vélocité 0,5
+* Fonction de distance euclidienne - 04/06 - vélocité 1
+* Mise en place Classification Statistics - 04/06 - Vélocité 3
 
 ##### Les tâches à effectuer dans le prochain sprint sont : 
 
@@ -366,17 +338,17 @@ La vélocité du groupe est de **6.5 points**.
 
 ###### Ce qui à été
 
-* 
+* Pas de tension au sein du groupe 
+* disponibilité de l'équipe
 
 ###### Ce qui pourrait être amélioré
 
-* 
+* retard pris sur les deadlines
+* Manque de coordination dans le travail
 
 ###### Vélocité du groupe
 
-La vélocité du groupe est de **2,5 points**.
-
-
+La vélocité du groupe est de **4,5 points**.
 
 
 
