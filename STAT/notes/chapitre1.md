@@ -3,9 +3,12 @@
 ## Définitions 
 
 **Expérience aléatoire** : est une expérience où le hasard intervient.   
+
 **Espace d'échantillonnage ($\Omega$)** : l'ensemble de toute les issues possibles d'une expérience aléatoire.  
-**Evénement** : tout sous ensemble de $\Omega$.  
-**Evénement Impossible($\Phi$)** : évémenement qui ne se produira jamais.
+
+**Evénement** : tout sous-ensemble de $\Omega$.  
+
+**Evénement Impossible($\Phi$)** : événement qui ne se produira jamais.
 
 ## Lois de probabilités
 
@@ -21,24 +24,24 @@ $0 \leq P(A) \leq 1$
 
 $\overline{A\cap B} = \overline{A} \cup \overline{B}$
 
-$A \textbackslash B = A \cap \overline{B}$
+$A$  \ $B = A \cap \overline{B}$
 
 $0 \leq Pr(A) \leq 1$
 
 $Pr(\overline{A}) = 1-P(A)$
 
-## Probabilité conditionnellere
+## Probabilité conditionnelle
 
 Probabilité de A sachant que B est réalisé : $$P(A|B) = \frac{P(A \cap B)} {P(B)}$$
 
 P(A$\cap$B) = P(A|B).P(B)   
+
 P(A$\cap$B) = P(B|A).P(A)
 
 
 > Nota-bene : Si dans un exercice, on utilise "Au moins un", c'est équivalent à dire que "tout sauf rien" $\rightarrow$ 1 - Probabilité de ne rien avoir
 
 ## 5.3 Probabilités des causes (Théorème de Bayes)
-
 
 Formule de Bayes:
 $$Pr(B|A) = \frac{Pr(A|B).Pr(B)}{Pr(A)}$$
@@ -49,6 +52,20 @@ $$Pr(A)=\sum_{i=1}^n Pr(A|B_i).Pr(B_i)$$
 
 Formule de Bayes "améliorée":
 $$Pr(B_k|A)=\frac{Pr(A|B_k).Pr(B_k)}{Pr(A)}=\frac{Pr(A|B_k).Pr(B_k)}{\sum_{i=1}^n Pr(A|B_i).Pr(B_i)}$$
+
+### Le filtre Anti-Spam
+
+Les filtres anti-spam des boites d'e-mail fonctionnent sur le principe que plus un mot contenu dans le mail à tendance à se retrouver dans spam au plus, si le mot se trouve dans ce mail, ce mot à tendance à être un spam.
+
+
+
+$$Pr(S|M)= \frac{Pr(M|S)*Pr(S)}{Pr(M|S)*Pr(S)+Pr(M|H)*Pr(H)}$$
+
+
+
+
+
+
 
 
 ## Evénements statistiquement indépendants 
@@ -64,3 +81,6 @@ $Pr(A\cap B)=Pr(A).Pr(B)$
 Deux événements sont statstiquements indépendants ssi : P(A|B) = P(A)
 
 > Nota-bene : Une indépendance statistique n'est pas forcément vraie dans le monde réele. car la statistique est calculée sur un échantillon qui peut ne pas être représentatif
+
+## 
+
