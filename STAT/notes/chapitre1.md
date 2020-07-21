@@ -66,8 +66,6 @@ $$Pr(S|M)= \frac{Pr(M|S)*Pr(S)}{Pr(M|S)*Pr(S)+Pr(M|H)*Pr(H)}$$
 
 
 
-
-
 ## Evénements statistiquement indépendants 
 
 Les deux équations suivantes ne sont valables que si A et B sont *statistquement indépendants*
