@@ -47,12 +47,13 @@ Les '*' désigne plusieurs caractères. tandis que '?' n'en désigne qu'un seul.
 
 On utilise GCC ( Gnu Compiler collection )
 
-```
+```shell
 gcc hello.c -o hello
 ```
 
 on peut ensuite exécuter le programme avec un './'
 
-```
+```bash
 ./hello
 ```
+

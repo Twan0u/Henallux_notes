@@ -95,7 +95,7 @@ Retourne l'identifiant du processus appelant. Cette Fonction réussit toujours.
 pid_t getppid (void); 
 ```
 
-Retourne l'identifiant du processus père qui l'appelle (fonctzsion réussit toujours)
+Retourne l'identifiant du processus père qui l'appelle (fonctions réussit toujours)
 
 ### wait 
 

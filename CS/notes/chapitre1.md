@@ -12,17 +12,9 @@ On peut ainsi écrire des *.EXE* qui sont des applications et des *.dll* qui son
 
 Les fichiers de code C# : portent **l'extension *.cs*** et **commencent par une majuscule**
 
-Le C# est un langage qui est sensible à la case. Cela signifie qu'une majuscule dans le nom d'une variable ou d'une fonction indique une autre variable ou une autre fonction.
+Le C# est  un langage qui est sensible à la case. Cela signifie qu'une majuscule dans le nom d'une variable ou d'une fonction indique une autre variable ou une autre fonction. 
 
-### 1.2 Fiche Technique
-
-#### Type de langage : 
-
-Orienté objet
-
-#### Case
-
-PascalCase
+Le C# utilise la nomenclature du PascalCase.
 
 #### Particularités techniques: 
 
@@ -32,7 +24,7 @@ Contrairement à son cousin Java, on peut  (Pas conseillé par les règles de Cl
 * écrire plusieurs définition de classes dans le même fichier 
 * répartir la définition d'une classe sur plusieurs fichier (Utile dans le cas d'un travail ou il faut coordonner plusieurs équipes ou le cas de l'utilisation de Framework)
 
-### 1.3 Programme de base
+### 1.2 Programme de base
 
 ```c#
 using System; 									// *1
@@ -43,13 +35,14 @@ namespace TestingPurposes 						// *2
     {
         static void Main(string[] args)			// *4
         {
-            Console.WriteLine("Hello World!");	// *5
+            Console.WriteLine("Hello World!");	// Cette ligne écrit la chaîne Hello World dans la console
+            Console.ReadKey();// Cette Ligne lit le caractère rentré par l'utilsateur (équivalent à getChar en C)
         }
     }
 }
 ```
 
-#### 1.3.1 Les Importations 
+#### 1.2.1 Les Importations 
 
 Un Projet informatique peut demander d'utiliser des fonctionnalités programmées par d'autres. On peut utiliser ces fonctions grâce à l'importation. Similaire à ce qui se fait en Java avec *import*, On utilise en C# les mots clés **using** et **import**.
 
@@ -61,43 +54,61 @@ using est utilisé pour préciser que la classe utilise une librairie existante.
 
 import porte sur une ou plusieurs classes.
 
-#### 1.3.2 Les namespaces
+#### 1.2.2 Les namespaces
 
 Un **namespace** (ou espace de noms en français) est une **structure hiérarchique groupant des classes** par utilité ou par contexte d'utilisation[^1].  On peut aussi utiliser cette répartition pour différencier les différentes couches d'un programme informatique.
 
 [^1]: En entreprise, les namespaces sont souvent l'endroit ou se situent les coordonnées de l'auteur/de l'entreprise ( Ex : Henallux.IG.ProjetTest.DAO ou Henallux.IG.ProjetTest.DAO)
 
-#### 1.3.3 Les Classes
+#### 1.2.3 Les Classes
 
 Les Classes sont, en Orienté Objet la base de la formation des objet. L'instanciation d'une classe donnera un objet. 
 
-#### 1.3.4 Les fonctions
+#### 1.2.4 Les fonctions
 
 Les fonctions représentent des opérations qu'un programme peut effectuer. Elle regroupent des instructions. Par exemple : la fonction manger peut faire intervenir les instructions : prendre nourriture avec cuillère, avaler, digérer.
 
-#### 1.3.5 Les instructions
+#### 1.2.5 Les instructions
 
 Il s'agit d'une instruction
 
+#### 1.2.6 Les régions
+
+Dans visual Studio, il est possible de définir des régions de code celles-ci peuvent être utiles pour différencier les différentes parties ( ou régions ) au sein d'un code.
+
+```c#
+#region NOM_DE_REGION
+    //code (ex : attributs)
+#endregion 
+```
+
+#### 1.2.7 La couleur dans la console
+
+Si on veut mettre de la couleur dans la console, on peut utiliser les bouts de code suivant : 
+
+```
+Console.ForegroundColor = ConsoleColor.Red;
+```
 
 
-### 1.4 Les Variables
+
+### 1.3 Les Variables
 
 Les attributs commencent par une minuscule en C#. Il faut faire attention car le C# est un langage sensible à la case. cela signifie que l'utilisation d'une majuscule à la place d'une minuscule sera interprétée différemment par le programme. 
 
 En C#, les variables sont initialisées au zero du type.
 
-#### 1.4.1 Les Entiers (int)
+#### 1.3.1 Les Entiers (int)
 
 Les entiers sont avec les doubles, l'un des 2 types de variables les plus utilisées. Ils permettent de stocker des nombres entiers. 
 
-#### 1.4.2 Les Réels (double)
+#### 1.3.2 Les Réels (double)
 
 Utilisé pour stocker des nombres réels.
 
 Attention aux erreurs d'arrondis
 
-#### 1.4.3 Les chaînes de caractères (string)
+#### 1.3.3 Les chaînes de caractères (string)
 
 String et string sont équivalent. 
 
@@ -105,39 +116,214 @@ En C#, On peut comparer 2 strings entre eux en utilisant des ==.
 
 Il est en effet possible de redéfinir la signification de certains symboles en c# comme (+-* et ==).
 
-#### 1.4.4 Les caractères (char)
+#### 1.3.4 Les caractères (char)
 
-
-
-#### 1.4.5 Les booléens (bool)
+#### 1.3.5 Les booléens (bool)
 
 Les nombres booléens valent soit true, soit false (vraix/faux).
 
-#### 1.4.6 Les nombres décimaux (decimal)
+#### 1.3.6 Les nombres décimaux (decimal)
 
 En comparaison aux doubles, *decimal*  n'arrondi pas la partie décimale et permets donc une plus grande précision.
 
-#### 1.4.7 Boxing
+#### 1.3.7 Les Dates
+
+DateTime est une classe de C# Permettant de gérer les dates et les heures. 
+
+Fonctions utiles : 
+
+```c#
+DateTime date = DateTime.Today;
+date.Day; //donne la date stockée dans la variable date (ici il s'agit de la date du jour)
+date.Month; //idem mois
+date.Year;//idem année
+```
+
+
+
+#### 1.3.8 Boxing
 
 La conversion entre int et Integer est appelée **boxing**. 
 
 L'**auto-boxing** est quand le boxing est effectué automatiquement par le programme.
 
-##  2. L'orienté Objet 
+
+
+## 2. L'orienté Objet 
 
 Un objet est identifié par son nom, son état et son comportement. L’état est l’ensemble des valeurs données aux attributs de la classe dont il est une instance et ce, à un moment donné. L’état peut évoluer au cours du temps.
 
-## 2.4 Encapsulation 
+### 2.1 Les constructeurs
 
-L’encapsulation est le fait de cacher aux yeux de l’extérieur une partie de l’objet **déclarée privée**,et de ne la rendre accessible,si c'est souhaité, uniquement via des **méthodes publiques** (getteurs et setteurs).
+Un constructeur est une fonction au sein d'une classe qui à pour objectif lors de son appel d'instancier l'objet défini par la classe. 
+
+```c#
+string firstName;
+string lastName; 
+DateTime birthday;
+string boy;
+
+public Player(string firstName, string lastName, DateTime birthday, bool boy)
+{
+    this.firstName = firstName;
+    this.lastName = lastName; 
+    this.birthday = birthday;
+    this.boy = boy;
+}
+```
+
+This est utilisé pour définir l'objet que l'on vient de créer.
+
+#### 2.1.1 Constructeurs Multiples
+
+Si l'on souhaite définir plusieurs constructeurs dans une classe, il faut faire un appel explicit au contrôler principal. celui-ci est le plus générique.
+
+```c#
+public Player(string firstName, string lastName, DateTime birthday) : this(lastName, firstName, birthday, true)
+{ }
+```
+
+Cette méthode permets d'obtenir un **point de modification unique**.[^2]
+
+[^2]: Le point de modification unique permets de limiter les erreurs dans le code liée à la redondance de code.
+
+### 2.2 Protection 
+
+Par défaut, les attributs et méthodes déclarées sans rien indiquer sont considérées comme privées
+
+Il existe 3 Types de protections pour une méthode/ attribut
+
+#### 2.2.1 Public
+
+Public est la version la plus libre car tout le monde à accès a la variable/méthode déclarée comme celà et peut l'utiliser.
+
+#### 2.2.2 Protected
+
+#### 2.2.3 Private
+
+Private est la plus restrictive et ne permets que aux méthodes de la classe d'accéder à cette attribut/méthode. Même si par défaut les méthodes et les attributs sont privés, **il est plus lisible de l'indiquer clairement**.
+
+### 2.4 L'Encapsulation (getters et Setteurs)
+
+L’**encapsulation** est le fait de cacher aux yeux de l’extérieur une partie de l’objet en le **déclarant privé**,et de ne le rendant accessible,si c'est souhaité, uniquement via des **méthodes publiques** (getteurs et setteurs).
+
+```c#
+public string GetName()
+{
+	return this.lastName + " " + this.firstName;
+}
+```
 
 
+
+
+
+## 3. La Programmation Générale
+
+### 3.1 Les Boucles
+
+#### 3.1.1 Boucle Foreach
+
+```c#
+foreach(int val in tab){...}
+```
+
+
+
+### 3.2 Les fonctions
+
+
+
+
+
+## 4. Héritage
+
+### 4.X ToString()
+
+La méthode ToString est la méthode par défaut appelée lorsque un objet doit être affiché comme du texte. Il est donc utile de l'implémenter dans les objets. (ex : 
+
+```c#
+public override string ToString()
+{
+	return base.ToString();
+	// ou encore quelque chose comme
+	return this.firstname + this.lastname
+}
+```
+
+Il peut être utile d'implémenter la méthode
+
+
+
+## Les Tests Unitaires
+
+Pour vérifier le bon fonctionnement d'un programme, il est courant de pratiquer des test sur chaque partie indépendamment afin de garantir la stabilité du programme.
+
+```c#
+static void AssertBool (string test, bool expected, bool observed)
+{
+	Console.WriteLine("Test: " + test);
+	Console.WriteLine("Expected: " + expected + ", observed: " + observed);
+	Console.WriteLine(expected == observed ? "Ok!" : "KO !!!");
+	Console.WriteLine();
+}
+
+static void AssertString (string test, string expected, string observed)
+{
+	Console.WriteLine("Test: " + test);
+	Console.WriteLine("Expected: " + expected + ", observed: " + observed);
+	Console.WriteLine(expected == observed ? "Ok!" : "KO !!!");
+	Console.WriteLine();
+}
+
+static void TestValidLogin()
+{
+	AssertBool("Herbert", true, ForumUtils.ValidLogin("Herbert"));
+	AssertBool("empty string", false, ForumUtils.ValidLogin(""));
+	AssertBool("fart", false, ForumUtils.ValidLogin("fart"));
+	AssertBool("FART", false, ForumUtils.ValidLogin("FART"));
+	AssertBool("FaRt", false, ForumUtils.ValidLogin("FaRt"));
+}
+
+```
+
+
+
+### Sécurisation (Hash)
+
+Exemple from : https://www.godo.dev/tutorials/csharp-md5/
+
+```c#
+using System.Security.Cryptography;
+using System.Text;
+
+public static string MD5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+
+            //compute hash from the bytes of text  
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+            //get hash result after compute it  
+            byte[] result = md5.Hash;
+
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                //change it into 2 hexadecimal digits  
+                //for each byte  
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+
+            return strBuilder.ToString();
+        }
+```
 
 
 
 ## 3 Coder en c#
 
-## 3.1 Les variables
+### 3.1 Les variables
 
 Un attribut commence par une **minuscule** et fait maximum 511 char (alphaNum, accents, 'ç', Mu et '\_'). par défaut, chaque attribut standard est initialisé à 0 du type.
 

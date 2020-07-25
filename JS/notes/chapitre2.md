@@ -37,3 +37,22 @@ On peut écrire directement du code HTML sous la forme d'un string que l'on ajou
 document.write ("code HTML");
 ```
 
+### Exécution d'une fonction si elle existe
+
+exécutera la fonction init si elle existe
+
+``` html
+init && init();
+```
+
+
+
+## Exécution de code placé sous la forme d'une chaîne de caractère
+
+```
+eval("code JS");
+```
+
+Ceci n'est pas clean code
+
+L'exécution est lente et peu optimale

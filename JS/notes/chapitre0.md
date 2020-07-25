@@ -20,6 +20,8 @@ Le javascript est un langage créé pour écrire des scripts ( langage interpré
 
 > tip : CTRL+SHIFT+J lance la console de débug dans firefox
 > tip : CTRL+SHIFT+K lance la console de développement dans firefox
+>
+> tip: SHIFT+ENTER permets d'écrire plusieurs lignes dans la console.
 
 Le code Javascript s'exécute de façon synchrone. Le code est exécuté de façon asynchrone dans le cas d'un appel à une fonction suite à un événement.
 
