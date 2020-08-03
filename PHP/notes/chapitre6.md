@@ -1,4 +1,4 @@
-# Les Objets en php
+# Chapitre 6 : Les Objets en php
 
 [TOC]
 
@@ -24,9 +24,12 @@ class Etudiant{
 ```php
 class Etudiant{
 	public $nom,$age;
-    function __construct($nom,$age){
+    function __construct($nom,$age){ // automatiquement appelé quand crée un nouvel objet
         this->nom = $nom;
         this->age = $age;
+    }
+    function __deconstruct(){
+        // fonction appelée automatiquement avant la destruction de l'objet
     }
 }
 ```
@@ -45,9 +48,80 @@ $antoine = new Etudiant("antoine",18);
 $antoine->age = 22;
 ```
 
-## Auto load de classes
+#### Afficher le contenu d'un objet 
 
-Il peut être intéressant de séparer les classes dans des fichiers qui leurs sont propres.  (le fichier : maClasse.class.php  pour maClasse). Et pour éviter à chaque page de charger toutes les classes, on peut faire appel à un autoloader. Une fonction qui va automatiquement charger les classes inconnues qu'il rencontre. 
+```php
+printr($obj);
+```
+
+### Les valeurs par défaut 
+
+```php
+class Etudiant{
+	public $nom,$age = 69;
+}
+```
+
+#### This 
+
+Attention à toujours bien utiliser this lorsque l'on souhaite accéder à une propriété d'un objet.
+
+
+
+#### Comparaison d'objets
+
+```php
+$O1 == $O2; // comparaison par propriétés
+$O1 === $O2; // comparaison par référence
+```
+
+Si on compare 2 objets par propriétés, cette égalité sera vraie si les 2 objets ont  : 
+
+* tous les 2 la même classe
+*  et ont les valeurs de leurs propriétés identiques
+
+#### Tester le type d'un objet 
+
+```php
+($e instanceof Etudiant)
+```
+
+#### Parcourir un Objet
+
+On peut parcourir les propriétés d'un objet comme si l'on parcourais un tableau (cfr forEach chapitres boucles)
+
+#### Supprimer un objet 
+
+Pour supprimer  un objet, il faut supprimer toutes les références vers celui-ci.
+
+Il est aussi possible d'utiliser unset($obj);
+
+> avant d'utiliser unset, veiller à bien retirer toutes les réf. sinon l'appel au destructeur ne se fera pas
+
+### Static 
+
+On peut créer une variable statique. 
+
+***attention*** : pour accéder à cette variable il faut utiliser self :
+
+ 
+
+```
+self::$varStatique
+Etudiant::$varStatiqueDuneClasse // acces depuis une classe extérieure
+```
+
+
+
+### Constantes d'une classe
+
+Même foctionnement que une static
+
+Attention nom de variable en majuscule
+
+## Auto-Load de classes
+
+Il peut être intéressant de séparer les classes dans des fichiers qui leurs sont propres.  (zqddle fichier : maClasse.class.php  pour maClasse). Et pour éviter à chaque page de charger toutes les classes, on peut faire appel à un autoloader. Une fonction qui va automatiquement charger les classes inconnues qu'il rencontre. 
 
 ```php
 function __autoload($classe){

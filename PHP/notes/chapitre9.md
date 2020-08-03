@@ -63,30 +63,3 @@ $a = sousEspace1\MonObjet();
 ```php
 use \espace1\MonObjet as MonObjet;
 ```
-
-## Late State Binding
-
-```php
-Class Mere{
-    static function parle(){
-		echo 'je suis un'.self::nom()."\n";
-    }
-    static function nom(){
-    	return 'mère';
-    }
-}
-Class Fille extends Mere{
-	static function nom(){
-        return 'fille';
-    }
-}
-$f = new Fille();
-$f->parle();
-Fille::parle(); // retrourne 'je suis mère'
-```
-
-Le Problème du Late state binding vient du fait que la résolution de parle de la classe mère est fait à la 'compilation'. 
-
-Il faut donc remplacer le **self::** par un **static::**
-
-> Il permets de retarder la résolution du lien jusqu'au moment de l'exécution où on se base sur le typen de contenu.

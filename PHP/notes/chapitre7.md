@@ -25,7 +25,15 @@ function __construct($nom,$prenom,$age,$login){
 }
 ```
 
+> si le constructeur de la mère à besoin d'un argument, la fille aura besoin des mêmes arguments. 
 
+> Si on redéfinit le constructeur. il n'y a pas d'appel implicite à la classe mère. si on en veut un, on doit l'appeler : 
+>
+> ```php
+> parent:__construct();
+> ```
+>
+> 
 
 ## final 
 
@@ -66,6 +74,34 @@ self::$nom;
 
 > this->nom ne fonctionne pas et les méthodes statiques vont générer un warning 
 
+
+
+### Abstract
+
+Une classe implémenter avec  abstract doit implémenter toutes les méthodes abstraites ou être abstraites elles même. 
+
+```php
+abstract class MaClasse{
+    abstract function Mafunction{
+        //...
+    }
+}
+```
+
+### Interfaces
+
+Il est conseillé de faire commencer le nom de la classe par I 
+
+```php
+interface IMonstre{ \\... }
+
+class LoupGarou implements IMonstre{
+    // Doit implémenter toutes les fonctions de  IMonstre
+}
+```
+
+
+
 ## Opérateur ::
 
 il est utilisé dans les exemples ci dessus mais il peut aussi être utilisé comme suit : 
@@ -81,7 +117,7 @@ $nomDeClasse::$AgeMaximum;
 
 Les traits sont des moyens de mettre en commun des éléments commun à une classe ensemble (et aussi de faire du multi-héritage). un trait peut être abstrait.
 
-On peut aussi utiliser un trait pour en définir un autre. 
+On peut aussi **utiliser un trait pour en définir un autre**. 
 
 ### Créer 
 
@@ -114,7 +150,7 @@ Si une fonction est définie dans un trait, dans la classe mère et redéfinie d
 2. Définition dans le trait
 3. Définition dans la classe mère
 
-### Renomer une fonction ou propriété d'un trait
+### Renommer une fonction ou propriété d'un trait
 
 ```php
 class Welcome {
@@ -148,3 +184,29 @@ class welcome{
 }
 ```
 
+## Late State Binding
+
+```php
+Class Mere{
+    static function parle(){
+		echo 'je suis un'.self::nom()."\n";
+    }
+    static function nom(){
+    	return 'mère';
+    }
+}
+Class Fille extends Mere{
+	static function nom(){
+        return 'fille';
+    }
+}
+$f = new Fille();
+$f->parle();
+Fille::parle(); // retrourne 'je suis mère'
+```
+
+Le Problème du Late state binding vient du fait que la résolution de parle de la classe mère est fait à la 'compilation'. 
+
+Il faut donc remplacer le **self::** par un **static::**
+
+> Il permets de retarder la résolution du lien jusqu'au moment de l'exécution où on se base sur le typen de contenu.

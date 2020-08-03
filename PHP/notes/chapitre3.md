@@ -3,6 +3,8 @@
 [TOC]
 
 > Écriture alternative : remplace les accolades par des deux-points et endif/endswitch/endfor/endwhile/endforeach : 
+>
+> Il n'est pas conseillé d'utiliser cette forme
 
 ```php
 if($val): 
@@ -12,21 +14,17 @@ endif;
 
 ### Opérateurs de comparaison
 
-<  >  <=  >=  ==  !=ou<>  ===  !===
+<  >  <=  >=  ==  !=ou<>  \===  !===
 
-> === et !=== testent l'égalité sans conversion implicite
+> \=== et \!=== testent l'égalité sans conversion implicite
 
 ### if 
 
 ``` php
 <?php
-if ($a > $b) {
-    echo "a est plus grand que b";
-} elseif ($a == $b) {
-    echo "a est égal à b";
-} else {
-    echo "a est plus petit que b";
-}
+if () {} 
+elseif () {} 
+else {}
 ?>
 ```
 
@@ -47,7 +45,9 @@ switch ($i) {
 }
 ```
 
-### ternaire
+> Attention à ne pas oublier les break pour éviter que le programme ne continue à testes toutes les autres cas
+
+### Opérateur ternaire
 
 ```php
 $val = <condition>?true:false;
@@ -66,7 +66,13 @@ while ($i <= 10) {
 }
 ```
 
-> do while existe aussi
+> do while existe aussi 
+
+```php
+do{
+    // ...
+}while($CONDITION);
+```
 
 ### for
 

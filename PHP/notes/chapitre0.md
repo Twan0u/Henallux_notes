@@ -1,23 +1,12 @@
 # Introduction au PHP
 
-[TOC]
+Le ***PHP*** (*Php : a Hypertext Processor*) est un langage de scripts orienté serveur. Il est utilisé pour générer dynamiquement des pages web.
 
-Le php est un langage de scripts orienté serveur. Il est utilisé pour générer dynamiquement des pages  web. Ces pages sont donc dynamiques ( <> pages statiques en html et css ). Cette personnalisation s'effectue du côté serveur et les pages html générées seront ensuite envoyées au client.
+L'idée de base est de créer une page html, mise en page par du css avec des animations javascript mais possédant certaines parties variables et personnalisées. Le php entre en jeu dans cette personnalisation.
 
-Php signifie : (Php : a Hypertext Processor)
 ### Installation 
 
-Pour travailler avec php, il faut un navigateur, un éditeur de texte et les programmes (php,apache(,mysql)).  
-Il est conseillé d'utiliser wamp (Windows) / mamp (macOS)/ xampp (linux) afin d'installer tous ces programmes en même temps sans grand effort. 
-
-### Architecture tripartite
-L'architecture en trois partie ajoute une nouvelle dimension au client serveur(bipartite). Nous avons une architecture en 3 couches (MVC = Model Vue Control). 
-* **Model** : Base de donnée
-* **Vue** : Navigateur
-* **Control** : Couche fonctionnelle de Traitement (serveur web)
-
-### Architecture N_tier 
-Ce genre d'architecture ajoute un layer ( souvent business ) au tripartite. Mais il peut en ajouter plus 
+Il est conseillé d'installer PHP avec d'autres choses comme un serveur mysql. Il est conseillé d'utiliser wamp (Windows) / mamp (macOS) / xampp (linux) afin d'installer tous ces programmes en même temps sans grand effort. 
 
 
 ### Types de clients 
@@ -30,6 +19,8 @@ Ce genre d'architecture ajoute un layer ( souvent business ) au tripartite. Mais
 Le code php s'écrit au milieu du html et au moyen de balises spécifiques.
 
 > Il est important de noter que contrairement au javascript, il est impératif de finir les instructions php par ;
+>
+> Si un document HTML comporte des scripts PHP, il doit porter l'extension .php (pour signaler au serveur http qu'il doit être traité avant d'être envoyé).
 
 exmple : 
 
@@ -40,9 +31,16 @@ exmple :
     <h1>Bienvenue !</h1>
         <p>Il est actuellement
             <?php
-                $heure = date('H:i');
-                echo $heure;
+            
+                //code ici
+            
+            	/*	
+            		Commentaire
+            	 	multiligne
+            	*/
+            
             ?>
+            
         et tout va bien.</p>
     </body>
 </html>
@@ -51,20 +49,27 @@ exmple :
 
 > les fichiers ne sont cependant plus des fichiers .html mais des .php
 
-### ou placer le php 
-#### directement dans le html
-directement dans le document-type HTML, à l'endroitoù le résultat doit être placé :
+### Où placer le php
+
+#### Directement dans un fichier html
+
+comme montré dans l'exemple ci-dessus
+
+#### Dans un fichier ne contenant que du php 
+
+L'importation de fichier correspond à recopier le contenu de celui-ci à l'emplacement de l'importation.
+
+Incorporer un ficher annexe : 
+
 ```php
-<?php ...codephp...?>
+include "monfichier.php"; // importe le fichier (avertissement si le fichier n'existe pas)
+require "monfichier.php"; // importe le fichier (erreur fatale si le fichier n'existe pas)
+
+include_once "monfichier.php"; // comme include mais ne réinclue pas si il on l'a déjà inclue
+require_once "monfichier"; // commme require mais n'effectue l'action que si c'est la première fois que on l'inclue
 ```
 
-#### dans un fichier ne contenant que du php 
 
-<?php ... ?>
-
-> la balise fermante n'est pas obligatoire mais conseillée
-> aussi appelé module 
-> Si un document HTML comporte des scripts PHP, il doit porter l'extension .php (pour signaler au serveur http qu'il doit être traité avant d'être envoyé).
 
 ### Méta
 **Méta** est souvent utilisé dans le vocabulaire scientifique pour indiquer l’auto-référence (aussi appelée réflexion dans certains domaines informatiques) ou pour désigner un niveau d’abstraction supérieur, un modèle. Par exemple:
@@ -81,7 +86,7 @@ Il existe aussi :
 
 |expression|infos|
 | --- | --- |
-|echo(expr,expr,...)|parenthèses optionnelles|
+|echo(expr,expr,...)|parenthèses optionnellesdz|
 |print(expr)|parenthèses optionnelles|
 |printf(format [,args ]*)|(mêmes formats qu'en C)|
 |sprintf(format [,args ]*)|(idem mais fournit un string)|
@@ -137,4 +142,8 @@ Il existe 3 niveaux d'erreurs.
 On peut forcer une erreur avec *die('message') qui interrompt l'exécuter et affiche le message.
 
 > souvent utilisé avec une fonction qui retourne true en cas de succès ( connexionBd(....) or die('erreur bd')
+
+```php
+connect_DB(...) or die('Connexion impossible avec la base de donnée');
+```
 

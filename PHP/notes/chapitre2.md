@@ -5,7 +5,17 @@
 En php, tous les tableaux sont des tableaux associatifs (clefs/ valeurs).
 Attention aux conversions automatique des types de clefs ( reels -> entier, booleen -> 0/1, null-> "",tableaux ou objets -> erreur)
 
-> Contrairement au JS, les tableaux utilisent un fonctionnement par passage par valeur ( pas par référence)
+**Contrairement au JS, les tableaux utilisent un fonctionnement par passage par valeur ( pas par référence)**. 
+
+Si on veut travailler par référence, on peut utiliser : 
+
+```php
+&$tab;
+```
+
+
+
+
 
 ``` php
 $notes = [10,20];
@@ -14,6 +24,7 @@ echo $notes[0]; // retourne 10
 echo $notes{0}; // retourne 10
 
 $notes[] = 7 //ajoute 7 à la fin du tableau 
+array_push($tab,"val","val"); // ajoute les valeurs à la fin du tableau
 ```
 
 ### clés / valeurs
@@ -41,6 +52,8 @@ $matrice[2][2];
 ```
 
 ### List
+
+List est une fonction utilisée pour décomposer un tableau. Cette fonction est utile pour les fonctions qui retournent d'un paramètre.
 
 ```php
 $tab = array(4,7,9,10);

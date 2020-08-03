@@ -112,7 +112,7 @@ function infoArticle (nom, prixHtvaEU, veutDollars) {
 |Comparaison|par valeur|par ref|
 |passage(argument)|par valeur|par ref|
 
-## Prototype et Constructeur, l' "héritage" en Javascript
+## Prototypes, l' "héritage" en Javascript
 
 Un ***prototype*** est un parent commun à une série d'objets qui permets d'éviter de stocker la même information au sein de tous les objets.
 
@@ -150,8 +150,47 @@ Quand on recherche une propriété et que celle ci n'est pas dans l'objet, on re
 
 ```javascript
 Object.getPrototypeOf(monObjet); // retourne le prototype de monObjet
-
+monObjet1.isPrototypeOf(monObjet2); //monObjet1 est le prototype de monObjet2
 ```
 
 
+
+## Les Constructeurs 
+
+Un ***constructeur*** est une fonction qui permet de créer des objets à partir de ses arguments. 
+
+Par Convention, elle commencent avec une **Majuscule**. 
+
+```javascript
+function Animal(nom,cri){
+    this.nom = nom;
+    this.cri = cri;
+}
+// On instancie ensuite avec : 
+let chien = new Animal("Bouh","wouf");
+```
+
+ ### Fonctionnement 
+
+Un Constructeur est une fonction standard qui attribue automatiquement un prototype aux objets crées. 
+
+ex : Animal.prototype
+
+![](C:\Users\Antoine Lambert\Documents\Henallux_notes\JS\notes\img\screen JS A2.PNG)
+
+### Ajouter des méthodes
+
+Pour ajouter des méthodes il faut les ajouter dans Animal.prototype . 
+
+Exemple : 
+
+```javascript
+Animal.prototype.crie() = ... ; 
+```
+
+### Autres fonctions utiles 
+
+```javascript
+chat instanceOf Animal; //retourne true si chat à été crée à partir du constructeur Animal
+```
 

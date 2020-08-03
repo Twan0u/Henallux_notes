@@ -1,30 +1,154 @@
-## Les variables
-
-[TOC]
+## Chapitre 1 : Les variables
 
 Les variables commencent presque systématiquement par un dollar. (sauf constantes).
 
 > le nom des variable est sensible à la case, mais pas celui des fonctions, classes et mots-clés
 
-```php
-$nom = 'antoine';  
-```
-
-opération numérique 
+### 1.1 Déclaration et initialisation
 
 ```php
-echo (2+3)/2;
+$nom = 'antoine'; 
 ```
-> PHP possède une valeur nan ( checker via is_nan($var))
 
->echo TRUE retourne 1 ET echo FALSE ne **produit rien**
+```php
+isset($var); // Verifier si la variable existe et n'est pas nulle
+empty($var); // Vrai si Existe pas ou variable de sortie est fausse
+
+unset($var); // Supprime une variable
+```
+
+
+
+### 1.2 Types de variable
+
+On peut récupérer le type d'une variable avec la commande : 
+
+```php
+gettype();
+```
+
+Cette fonction peut retourner  : "boolean", "integer", "double", "string", "array", "object", "ressource" (ressource binaire (donnée générique)), "NULL".
+
+Il est possible de vérifier si une variable est d'un type via les fonctions is_
+
+```php
+is_bool($var);		//booléen
+is_integer($var);	//entier
+is_double($var);	//réel
+is_numeric($var);	//entier ou réel
+is_string($var);	//chaîne de caractère
+is_object($var);	//objet
+is_resource($var);	//ressource (fichier générique)
+is_null($var);		//null
+is_nan($var);		//Not a Number
+```
+
+
+
+> note : array est un type à part contrairement au js
+
+#### 1.2.1 Variables Numériques
+
+Contrairement au Js, le php différencie les entiers et les réels. 
+
+Il existe aussi NaN.
+
+> la division donne TOUJOURS un réel. même si les 2 nombres sont des entiers
+
+#### 1.2.2 NULL
+
+PHP ne possède pas de valeur **undefined** mais elle possède une valeur NULL. Cette valeur représente donc les variables sans valeurs
+
+#### 1.2.3 Booléen
+
+echo TRUE retourne 1 ET echo FALSE ne **produit rien**
+
+#### 1.2.4 String
+
+```php
+$Var = '' 	//	littéral de la chaîne de caractère
+$Var = "" 	//	Chaîne non-littérale (variables remplacées par leurs valeurs)
+```
+
+> Il existe aussi Here-doc  (message Multiline avec mise en page spécifique) et now-doc (idem à here doc mais les variances ne sont pas remplacés)
+
+##### Concaténation
+
+```php
+$txt1.$txt2;
+```
+
+##### Accès d'un caractère dans une chaîne de caractères
+
+```php
+$txt[2];
+$txt{3};
+```
+
+##### Affichage formaté
+
+```php
+printf(format,$var); //comme en c
+$reponse = sprintf(format,...);
+```
+
+##### Longueur d'une chaîne 
+
+```php
+strlen($s);
+```
+
+#### 1.2.5 Constantes
+
+Les constantes sont des variables qui sont immuables. 
+
+Elles sont appelées **sans $** devant le nom de la variable et les constantes ne sont **pas remplacées** dans le cas de chaînes de caractères non-littérales contrairement aux variables
+
+```php
+define('MACONSTANTE','Contenu de ma Constante');
+echo MACONSTANTE;
+```
+
+##### Les constantes prédéfinies
+
+```php
+__LINE__ 	//	numéro de la ligne dans le fichier
+__FILE__ 	//	fichier courant
+__DIR__		// 	Répertoire courant 
+```
+
+
+
+### 1.3 Conversion de Types
+
+**Attention**: Le php, comme le Javascript sont des langages qui pratiquent la conversion implicite. Il est important de faire attention à ces conversions
+
+#### 1.3.1 Caster comme en Java
+
+```php
+$varCaste = (int) $varNonCaste;// si la variable est un réel, on prends sa partie entière
+$varCaste = (integer) $varNonCaste;// si la variable est un réel, on prends sa partie entière
+interval($varNonCaste); // si la variable est un réel, on prends sa partie entière
+//... même principe pour les autres types
+```
+
+
+
+#### 1.3.2 Settype
+
+```php
+settype($x,'int');
+```
+
+
+
+### 1.3 Fonctions 
+
+
 
 > tentative de transformation de texte en nombre ( généralement 0)
 
 Il existe aussi une valeur NULL (undefined n'existe pas)
-
-> isset($var) vrai si la variable existe et ne vaut pas null.
-> empty($var) vrai si $v n'**existe pas** ou **vaut falsy**
 
 On peut aussi effectuer des affectations multiples en php 
 
