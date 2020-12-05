@@ -24,8 +24,8 @@ Il est possible de trouver le type d'une variable au moyen de la fonction **type
 
 Attention, dans les fonctions suivantes, si  x n'est pas un nombre, une conversion implicite sera opérée.
 
-```
-isFinite(x); // retrourne true si le nombre x est un numéreau standard
+```javascript
+isFinite(x); // retrourne true si le nombre x est un numéro standard
 isNan(x); // retourne true si x est un NaN
 ```
 
@@ -33,7 +33,7 @@ isNan(x); // retourne true si x est un NaN
 
 #### Strings
 
-Un string peut s'écrire entouré de "" ou de ''. les '' sont evalués (ex : '${variable}')
+Un string peut s'écrire entouré de " ou de '. les ' sont evalués (ex : '${variable}')
 
 > Les strings en Javascript sont immuables. ce qui signifie que tout changement entraine la création d'une novelle chaîne de caractère. 
 

@@ -10,7 +10,7 @@
 
 **Evénement Impossible($\Phi$)** : événement qui ne se produira jamais.
 
-## Lois de probabilités
+## Lois de probabilités 
 
 $P(\phi) = 0$
 
